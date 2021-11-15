@@ -412,4 +412,5 @@ out/
 /.idea
 /BookLovers/App_Data
 /BookLovers/logs.txt
+/BookLovers.Seed/ol_dump_editions_2020-11-30.txt
 .nuke-working-directory
