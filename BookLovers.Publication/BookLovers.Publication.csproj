@@ -1,0 +1,325 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{98BC0F3C-E154-4D12-B291-D56DABEC8CBA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BookLovers.Publication</RootNamespace>
+    <AssemblyName>BookLovers.Publication</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <CodeAnalysisRuleSet>StyleCop.Analyzers.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.ComponentModel.Primitives, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Primitives.4.3.0\lib\net45\System.ComponentModel.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Domain\Authors\AuthorQuote.cs" />
+    <Compile Include="Domain\Authors\BusinessRules\AddAuthorBookRules.cs" />
+    <Compile Include="Domain\Authors\BusinessRules\AddAuthorFollowerRules.cs" />
+    <Compile Include="Domain\Authors\BusinessRules\AddAuthorGenreRules.cs" />
+    <Compile Include="Domain\Authors\BusinessRules\AllAuthorGenresMustBeValid.cs" />
+    <Compile Include="Domain\Authors\BusinessRules\AuthorCannotContainDuplicatedBooks.cs" />
+    <Compile Include="Domain\Authors\BusinessRules\AuthorCannotHaveDuplicatedFollowers.cs" />
+    <Compile Include="Domain\Authors\BusinessRules\AuthorMustBePresent.cs" />
+    <Compile Include="Domain\Authors\BusinessRules\AuthorMustBeUnique.cs" />
+    <Compile Include="Domain\Authors\BusinessRules\AuthorMustHaveBookInHisCollection.cs" />
+    <Compile Include="Domain\Authors\BusinessRules\AuthorMustHaveFollower.cs" />
+    <Compile Include="Domain\Authors\BusinessRules\AuthorMustHaveSecondName.cs" />
+    <Compile Include="Domain\Authors\BusinessRules\BookReaderMustBeValid.cs" />
+    <Compile Include="Domain\Authors\BusinessRules\RemoveAuthorBookBusinessRules.cs" />
+    <Compile Include="Domain\Authors\BusinessRules\RemoveAuthorFollowerBusinessRule.cs" />
+    <Compile Include="Domain\Authors\BusinessRules\RemoveAuthorGenreRules.cs" />
+    <Compile Include="Domain\Authors\BusinessRules\ValidAuthorGenre.cs" />
+    <Compile Include="Domain\Authors\BusinessRules\ValidSexCategory.cs" />
+    <Compile Include="Domain\Authors\Services\AuthorBasicsData.cs" />
+    <Compile Include="Domain\Authors\Services\AuthorBuilder.cs" />
+    <Compile Include="Domain\Authors\Services\AuthorDescriptionData.cs" />
+    <Compile Include="Domain\Authors\Services\AuthorDetailsData.cs" />
+    <Compile Include="Domain\Authors\Services\AuthorFactory.cs" />
+    <Compile Include="Domain\Authors\Services\AuthorData.cs" />
+    <Compile Include="Domain\Authors\Services\AuthorManager.cs" />
+    <Compile Include="Domain\Authors\Services\Editors\AuthorBasicsEditor.cs" />
+    <Compile Include="Domain\Authors\Services\Editors\AuthorBooksEditor.cs" />
+    <Compile Include="Domain\Authors\Services\Editors\AuthorDescriptionEditor.cs" />
+    <Compile Include="Domain\Authors\Services\Editors\AuthorDetailsEditor.cs" />
+    <Compile Include="Domain\Authors\Services\Editors\AuthorEditService.cs" />
+    <Compile Include="Domain\Authors\Services\Editors\AuthorGenresEditor.cs" />
+    <Compile Include="Domain\Authors\Services\Editors\IAuthorEditor.cs" />
+    <Compile Include="Domain\Authors\Services\IAuthorUniquenessChecker.cs" />
+    <Compile Include="Domain\Authors\Services\IUnknownAuthorService.cs" />
+    <Compile Include="Domain\Authors\UnknownAuthor.cs" />
+    <Compile Include="Domain\BookReaders\BookReader.cs" />
+    <Compile Include="Domain\BookReaders\BookReaderManager.cs" />
+    <Compile Include="Domain\BookReaders\IBookReaderAccessor.cs" />
+    <Compile Include="Domain\Books\BookQuote.cs" />
+    <Compile Include="Domain\Books\BusinessRules\BookMustBePresent.cs" />
+    <Compile Include="Domain\Books\BusinessRules\EachAuthorMustBeAvailable.cs" />
+    <Compile Include="Domain\Books\BusinessRules\IsbnNumberMustBeUnique.cs" />
+    <Compile Include="Domain\Books\BusinessRules\TitleMustBeUnique.cs" />
+    <Compile Include="Domain\Books\Services\BookBasicsData.cs" />
+    <Compile Include="Domain\Books\Services\BookCoverData.cs" />
+    <Compile Include="Domain\Books\Services\BookData.cs" />
+    <Compile Include="Domain\Books\Services\BookDescriptionData.cs" />
+    <Compile Include="Domain\Books\Services\BookDetailsData.cs" />
+    <Compile Include="Domain\Books\Services\BookSeriesData.cs" />
+    <Compile Include="Domain\Books\Services\Editors\BookAuthorsEditor.cs" />
+    <Compile Include="Domain\Books\Services\Editors\BookBasicsEditor.cs" />
+    <Compile Include="Domain\Books\Services\Editors\BookCoverEditor.cs" />
+    <Compile Include="Domain\Books\Services\Editors\BookDescriptionEditor.cs" />
+    <Compile Include="Domain\Books\Services\Editors\BookDetailsEditor.cs" />
+    <Compile Include="Domain\Books\Services\Editors\BookHashTagsEditor.cs" />
+    <Compile Include="Domain\Books\Services\Editors\BookPublisherEditor.cs" />
+    <Compile Include="Domain\Books\Services\Editors\BookSeriesEditor.cs" />
+    <Compile Include="Domain\Books\Services\Editors\IBookEditor.cs" />
+    <Compile Include="Domain\Books\Services\ITitleUniquenessChecker.cs" />
+    <Compile Include="Domain\Books\Services\IIsbnUniquenessChecker.cs" />
+    <Compile Include="Domain\PublisherCycles\BusinessRules\CycleMustBeUnique.cs" />
+    <Compile Include="Domain\PublisherCycles\BusinessRules\PublisherCycleBookCannotBeInvalid.cs" />
+    <Compile Include="Domain\PublisherCycles\BusinessRules\PublisherMustBeAvailable.cs" />
+    <Compile Include="Domain\PublisherCycles\IPublisherCycleUniquenessChecker.cs" />
+    <Compile Include="Domain\Publishers\BusinessRules\PublisherMustBeUnique.cs" />
+    <Compile Include="Domain\Publishers\SelfPublisher.cs" />
+    <Compile Include="Domain\Publishers\Services\IPublisherUniquenessChecker.cs" />
+    <Compile Include="Domain\Publishers\Services\ISelfPublisherService.cs" />
+    <Compile Include="Domain\Publishers\Services\PublisherFactory.cs" />
+    <Compile Include="Domain\Quotes\BusinessRules\QuoteMustBeUnique.cs" />
+    <Compile Include="Domain\Quotes\Services\IQuoteUniquenessChecker.cs" />
+    <Compile Include="Domain\SeriesCycle\BusinessRules\AddBookToSeriesRules.cs" />
+    <Compile Include="Domain\SeriesCycle\BusinessRules\PositionCannotBeAlreadyOccupied.cs" />
+    <Compile Include="Domain\SeriesCycle\BusinessRules\SeriesMustAlreadyContainSelectedBookSeries.cs" />
+    <Compile Include="Domain\SeriesCycle\BusinessRules\ChangeBookPositionInSeriesRules.cs" />
+    <Compile Include="Domain\SeriesCycle\BusinessRules\RemoveBookFromSeriesRules.cs" />
+    <Compile Include="Domain\SeriesCycle\BusinessRules\SeriesCannotContainDuplicatedBooks.cs" />
+    <Compile Include="Domain\SeriesCycle\BusinessRules\PositionCannotBeLessThanLowestSeriesPosition.cs" />
+    <Compile Include="Domain\SeriesCycle\BusinessRules\SeriesMustBeUnique.cs" />
+    <Compile Include="Domain\SeriesCycle\SeriesFactory.cs" />
+    <Compile Include="Domain\SeriesCycle\Services\ISeriesUniquenessChecker.cs" />
+    <Compile Include="Domain\SeriesCycle\Services\SeriesArchiver.cs" />
+    <Compile Include="Domain\Books\BookAuthor.cs" />
+    <Compile Include="Domain\Books\BookPublisher.cs" />
+    <Compile Include="Domain\Books\BusinessRules\AddBookAuthorRules.cs" />
+    <Compile Include="Domain\Books\BusinessRules\AddBookReviewRules.cs" />
+    <Compile Include="Domain\Books\BusinessRules\BookCannotContainDuplicatedAuthors.cs" />
+    <Compile Include="Domain\Books\BusinessRules\NewAuthorBookShouldBeDistinct.cs" />
+    <Compile Include="Domain\Books\BusinessRules\BookCannotContainMultipleReviewsFromSameReader.cs" />
+    <Compile Include="Domain\Books\BusinessRules\BookMustHaveSelectedReview.cs" />
+    <Compile Include="Domain\Books\BusinessRules\BookMustHaveSelectedAuthor.cs" />
+    <Compile Include="Domain\Books\BusinessRules\BookShouldHaveAtleastOneAuthor.cs" />
+    <Compile Include="Domain\Books\BusinessRules\BookShouldHaveSelectedPublisher.cs" />
+    <Compile Include="Domain\Books\BusinessRules\RemoveAuthorRules.cs" />
+    <Compile Include="Domain\Books\BusinessRules\RemoveBookReviewRules.cs" />
+    <Compile Include="Domain\Books\BusinessRules\BooksCategoryMustBeValid.cs" />
+    <Compile Include="Domain\Books\BusinessRules\CoverTypeMustBeValid.cs" />
+    <Compile Include="Domain\Books\BusinessRules\IsbnNumberMustBeValid.cs" />
+    <Compile Include="Domain\Books\BusinessRules\LanguageTypeMustBeValid.cs" />
+    <Compile Include="Domain\Books\Isbn.cs" />
+    <Compile Include="Domain\Books\Services\BookManager.cs" />
+    <Compile Include="Domain\Books\Services\BookBuilder.cs" />
+    <Compile Include="Domain\Books\Services\BookEditService.cs" />
+    <Compile Include="Domain\Books\Services\BookFactory.cs" />
+    <Compile Include="Domain\Books\Services\IsbnValidatorFactory.cs" />
+    <Compile Include="Domain\PublisherCycles\PublisherCycleManager.cs" />
+    <Compile Include="Domain\PublisherCycles\BusinessRules\AddBookToPublisherCycleRules.cs" />
+    <Compile Include="Domain\PublisherCycles\BusinessRules\CycleMustHavePublisher.cs" />
+    <Compile Include="Domain\PublisherCycles\BusinessRules\PublisherCycleCannotHaveDuplicatedBooks.cs" />
+    <Compile Include="Domain\PublisherCycles\BusinessRules\PublisherCycleMustContainSelectedBook.cs" />
+    <Compile Include="Domain\PublisherCycles\BusinessRules\RemoveBookFromPublisherCycleRules.cs" />
+    <Compile Include="Domain\PublisherCycles\PublisherCycleFactory.cs" />
+    <Compile Include="Domain\Publishers\BusinessRules\AddPublisherBookRules.cs" />
+    <Compile Include="Domain\Publishers\BusinessRules\AddPublisherCycleRules.cs" />
+    <Compile Include="Domain\Publishers\BusinessRules\PublisherCannotHaveDuplicatedCycles.cs" />
+    <Compile Include="Domain\Publishers\BusinessRules\PublisherCannotHaveDuplicatedBooks.cs" />
+    <Compile Include="Domain\Publishers\BusinessRules\PublisherMustContainSelectedBook.cs" />
+    <Compile Include="Domain\Publishers\BusinessRules\PublisherMustContainSelectedCycle.cs" />
+    <Compile Include="Domain\Publishers\BusinessRules\RemovePublisherBookRules.cs" />
+    <Compile Include="Domain\Publishers\BusinessRules\RemovePublisherCycle.cs" />
+    <Compile Include="Domain\Publishers\Services\PublisherManager.cs" />
+    <Compile Include="Domain\Quotes\BusinessRules\LikeQuoteRules.cs" />
+    <Compile Include="Domain\Quotes\BusinessRules\QuoteCanBeOnlyManagedByItsCreatorOrLibrarian.cs" />
+    <Compile Include="Domain\Quotes\BusinessRules\QuoteCannotBeLikedMultipleTimesBySameReader.cs" />
+    <Compile Include="Domain\Quotes\BusinessRules\QuoteMustContainSelectedLike.cs" />
+    <Compile Include="Domain\Quotes\BusinessRules\QuoteMustHaveQuotedObjectGuid.cs" />
+    <Compile Include="Domain\Quotes\BusinessRules\UnlikeQuoteRules.cs" />
+    <Compile Include="Domain\Quotes\Quote.cs" />
+    <Compile Include="Domain\Quotes\QuoteContent.cs" />
+    <Compile Include="Domain\Quotes\QuoteDetails.cs" />
+    <Compile Include="Domain\Authors\Author.cs" />
+    <Compile Include="Domain\Authors\AuthorBasics.cs" />
+    <Compile Include="Domain\Authors\AuthorBook.cs" />
+    <Compile Include="Domain\Authors\AuthorDescription.cs" />
+    <Compile Include="Domain\SeriesCycle\SeriesBook.cs" />
+    <Compile Include="Domain\Books\BookHashTag.cs" />
+    <Compile Include="Domain\Books\BookReview.cs" />
+    <Compile Include="Domain\Books\BookSeries.cs" />
+    <Compile Include="Domain\Books\CoverTypes\CoverType.cs" />
+    <Compile Include="Domain\Books\CoverTypes\BookCovers.cs" />
+    <Compile Include="Domain\Books\IsbnValidation\IsbnType.cs" />
+    <Compile Include="Domain\Books\Languages\BookLanguages.cs" />
+    <Compile Include="Domain\Books\Pages.cs" />
+    <Compile Include="Domain\PublisherCycles\CycleBook.cs" />
+    <Compile Include="Domain\PublisherCycles\PublisherCycle.cs" />
+    <Compile Include="Domain\Authors\AuthorDetails.cs" />
+    <Compile Include="Domain\Books\BookBasics.cs" />
+    <Compile Include="Domain\Books\Book.cs" />
+    <Compile Include="Domain\Books\BookRating.cs" />
+    <Compile Include="Domain\Books\BookCategory.cs" />
+    <Compile Include="Domain\Books\Cover.cs" />
+    <Compile Include="Domain\Books\Description.cs" />
+    <Compile Include="Domain\Books\BookDetails.cs" />
+    <Compile Include="Domain\Books\IsbnValidation\IIsbnValidator.cs" />
+    <Compile Include="Domain\Books\IsbnValidation\IsbnTenValidator.cs" />
+    <Compile Include="Domain\Books\IsbnValidation\IsbnThirteenValidator.cs" />
+    <Compile Include="Domain\Books\Languages\Language.cs" />
+    <Compile Include="Domain\Publishers\PublisherBook.cs" />
+    <Compile Include="Domain\Publishers\Cycle.cs" />
+    <Compile Include="Domain\Quotes\QuoteType.cs" />
+    <Compile Include="Domain\Quotes\Services\AuthorQuoteFactory.cs" />
+    <Compile Include="Domain\Quotes\Services\BookQuoteFactory.cs" />
+    <Compile Include="Domain\Quotes\Services\IQuoteFactory.cs" />
+    <Compile Include="Domain\Quotes\Services\QuoteFactory.cs" />
+    <Compile Include="Domain\Quotes\Services\QuoteManager.cs" />
+    <Compile Include="Events\Authors\AuthorBasicsChanged.cs" />
+    <Compile Include="Events\Authors\AuthorGenreAdded.cs" />
+    <Compile Include="Events\Authors\AuthorGenreRemoved.cs" />
+    <Compile Include="Events\Authors\QuoteAddedToAuthor.cs" />
+    <Compile Include="Events\Authors\QuoteRemovedFromAuthor.cs" />
+    <Compile Include="Events\BookReaders\BookReaderCreated.cs" />
+    <Compile Include="Events\BookReaders\BookReaderSuspended.cs" />
+    <Compile Include="Events\Book\BookHashTagsChanged.cs" />
+    <Compile Include="Events\Book\BookHasNoSeries.cs" />
+    <Compile Include="Events\Book\BookSeriesPositionChanged.cs" />
+    <Compile Include="Events\Book\QuoteAddedToBook.cs" />
+    <Compile Include="Events\Book\QuoteRemovedFromBook.cs" />
+    <Compile Include="Events\Quotes\AuthorQuoteAdded.cs" />
+    <Compile Include="Events\Quotes\BookQuoteAdded.cs" />
+    <Compile Include="Events\Quotes\QuoteArchived.cs" />
+    <Compile Include="Events\Quotes\QuoteLiked.cs" />
+    <Compile Include="Events\Quotes\QuoteRestored.cs" />
+    <Compile Include="Events\Quotes\QuoteUnLiked.cs" />
+    <Compile Include="Events\Authors\AuthorArchived.cs" />
+    <Compile Include="Events\Authors\AuthorBookAdded.cs" />
+    <Compile Include="Events\Authors\AuthorBookRemoved.cs" />
+    <Compile Include="Events\Authors\AuthorCreated.cs" />
+    <Compile Include="Events\Authors\AuthorDescriptionChanged.cs" />
+    <Compile Include="Events\Authors\AuthorDetailsChanged.cs" />
+    <Compile Include="Events\Authors\AuthorFollowed.cs" />
+    <Compile Include="Events\Authors\AuthorUnFollowed.cs" />
+    <Compile Include="Events\Book\AuthorAdded.cs" />
+    <Compile Include="Events\Book\AuthorRemoved.cs" />
+    <Compile Include="Events\Book\BookArchived.cs" />
+    <Compile Include="Events\Book\BookBasicsChanged.cs" />
+    <Compile Include="Events\Book\BookCreated.cs" />
+    <Compile Include="Events\Book\BookDescriptionChanged.cs" />
+    <Compile Include="Events\Book\BookDetailsChanged.cs" />
+    <Compile Include="Events\Book\BookPublished.cs" />
+    <Compile Include="Events\Book\BookReviewAdded.cs" />
+    <Compile Include="Events\Book\BookReviewRemoved.cs" />
+    <Compile Include="Events\Book\CoverChanged.cs" />
+    <Compile Include="Events\Book\PublisherChanged.cs" />
+    <Compile Include="Events\Book\SeriesChanged.cs" />
+    <Compile Include="Events\PublisherCycles\BookAddedToCycle.cs" />
+    <Compile Include="Events\PublisherCycles\BookRemovedFromCycle.cs" />
+    <Compile Include="Events\PublisherCycles\PublisherCycleRestored.cs" />
+    <Compile Include="Events\PublisherCycles\PublisherCycleArchived.cs" />
+    <Compile Include="Events\PublisherCycles\PublisherCycleCreated.cs" />
+    <Compile Include="Events\Publishers\PublisherArchived.cs" />
+    <Compile Include="Events\Publishers\PublisherBookAdded.cs" />
+    <Compile Include="Events\Publishers\PublisherBookRemoved.cs" />
+    <Compile Include="Events\Publishers\PublisherCreated.cs" />
+    <Compile Include="Events\Publishers\PublisherCycleAdded.cs" />
+    <Compile Include="Events\Publishers\PublisherCycleRemoved.cs" />
+    <Compile Include="Events\SeriesCycle\AddedToSeries.cs" />
+    <Compile Include="Events\SeriesCycle\BookPositionInSeriesChanged.cs" />
+    <Compile Include="Events\SeriesCycle\BookRemovedFromSeries.cs" />
+    <Compile Include="Events\SeriesCycle\SeriesArchived.cs" />
+    <Compile Include="Events\SeriesCycle\SeriesCreated.cs" />
+    <Compile Include="Mementos\IAuthorMemento.cs" />
+    <Compile Include="Mementos\IQuoteMemento.cs" />
+    <Compile Include="Mementos\IBookMemento.cs" />
+    <Compile Include="Mementos\ICycleMemento.cs" />
+    <Compile Include="Mementos\IPublisherMemento.cs" />
+    <Compile Include="Mementos\ISeriesMemento.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Domain\Publishers\Publisher.cs" />
+    <Compile Include="Domain\SeriesCycle\Series.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BookLovers.Base.Infrastructure\BookLovers.Base.Infrastructure.csproj">
+      <Project>{15735bdd-1be2-4660-8880-64eb06e20ab5}</Project>
+      <Name>BookLovers.Base.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Base\BookLovers.Base.csproj">
+      <Project>{e15ff1ae-818a-4616-a56b-c232ab9b4569}</Project>
+      <Name>BookLovers.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Shared\BookLovers.Shared.csproj">
+      <Project>{96f5e5d1-331f-428b-b0e1-d9b66542eebd}</Project>
+      <Name>BookLovers.Shared</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="StyleCop.Analyzers.ruleset" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

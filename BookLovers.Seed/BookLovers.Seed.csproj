@@ -1,0 +1,256 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+        <ProjectGuid>{07F47003-0A6E-4AE3-9758-C6C0B2180D78}</ProjectGuid>
+        <OutputType>Exe</OutputType>
+        <AppDesignerFolder>Properties</AppDesignerFolder>
+        <RootNamespace>BookLovers.Seed</RootNamespace>
+        <AssemblyName>BookLovers.Seed</AssemblyName>
+        <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+        <FileAlignment>512</FileAlignment>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <Optimize>false</Optimize>
+        <OutputPath>bin\Debug\</OutputPath>
+        <DefineConstants>DEBUG;TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugType>pdbonly</DebugType>
+        <Optimize>true</Optimize>
+        <OutputPath>bin\Release\</OutputPath>
+        <DefineConstants>TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <PropertyGroup>
+        <CodeAnalysisRuleSet>StyleCop.Analyzers.ruleset</CodeAnalysisRuleSet>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="AutoMapper, Version=8.1.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005">
+          <HintPath>..\packages\AutoMapper.8.1.0\lib\net461\AutoMapper.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc">
+          <HintPath>..\packages\Castle.Core.4.2.0\lib\net45\Castle.Core.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="FluentHttpRequestBuilderLibrary, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null">
+          <HintPath>..\packages\FluentHttpRequestBuilderLibrary.1.0.2\lib\net472\FluentHttpRequestBuilderLibrary.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="Microsoft.CSharp" />
+        <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
+          <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7">
+          <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="Ninject.Extensions.Conventions, Version=3.3.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7">
+          <HintPath>..\packages\Ninject.Extensions.Conventions.3.3.0\lib\net45\Ninject.Extensions.Conventions.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="Serilog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10">
+          <HintPath>..\packages\Serilog.2.10.0\lib\net46\Serilog.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="Serilog.Exceptions, Version=5.0.0.0, Culture=neutral, PublicKeyToken=fc5550082a9c642c">
+          <HintPath>..\packages\Serilog.Exceptions.5.6.0\lib\net472\Serilog.Exceptions.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="Serilog.Sinks.Console, Version=4.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10">
+          <HintPath>..\packages\Serilog.Sinks.Console.4.0.0\lib\net45\Serilog.Sinks.Console.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="System" />
+        <Reference Include="System.Configuration" />
+        <Reference Include="System.Core" />
+        <Reference Include="System.Data" />
+        <Reference Include="System.Net.Http" />
+        <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+          <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="System.Xml" />
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Include="AppManager.cs" />
+        <Compile Include="Deserializers\OpenLibraryBookDeserializer.cs" />
+        <Compile Include="Mappings\DateTimeConverter.cs" />
+        <Compile Include="Mappings\ExternalAuthorMapping.cs" />
+        <Compile Include="Mappings\ExternalBookMapping.cs" />
+        <Compile Include="Mappings\MappingConfiguration.cs" />
+        <Compile Include="Models\Configuration\OpenLibrarySeedConfiguration.cs" />
+        <Compile Include="Models\Configuration\OpenLibrarySeedData.cs" />
+        <Compile Include="Models\Configuration\OwnResourceConfiguration.cs" />
+        <Compile Include="Models\Configuration\OwnResourceSeedData.cs" />
+        <Compile Include="Models\OpenLibrary\Authors\AuthorBio.cs" />
+        <Compile Include="Models\OpenLibrary\Authors\AuthorCreated.cs" />
+        <Compile Include="Models\OpenLibrary\Authors\AuthorEdit.cs" />
+        <Compile Include="Models\OpenLibrary\Authors\AuthorIds.cs" />
+        <Compile Include="Models\OpenLibrary\Authors\AuthorLink.cs" />
+        <Compile Include="Models\OpenLibrary\Authors\AuthorRoot.cs" />
+        <Compile Include="Models\OpenLibrary\Authors\AuthorType.cs" />
+        <Compile Include="Models\OpenLibrary\Books\BookAuthor.cs" />
+        <Compile Include="Models\OpenLibrary\Books\BookCreated.cs" />
+        <Compile Include="Models\OpenLibrary\Books\BookDescription.cs" />
+        <Compile Include="Models\OpenLibrary\Books\BookEdit.cs" />
+        <Compile Include="Models\OpenLibrary\Books\BookIdentifiers.cs" />
+        <Compile Include="Models\OpenLibrary\Books\BookLanguage.cs" />
+        <Compile Include="Models\OpenLibrary\Books\BookRoot.cs" />
+        <Compile Include="Models\OpenLibrary\Books\BookType.cs" />
+        <Compile Include="Models\SeedAuthor.cs" />
+        <Compile Include="Models\SeedAuthorQuote.cs" />
+        <Compile Include="Models\SeedBook.cs" />
+        <Compile Include="Models\SeedData.cs" />
+        <Compile Include="Models\SeedPublisher.cs" />
+        <Compile Include="Models\SeedQuote.cs" />
+        <Compile Include="Models\SeedReview.cs" />
+        <Compile Include="Models\SeedSeries.cs" />
+        <Compile Include="Models\SeedTicket.cs" />
+        <Compile Include="Models\SeedUser.cs" />
+        <Compile Include="Models\SourceType.cs" />
+        <Compile Include="Program.cs" />
+        <Compile Include="Properties\AssemblyInfo.cs" />
+        <Compile Include="Root\LoggingModule.cs" />
+        <Compile Include="Root\SeedModule.cs" />
+        <Compile Include="Root\SeedProviderFactory.cs" />
+        <Compile Include="Root\SeedServiceProvider.cs" />
+        <Compile Include="Root\ServicesModule.cs" />
+        <Compile Include="SeedExecutors\AuthorsSeedExecutor.cs" />
+        <Compile Include="SeedExecutors\BaseSeedExecutor.cs" />
+        <Compile Include="SeedExecutors\BookcaseSeedExecutor.cs" />
+        <Compile Include="SeedExecutors\BooksSeedExecutor.cs" />
+        <Compile Include="SeedExecutors\FollowersSeedExecutor.cs" />
+        <Compile Include="SeedExecutors\ICollectionSeedExecutor.cs" />
+        <Compile Include="SeedExecutors\ISeedExecutor.cs" />
+        <Compile Include="SeedExecutors\ISimpleSeedExecutor.cs" />
+        <Compile Include="SeedExecutors\PublishersSeedExecutor.cs" />
+        <Compile Include="SeedExecutors\QuotesSeedExecutor.cs" />
+        <Compile Include="SeedExecutors\RatingsSeedExecutor.cs" />
+        <Compile Include="SeedExecutors\ReviewsSeedExecutor.cs" />
+        <Compile Include="SeedExecutors\SeedExecutionService.cs" />
+        <Compile Include="SeedExecutors\SeedExecutorsProvider.cs" />
+        <Compile Include="SeedExecutors\SeedExecutorType.cs" />
+        <Compile Include="SeedExecutors\SeriesSeedExecutor.cs" />
+        <Compile Include="SeedExecutors\TicketsSeedExecutor.cs" />
+        <Compile Include="SeedExecutors\UsersSeedExecutor.cs" />
+        <Compile Include="Services\IConfigurableSeedProvider.cs" />
+        <Compile Include="Services\ISeedFactory.cs" />
+        <Compile Include="Services\ISeedProvider.cs" />
+        <Compile Include="Services\OpenLibrary\BookRootsAccessor.cs" />
+        <Compile Include="Services\OpenLibrary\Loggers\OpenLibraryAuthorSeedLogger.cs" />
+        <Compile Include="Services\OpenLibrary\Loggers\OpenLibraryBooksSeedLogger.cs" />
+        <Compile Include="Services\OpenLibrary\Loggers\OpenLibraryPublisherSeedLogger.cs" />
+        <Compile Include="Services\OpenLibrary\OpenLibraryAuthorSeedProvider.cs" />
+        <Compile Include="Services\OpenLibrary\OpenLibraryBooksSeedProvider.cs" />
+        <Compile Include="Services\OpenLibrary\OpenLibraryPublisherSeedProvider.cs" />
+        <Compile Include="Services\OpenLibrary\OpenLibrarySeedFactory.cs" />
+        <Compile Include="Services\OwnResources\Loggers\OwnResourceSeedQuoteLogger.cs" />
+        <Compile Include="Services\OwnResources\Loggers\OwnResourceSeedReviewLogger.cs" />
+        <Compile Include="Services\OwnResources\Loggers\OwnResourceSeedSeriesLogger.cs" />
+        <Compile Include="Services\OwnResources\Loggers\OwnResourceSeedTicketsLogger.cs" />
+        <Compile Include="Services\OwnResources\Loggers\OwnResourceSeedUserLogger.cs" />
+        <Compile Include="Services\OwnResources\OwnResourceSeedQuoteProvider.cs" />
+        <Compile Include="Services\OwnResources\OwnResourceSeedReviewProvider.cs" />
+        <Compile Include="Services\OwnResources\OwnResourceSeedSeriesProvider.cs" />
+        <Compile Include="Services\OwnResources\OwnResourceSeedTicketsProvider.cs" />
+        <Compile Include="Services\OwnResources\OwnResourceSeedUserProvider.cs" />
+        <Compile Include="Services\OwnResources\OwnSeedResourceFactory.cs" />
+        <Compile Include="Services\SeedDataConfig.cs" />
+        <Compile Include="Services\SeedFactory.cs" />
+        <Compile Include="Services\SeedProviderService.cs" />
+        <Compile Include="Services\SeedProviderType.cs" />
+    </ItemGroup>
+    <ItemGroup>
+      <None Include="app.config" />
+      <None Include="packages.config" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\BookLovers.Auth.Application\BookLovers.Auth.Application.csproj">
+        <Project>{6d3c8243-7f16-4a5d-b823-3d8d61e03979}</Project>
+        <Name>BookLovers.Auth.Application</Name>
+      </ProjectReference>
+      <ProjectReference Include="..\BookLovers.Base.Infrastructure\BookLovers.Base.Infrastructure.csproj">
+        <Project>{15735bdd-1be2-4660-8880-64eb06e20ab5}</Project>
+        <Name>BookLovers.Base.Infrastructure</Name>
+      </ProjectReference>
+      <ProjectReference Include="..\BookLovers.Base\BookLovers.Base.csproj">
+        <Project>{e15ff1ae-818a-4616-a56b-c232ab9b4569}</Project>
+        <Name>BookLovers.Base</Name>
+      </ProjectReference>
+      <ProjectReference Include="..\BookLovers.Bookcases.Application\BookLovers.Bookcases.Application.csproj">
+        <Project>{11152644-9262-4057-aca5-64920fbf7af3}</Project>
+        <Name>BookLovers.Bookcases.Application</Name>
+      </ProjectReference>
+      <ProjectReference Include="..\BookLovers.Bookcases.Infrastructure\BookLovers.Bookcases.Infrastructure.csproj">
+        <Project>{e804b864-7a77-4656-b5b5-1ad8c15d93d7}</Project>
+        <Name>BookLovers.Bookcases.Infrastructure</Name>
+      </ProjectReference>
+      <ProjectReference Include="..\BookLovers.Librarians.Application\BookLovers.Librarians.Application.csproj">
+        <Project>{4f0e63f1-bb73-4a51-bf16-96d12a4a9b96}</Project>
+        <Name>BookLovers.Librarians.Application</Name>
+      </ProjectReference>
+      <ProjectReference Include="..\BookLovers.Librarians\BookLovers.Librarians.csproj">
+        <Project>{58e32716-3775-4aab-bc72-80884360452b}</Project>
+        <Name>BookLovers.Librarians</Name>
+      </ProjectReference>
+      <ProjectReference Include="..\BookLovers.Publication.Application\BookLovers.Publication.Application.csproj">
+        <Project>{ffbc8345-68b9-4af2-bedf-e574591316b5}</Project>
+        <Name>BookLovers.Publication.Application</Name>
+      </ProjectReference>
+      <ProjectReference Include="..\BookLovers.Publication.Infrastructure\BookLovers.Publication.Infrastructure.csproj">
+        <Project>{035ab7ec-cdd0-424e-bbaa-0c3a94920322}</Project>
+        <Name>BookLovers.Publication.Infrastructure</Name>
+      </ProjectReference>
+      <ProjectReference Include="..\BookLovers.Publication\BookLovers.Publication.csproj">
+        <Project>{98bc0f3c-e154-4d12-b291-d56dabec8cba}</Project>
+        <Name>BookLovers.Publication</Name>
+      </ProjectReference>
+      <ProjectReference Include="..\BookLovers.Ratings.Application\BookLovers.Ratings.Application.csproj">
+        <Project>{845f7e8f-b8d2-48fe-8102-83326e2a2718}</Project>
+        <Name>BookLovers.Ratings.Application</Name>
+      </ProjectReference>
+      <ProjectReference Include="..\BookLovers.Readers.Application\BookLovers.Readers.Application.csproj">
+        <Project>{b99b0659-d29e-4ff6-9ed9-868315f4d719}</Project>
+        <Name>BookLovers.Readers.Application</Name>
+      </ProjectReference>
+      <ProjectReference Include="..\BookLovers.Readers.Infrastructure\BookLovers.Readers.Infrastructure.csproj">
+        <Project>{ff790995-ba95-4ad9-b590-230e5edf3250}</Project>
+        <Name>BookLovers.Readers.Infrastructure</Name>
+      </ProjectReference>
+      <ProjectReference Include="..\BookLovers.Shared\BookLovers.Shared.csproj">
+        <Project>{96f5e5d1-331f-428b-b0e1-d9b66542eebd}</Project>
+        <Name>BookLovers.Shared</Name>
+      </ProjectReference>
+    </ItemGroup>
+    <ItemGroup>
+      <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
+      <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
+    </ItemGroup>
+    <ItemGroup>
+      <Content Include="ol_dump_editions_2020-11-30.txt">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="StyleCop.Analyzers.ruleset" />
+    </ItemGroup>
+    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+    <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+         Other similar extension points exist, see Microsoft.Common.targets.
+    <Target Name="BeforeBuild">
+    </Target>
+    <Target Name="AfterBuild">
+    </Target>
+    -->
+
+</Project>

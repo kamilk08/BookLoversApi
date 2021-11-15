@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F9D6BFAA-535A-417A-8703-2F7E063543AD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BookLovers.Bookcases</RootNamespace>
+    <AssemblyName>BookLovers.Bookcases</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <CodeAnalysisRuleSet>StyleCop.Analyzers.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Domain\Bookcase.cs" />
+    <Compile Include="Domain\BookcaseBooks\BookcaseBook.cs" />
+    <Compile Include="Domain\BookcaseBooks\BookcaseBookManager.cs" />
+    <Compile Include="Domain\BookcaseAdditions.cs" />
+    <Compile Include="Domain\BookcaseOwners\BookcaseOwnerManager.cs" />
+    <Compile Include="Domain\BusinessRules\AddCustomShelfRules.cs" />
+    <Compile Include="Domain\BusinessRules\AddToShelfRules.cs" />
+    <Compile Include="Domain\BusinessRules\BookCannotBeAlreadyOnShelfThatIsNotCustom.cs" />
+    <Compile Include="Domain\BusinessRules\BookcaseMustContainCoreShelves.cs" />
+    <Compile Include="Domain\BusinessRules\BookcaseMustContainSelectedBook.cs" />
+    <Compile Include="Domain\BusinessRules\BookcaseMustContainSelectedShelf.cs" />
+    <Compile Include="Domain\BusinessRules\BookcaseBookMustBePresent.cs" />
+    <Compile Include="Domain\BusinessRules\CannotHaveDuplicatedCustomShelf.cs" />
+    <Compile Include="Domain\BusinessRules\ChangeShelfNameRules.cs" />
+    <Compile Include="Domain\BusinessRules\ChangeShelfRules.cs" />
+    <Compile Include="Domain\BusinessRules\RemoveCustomShelfRules.cs" />
+    <Compile Include="Domain\BusinessRules\RemoveFromShelfRules.cs" />
+    <Compile Include="Domain\BusinessRules\ShelfCannotHaveMultipleSameBooks.cs" />
+    <Compile Include="Domain\BusinessRules\ShelfIsOfTypeCustom.cs" />
+    <Compile Include="Domain\BusinessRules\ShelfMustHaveEnoughSpace.cs" />
+    <Compile Include="Domain\BusinessRules\ShelfWithGivenNameAlreadyExists.cs" />
+    <Compile Include="Domain\BookcaseOwners\BookcaseOwner.cs" />
+    <Compile Include="Domain\BusinessRules\ShelvesMustBeDifferent.cs" />
+    <Compile Include="Domain\Services\BookcaseFactory.cs" />
+    <Compile Include="Domain\Services\BookcaseManager.cs" />
+    <Compile Include="Domain\Services\BookcaseService.cs" />
+    <Compile Include="Domain\Settings\BookcaseOptionType.cs" />
+    <Compile Include="Domain\Settings\BookcasePrivacy.cs" />
+    <Compile Include="Domain\Settings\BusinessRules\PrivacyOptionMustBeValid.cs" />
+    <Compile Include="Domain\Settings\ISettingsChanger.cs" />
+    <Compile Include="Domain\Settings\PrivacyChanger.cs" />
+    <Compile Include="Domain\Settings\SelectedBookcaseOption.cs" />
+    <Compile Include="Domain\Settings\SettingsChanger.cs" />
+    <Compile Include="Domain\Settings\SettingsManager.cs" />
+    <Compile Include="Domain\Settings\BusinessRules\ChangePrivacyRules.cs" />
+    <Compile Include="Domain\Settings\BusinessRules\ChangeShelfCapacityRules.cs" />
+    <Compile Include="Domain\Settings\BusinessRules\ShelfCapacityCannotExceedMaximumValue.cs" />
+    <Compile Include="Domain\Settings\BusinessRules\ShelfCapacityCannotBeLessThenMinimalValue.cs" />
+    <Compile Include="Domain\Settings\IBookcaseOption.cs" />
+    <Compile Include="Domain\Settings\SettingsAggregateManager.cs" />
+    <Compile Include="Domain\Settings\ShelfCapacity.cs" />
+    <Compile Include="Domain\Settings\ShelfCapacityChanger.cs" />
+    <Compile Include="Domain\Shelf.cs" />
+    <Compile Include="Domain\ShelfCategories\ShelfCategory.cs" />
+    <Compile Include="Domain\ShelfCategories\ShelfCategoryList.cs" />
+    <Compile Include="Domain\ShelfDetails.cs" />
+    <Compile Include="Domain\ShelfRecordTracker\BusinessRules\ReTrackBookMustBeTheSame.cs" />
+    <Compile Include="Domain\ShelfRecordTracker\BusinessRules\ReTrackBookRules.cs" />
+    <Compile Include="Domain\ShelfRecordTracker\BusinessRules\ShelfRecordMustBePresent.cs" />
+    <Compile Include="Domain\ShelfRecordTracker\BusinessRules\ShelfRecordTrackerShouldNotContainDuplicatedRecords.cs" />
+    <Compile Include="Domain\ShelfRecordTracker\BusinessRules\TrackBookRules.cs" />
+    <Compile Include="Domain\ShelfRecordTracker\BusinessRules\ReTrackedShelfMustBeDifferent.cs" />
+    <Compile Include="Domain\ShelfRecordTracker\BusinessRules\UnTrackBookRules.cs" />
+    <Compile Include="Domain\ShelfRecordTracker\ShelfRecord.cs" />
+    <Compile Include="Domain\ShelfRecordTracker\ShelfRecordTracker.cs" />
+    <Compile Include="Domain\ShelfRecordTracker\ShelfRecordTrackerAggregateManager.cs" />
+    <Compile Include="Events\BookcaseBooks\BookcaseBookArchived.cs" />
+    <Compile Include="Events\BookcaseBooks\BookcaseBookCreated.cs" />
+    <Compile Include="Events\Bookcases\BookAddedToShelf.cs" />
+    <Compile Include="Events\Bookcases\BookcaseArchived.cs" />
+    <Compile Include="Events\Bookcases\BookcaseCreated.cs" />
+    <Compile Include="Events\Readers\BookcaseOwnerArchived.cs" />
+    <Compile Include="Events\Readers\BookcaseOwnerCreated.cs" />
+    <Compile Include="Events\Settings\PrivacyOptionChanged.cs" />
+    <Compile Include="Events\Settings\SettingsManagerArchived.cs" />
+    <Compile Include="Events\Settings\SettingsManagerCreated.cs" />
+    <Compile Include="Events\Settings\ShelfCapacityChanged.cs" />
+    <Compile Include="Events\ShelfRecordTracker\BookReTracked.cs" />
+    <Compile Include="Events\ShelfRecordTracker\BookTracked.cs" />
+    <Compile Include="Events\ShelfRecordTracker\BookUnTracked.cs" />
+    <Compile Include="Events\ShelfRecordTracker\ShelfRecordTrackerArchived.cs" />
+    <Compile Include="Events\ShelfRecordTracker\ShelfRecordTrackerCreated.cs" />
+    <Compile Include="Events\Shelf\CoreShelfCreated.cs" />
+    <Compile Include="Events\Shelf\CustomShelfCreated.cs" />
+    <Compile Include="Events\Bookcases\BookRemovedFromShelf.cs" />
+    <Compile Include="Events\Shelf\BookShelfChanged.cs" />
+    <Compile Include="Events\Shelf\ShelfNameChanged.cs" />
+    <Compile Include="Events\Shelf\ShelfRemoved.cs" />
+    <Compile Include="Mementos\IBookcaseMemento.cs" />
+    <Compile Include="Mementos\ISettingsManagerMemento.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BookLovers.Base.Infrastructure\BookLovers.Base.Infrastructure.csproj">
+      <Project>{15735bdd-1be2-4660-8880-64eb06e20ab5}</Project>
+      <Name>BookLovers.Base.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Base\BookLovers.Base.csproj">
+      <Project>{e15ff1ae-818a-4616-a56b-c232ab9b4569}</Project>
+      <Name>BookLovers.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Shared\BookLovers.Shared.csproj">
+      <Project>{96f5e5d1-331f-428b-b0e1-d9b66542eebd}</Project>
+      <Name>BookLovers.Shared</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="StyleCop.Analyzers.ruleset" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,343 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{19CC2BC1-C505-46DF-9EA9-4850AF469FB3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BookLovers.Librarians.Infrastructure</RootNamespace>
+    <AssemblyName>BookLovers.Librarians.Infrastructure</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <CodeAnalysisRuleSet>StyleCop.Analyzers.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=8.1.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005">
+      <HintPath>..\packages\AutoMapper.8.1.0\lib\net461\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AutoMapper.Collection, Version=5.0.0.0, Culture=neutral, PublicKeyToken=e57c3f0a3d6646db">
+      <HintPath>..\packages\AutoMapper.Collection.5.0.0\lib\net461\AutoMapper.Collection.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc">
+      <HintPath>..\packages\Castle.Core.4.2.0\lib\net45\Castle.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FluentScheduler, Version=5.3.0.0, Culture=neutral, PublicKeyToken=b76503528a14ebd1">
+      <HintPath>..\packages\FluentScheduler.5.3.0\lib\net40\FluentScheduler.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FluentValidation, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0">
+      <HintPath>..\packages\FluentValidation.8.2.1\lib\net45\FluentValidation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FluentValidation.ValidatorAttribute, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0">
+      <HintPath>..\packages\FluentValidation.ValidatorAttribute.8.1.0\lib\net45\FluentValidation.ValidatorAttribute.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FluentValidation.WebApi, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0">
+      <HintPath>..\packages\FluentValidation.WebApi.8.1.0\lib\net45\FluentValidation.WebApi.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="LinqKit, Version=1.1.24.0, Culture=neutral, PublicKeyToken=bc217f8844052a91">
+      <HintPath>..\packages\LinqKit.1.1.24\lib\net45\LinqKit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7">
+      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Extensions.Conventions, Version=3.3.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7">
+      <HintPath>..\packages\Ninject.Extensions.Conventions.3.3.0\lib\net45\Ninject.Extensions.Conventions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Extensions.Factory, Version=3.3.3.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7">
+      <HintPath>..\packages\Ninject.Extensions.Factory.3.3.3\lib\net45\Ninject.Extensions.Factory.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Web.Common, Version=3.3.2.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7">
+      <HintPath>..\packages\Ninject.Web.Common.3.3.2\lib\net45\Ninject.Web.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Serilog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10">
+      <HintPath>..\packages\Serilog.2.10.0-dev-01221\lib\net46\Serilog.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.ComponentModel.Primitives, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Primitives.4.3.0\lib\net45\System.ComponentModel.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Z.EntityFramework.Extensions, Version=5.1.4.0, Culture=neutral, PublicKeyToken=59b66d028979105b">
+      <HintPath>..\packages\Z.EntityFramework.Extensions.5.1.4\lib\net45\Z.EntityFramework.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Z.EntityFramework.Plus.EF6, Version=1.10.1.0, Culture=neutral, PublicKeyToken=59b66d028979105b">
+      <HintPath>..\packages\Z.EntityFramework.Plus.EF6.1.10.1\lib\net45\Z.EntityFramework.Plus.EF6.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Z.Expressions.Eval, Version=4.0.25.0, Culture=neutral, PublicKeyToken=59b66d028979105b">
+      <HintPath>..\packages\Z.Expressions.Eval.4.0.25\lib\net45\Z.Expressions.Eval.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dtos\LibrarianDto.cs" />
+    <Compile Include="Dtos\PromotionWaiterDto.cs" />
+    <Compile Include="Dtos\TicketDto.cs" />
+    <Compile Include="Dtos\TicketOwnerDto.cs" />
+    <Compile Include="Mappings\Configuration.cs" />
+    <Compile Include="Mappings\CreatedTicketMapping.cs" />
+    <Compile Include="Mappings\DecisionMapping.cs" />
+    <Compile Include="Mappings\Librarians\LibrarianMapping.cs" />
+    <Compile Include="Mappings\Librarians\LibrarianToDtoMapping.cs" />
+    <Compile Include="Mappings\PromotionWaiters\PromotionAvailabilityMapping.cs" />
+    <Compile Include="Mappings\PromotionWaiters\PromotionWaiterMapping.cs" />
+    <Compile Include="Mappings\ResolvedTickets\ResolvedTicketJustificationMapping.cs" />
+    <Compile Include="Mappings\ResolvedTickets\ResolvedTicketDecisionMapping.cs" />
+    <Compile Include="Mappings\ResolvedTickets\ResolvedTicketMapping.cs" />
+    <Compile Include="Mappings\ReviewReportRegisters\ReportReasonMapping.cs" />
+    <Compile Include="Mappings\ReviewReportRegisters\ReportRegisterItemMapping.cs" />
+    <Compile Include="Mappings\ReviewReportRegisters\ReviewReportMapping.cs" />
+    <Compile Include="Mappings\TicketOwnerMapping.cs" />
+    <Compile Include="Mappings\TicketStateMapping.cs" />
+    <Compile Include="Mappings\Tickets\TicketConcernMapping.cs" />
+    <Compile Include="Mappings\Tickets\TicketDecisionMapping.cs" />
+    <Compile Include="Mappings\Tickets\TicketDetailsMapping.cs" />
+    <Compile Include="Mappings\Tickets\TicketIssuedByMapping.cs" />
+    <Compile Include="Mappings\Tickets\TicketMapping.cs" />
+    <Compile Include="Mappings\Tickets\TicketSolvedByMapping.cs" />
+    <Compile Include="Mappings\Tickets\TicketStateMapping.cs" />
+    <Compile Include="Mappings\Tickets\TicketToDtoMapping.cs" />
+    <Compile Include="Persistence\Configurations\CreatedTicketsTableConfiguration.cs" />
+    <Compile Include="Persistence\Configurations\DecisionsTableConfiguration.cs" />
+    <Compile Include="Persistence\Configurations\LibrariansTableConfiguration.cs" />
+    <Compile Include="Persistence\Configurations\PromotionAvailabilityTableConfiguration.cs" />
+    <Compile Include="Persistence\Configurations\PromotionWaiterTableConfiguration.cs" />
+    <Compile Include="Persistence\Configurations\ReportReasonsTableConfiguration.cs" />
+    <Compile Include="Persistence\Configurations\ReportRegisterItemsTableConfiguration.cs" />
+    <Compile Include="Persistence\Configurations\ResolvedTicketsTableConfiguration.cs" />
+    <Compile Include="Persistence\Configurations\ReviewReportRegistersTableConfiguration.cs" />
+    <Compile Include="Persistence\Configurations\TicketConcernsTableConfiguration.cs" />
+    <Compile Include="Persistence\Configurations\TicketOwnersTableConfiguration.cs" />
+    <Compile Include="Persistence\Configurations\TicketsTableConfiguration.cs" />
+    <Compile Include="Persistence\LibrarianContextExtensions.cs" />
+    <Compile Include="Persistence\LibrariansContext.cs" />
+    <Compile Include="Persistence\Messages\InBoxMessagesTableConfiguration.cs" />
+    <Compile Include="Persistence\Messages\OutboxMessagesTableConfiguration.cs" />
+    <Compile Include="Persistence\Providers\DecisionProvider.cs" />
+    <Compile Include="Persistence\Providers\PromotionAvailabilityProvider.cs" />
+    <Compile Include="Persistence\Providers\TicketConcernProvider.cs" />
+    <Compile Include="Persistence\ReadModels\CreatedTicketReadModel.cs" />
+    <Compile Include="Persistence\ReadModels\DecisionReadModel.cs" />
+    <Compile Include="Persistence\ReadModels\LibrarianReadModel.cs" />
+    <Compile Include="Persistence\ReadModels\PromotionAvailabilityReadModel.cs" />
+    <Compile Include="Persistence\ReadModels\PromotionWaiterReadModel.cs" />
+    <Compile Include="Persistence\ReadModels\ReportReasonReadModel.cs" />
+    <Compile Include="Persistence\ReadModels\ReportRegisterItemReadModel.cs" />
+    <Compile Include="Persistence\ReadModels\ResolvedTicketReadModel.cs" />
+    <Compile Include="Persistence\ReadModels\ReviewReportRegisterReadModel.cs" />
+    <Compile Include="Persistence\ReadModels\TicketConcernReadModel.cs" />
+    <Compile Include="Persistence\ReadModels\TicketOwnerReadModel.cs" />
+    <Compile Include="Persistence\ReadModels\TicketReadModel.cs" />
+    <Compile Include="Persistence\Repositories\LibrarianRepository.cs" />
+    <Compile Include="Persistence\Repositories\PromotionWaiterRepository.cs" />
+    <Compile Include="Persistence\Repositories\ReportReasonProvider.cs" />
+    <Compile Include="Persistence\Repositories\ReviewReportRegisterRepository.cs" />
+    <Compile Include="Persistence\Repositories\TicketOwnerRepository.cs" />
+    <Compile Include="Persistence\Repositories\TicketRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queries\Extensions\FilterExtensions.cs" />
+    <Compile Include="Queries\GetLibrariansInboxMessagesQuery.cs" />
+    <Compile Include="Queries\GetLibrariansOutboxMessagesQuery.cs" />
+    <Compile Include="Queries\IsTicketOwnedByUser.cs" />
+    <Compile Include="Queries\Librarians\LibrarianByGuidQuery.cs" />
+    <Compile Include="Queries\Librarians\LibrarianByIdQuery.cs" />
+    <Compile Include="Queries\Librarians\LibrarianByReaderGuidQuery.cs" />
+    <Compile Include="Queries\Librarians\LibrarianPageQuery.cs" />
+    <Compile Include="Queries\Librarians\ManageableTicketsQuery.cs" />
+    <Compile Include="Queries\PromotionWaiters\PaginatedPromotionWaitersQuery.cs" />
+    <Compile Include="Queries\TicketOwnerByIdQuery.cs" />
+    <Compile Include="Queries\Tickets\ApprovedTicketsQuery.cs" />
+    <Compile Include="Queries\Tickets\TicketByGuidQuery.cs" />
+    <Compile Include="Queries\Tickets\TicketByIdQuery.cs" />
+    <Compile Include="Queries\Tickets\TicketsByTitleQuery.cs" />
+    <Compile Include="QueryHandlers\GetLibrariansInboxMessagesHandler.cs" />
+    <Compile Include="QueryHandlers\GetLibrariansOutboxMessagesHandler.cs" />
+    <Compile Include="QueryHandlers\Librarians\LibrarianByGuidHandler.cs" />
+    <Compile Include="QueryHandlers\Librarians\LibrarianByIdHandler.cs" />
+    <Compile Include="QueryHandlers\Librarians\LibrarianByReaderGuidHandler.cs" />
+    <Compile Include="QueryHandlers\Librarians\LibrariansPageHandler.cs" />
+    <Compile Include="QueryHandlers\Librarians\ManageableTicketsPageHandler.cs" />
+    <Compile Include="QueryHandlers\PromotionWaiters\PaginatedPromotionWaitersHandler.cs" />
+    <Compile Include="QueryHandlers\TicketOwners\IsTicketOwnedByUserHandler.cs" />
+    <Compile Include="QueryHandlers\TicketOwners\TicketOwnerByIdHandler.cs" />
+    <Compile Include="QueryHandlers\Tickets\ApprovedTicketsHandler.cs" />
+    <Compile Include="QueryHandlers\Tickets\TicketByGuidHandler.cs" />
+    <Compile Include="QueryHandlers\Tickets\TicketByIdHandler.cs" />
+    <Compile Include="QueryHandlers\Tickets\TicketsByTitleHandler.cs" />
+    <Compile Include="Root\Events\BusExtensions.cs" />
+    <Compile Include="Root\Events\DomainEventDispatcherLoggingDecorator.cs" />
+    <Compile Include="Root\Events\GenericIntegrationLoggingEventHandler.cs" />
+    <Compile Include="Root\Events\GenericProducerLoggingNotifier.cs" />
+    <Compile Include="Root\Events\GenericProducerNotifier.cs" />
+    <Compile Include="Root\Events\IntegrationEventDispatcher.cs" />
+    <Compile Include="Root\Inbox\InboxMessagesJobInvoker.cs" />
+    <Compile Include="Root\Inbox\InboxMessagesProcessor.cs" />
+    <Compile Include="Root\Inbox\InboxModule.cs" />
+    <Compile Include="Root\Jobs\ProcessInboxMessagesJob.cs" />
+    <Compile Include="Root\Jobs\ProcessOutboxMessagesJob.cs" />
+    <Compile Include="Root\ModuleLoggingDecorator.cs" />
+    <Compile Include="Root\ModuleValidationDecorator.cs" />
+    <Compile Include="Root\CompositionRoot.cs" />
+    <Compile Include="Root\Domain\DecisionGiverProvider.cs" />
+    <Compile Include="Root\Domain\DomainModule.cs" />
+    <Compile Include="Root\Domain\NotifiersProvider.cs" />
+    <Compile Include="Root\Events\DomainEventDispatcher.cs" />
+    <Compile Include="Root\Events\EventModule.cs" />
+    <Compile Include="Root\Events\EventsStartup.cs" />
+    <Compile Include="Root\Events\GenericIntegrationEventHandler.cs" />
+    <Compile Include="Root\Infrastructure\HandlersModule.cs" />
+    <Compile Include="Root\Infrastructure\InfrastructureModule.cs" />
+    <Compile Include="Root\InternalProcessing\InternalCommandDispatcher.cs" />
+    <Compile Include="Root\InternalProcessing\InternalProcessingModule.cs" />
+    <Compile Include="Root\Jobs\LibrariansJobsRegistry.cs" />
+    <Compile Include="Root\LibrarianModule.cs" />
+    <Compile Include="Root\LibrarianModuleStartup.cs" />
+    <Compile Include="Root\Logging\LoggingModule.cs" />
+    <Compile Include="Root\Outbox\OutboxMessagesJobInvoker.cs" />
+    <Compile Include="Root\Outbox\OutboxMessagesProcessor.cs" />
+    <Compile Include="Root\Outbox\OutboxModule.cs" />
+    <Compile Include="Root\Persistence\PersistenceModule.cs" />
+    <Compile Include="Root\Persistence\PersistenceModuleStartup.cs" />
+    <Compile Include="Root\ReadContextAccessor.cs" />
+    <Compile Include="Root\UnitOfWork.cs" />
+    <Compile Include="Root\Validation\ValidationModule.cs" />
+    <Compile Include="Root\Validation\ValidatorFactory.cs" />
+    <Compile Include="Validators\Commands\CreateLibrarianValidator.cs" />
+    <Compile Include="Validators\Commands\NewTicketValidator.cs" />
+    <Compile Include="Validators\Commands\ResolveTicketValidator.cs" />
+    <Compile Include="Validators\Commands\SuspendLibrarianValidator.cs" />
+    <Compile Include="Validators\Queries\LibrarianPageQueryValidator.cs" />
+    <Compile Include="Validators\Queries\ManageableTicketsQueryValidator.cs" />
+    <Compile Include="Validators\Queries\PaginatedPromotionWaitersQueryValidator.cs" />
+    <Compile Include="Validators\Queries\TicketsByTitleQueryValidator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BookLovers.Auth.Integration\BookLovers.Auth.Integration.csproj">
+      <Project>{82c700e5-d693-4ea7-b57d-51b864e82aa8}</Project>
+      <Name>BookLovers.Auth.Integration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Base.Infrastructure\BookLovers.Base.Infrastructure.csproj">
+      <Project>{15735bdd-1be2-4660-8880-64eb06e20ab5}</Project>
+      <Name>BookLovers.Base.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Base\BookLovers.Base.csproj">
+      <Project>{e15ff1ae-818a-4616-a56b-c232ab9b4569}</Project>
+      <Name>BookLovers.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Librarians.Application\BookLovers.Librarians.Application.csproj">
+      <Project>{4f0e63f1-bb73-4a51-bf16-96d12a4a9b96}</Project>
+      <Name>BookLovers.Librarians.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Librarians.Integration\BookLovers.Librarians.Integration.csproj">
+      <Project>{ff66acb8-b1c1-4e89-89df-a15404bfbd4f}</Project>
+      <Name>BookLovers.Librarians.Integration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Librarians\BookLovers.Librarians.csproj">
+      <Project>{58e32716-3775-4aab-bc72-80884360452b}</Project>
+      <Name>BookLovers.Librarians</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Readers.Integration\BookLovers.Readers.Integration.csproj">
+      <Project>{ecf351d2-4452-4c55-ac6c-67641c139c59}</Project>
+      <Name>BookLovers.Readers.Integration</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Persistence\Scripts\CreateLibrariansDatabase.sql" />
+    <Content Include="Persistence\Scripts\CreateLibrariansStructure.sql" />
+    <Content Include="StyleCop.Analyzers.ruleset" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105.The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

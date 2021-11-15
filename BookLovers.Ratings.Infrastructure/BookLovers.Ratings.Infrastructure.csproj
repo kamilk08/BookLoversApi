@@ -1,0 +1,311 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0285E8A0-1C35-465A-ABC8-7188005839B9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BookLovers.Ratings.Infrastructure</RootNamespace>
+    <AssemblyName>BookLovers.Ratings.Infrastructure</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <CodeAnalysisRuleSet>StyleCop.Analyzers.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=8.1.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005">
+      <HintPath>..\packages\AutoMapper.8.1.0\lib\net461\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc">
+      <HintPath>..\packages\Castle.Core.4.2.0\lib\net45\Castle.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FluentHttpRequestBuilderLibrary, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\FluentHttpRequestBuilderLibrary.1.0.2\lib\net472\FluentHttpRequestBuilderLibrary.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FluentScheduler, Version=5.3.0.0, Culture=neutral, PublicKeyToken=b76503528a14ebd1">
+      <HintPath>..\packages\FluentScheduler.5.3.0\lib\net40\FluentScheduler.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FluentValidation, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0">
+      <HintPath>..\packages\FluentValidation.8.2.1\lib\net45\FluentValidation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7">
+      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Extensions.Conventions, Version=3.3.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7">
+      <HintPath>..\packages\Ninject.Extensions.Conventions.3.3.0\lib\net45\Ninject.Extensions.Conventions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Extensions.Factory, Version=3.3.3.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7">
+      <HintPath>..\packages\Ninject.Extensions.Factory.3.3.3\lib\net45\Ninject.Extensions.Factory.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Serilog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10">
+      <HintPath>..\packages\Serilog.2.10.0-dev-01211\lib\net46\Serilog.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Serilog.Sinks.File, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10">
+      <HintPath>..\packages\Serilog.Sinks.File.5.0.0-dev-00887\lib\net45\Serilog.Sinks.File.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.ComponentModel.Primitives, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Primitives.4.3.0\lib\net45\System.ComponentModel.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Z.EntityFramework.Plus.EF6, Version=1.10.1.0, Culture=neutral, PublicKeyToken=59b66d028979105b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Z.EntityFramework.Plus.EF6.1.10.1\lib\net45\Z.EntityFramework.Plus.EF6.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dtos\AuthorDto.cs" />
+    <Compile Include="Dtos\BookDto.cs" />
+    <Compile Include="Dtos\BookGroupedRatingsDto.cs" />
+    <Compile Include="Dtos\PublisherDto.cs" />
+    <Compile Include="Dtos\RatingDto.cs" />
+    <Compile Include="Dtos\ReaderDto.cs" />
+    <Compile Include="Dtos\ReaderRatingsDto.cs" />
+    <Compile Include="Dtos\RatingsDto.cs" />
+    <Compile Include="Dtos\SeriesDto.cs" />
+    <Compile Include="Mappings\AuthorMapping.cs" />
+    <Compile Include="Mappings\MappingConfiguration.cs" />
+    <Compile Include="Mappings\PublisherCycleMapping.cs" />
+    <Compile Include="Mappings\PublisherMapping.cs" />
+    <Compile Include="Mappings\RatingMapping.cs" />
+    <Compile Include="Mappings\BookMapping.cs" />
+    <Compile Include="Mappings\ReaderMapping.cs" />
+    <Compile Include="Mappings\SeriesMapping.cs" />
+    <Compile Include="Persistence\Configurations\AuthorsTableConfiguration.cs" />
+    <Compile Include="Persistence\Configurations\BooksTableConfiguration.cs" />
+    <Compile Include="Persistence\Configurations\PublisherCycleTableConfiguration.cs" />
+    <Compile Include="Persistence\Configurations\PublisherTableConfiguration.cs" />
+    <Compile Include="Persistence\Configurations\RatingsTableConfiguration.cs" />
+    <Compile Include="Persistence\Configurations\ReadersTableConfiguration.cs" />
+    <Compile Include="Persistence\Configurations\SeriesTableConfiguration.cs" />
+    <Compile Include="Persistence\Messages\InboxMessagesTableConfiguration.cs" />
+    <Compile Include="Persistence\Messages\OutboxMessagesTableConfiguration.cs" />
+    <Compile Include="Persistence\RatingsContext.cs" />
+    <Compile Include="Persistence\RatingsContextExtensions.cs" />
+    <Compile Include="Persistence\ReadModels\AuthorReadModel.cs" />
+    <Compile Include="Persistence\ReadModels\BookReadModel.cs" />
+    <Compile Include="Persistence\ReadModels\PublisherCycleReadModel.cs" />
+    <Compile Include="Persistence\ReadModels\PublisherReadModel.cs" />
+    <Compile Include="Persistence\ReadModels\RatingReadModel.cs" />
+    <Compile Include="Persistence\ReadModels\ReaderReadModel.cs" />
+    <Compile Include="Persistence\ReadModels\SeriesReadModel.cs" />
+    <Compile Include="Persistence\Repositories\AuthorRepository.cs" />
+    <Compile Include="Persistence\Repositories\BookRepository.cs" />
+    <Compile Include="Persistence\Repositories\PublisherCycleRepository.cs" />
+    <Compile Include="Persistence\Repositories\PublisherRepository.cs" />
+    <Compile Include="Persistence\Repositories\RatingGiverRepository.cs" />
+    <Compile Include="Persistence\Repositories\SeriesRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queries\Authors\AuthorRatingsQuery.cs" />
+    <Compile Include="Queries\Authors\AuthorByGuidQuery.cs" />
+    <Compile Include="Queries\Books\BookGroupedRatingsByIdQuery.cs" />
+    <Compile Include="Queries\Books\BookByGuidQuery.cs" />
+    <Compile Include="Queries\Books\BookByIdQuery.cs" />
+    <Compile Include="Queries\Books\MultipleBooksRatingsQuery.cs" />
+    <Compile Include="Queries\GetRatingsInboxMessagesQuery.cs" />
+    <Compile Include="Queries\GetRatingsOutboxMessagesQuery.cs" />
+    <Compile Include="Queries\Publishers\PublisherByGuidQuery.cs" />
+    <Compile Include="Queries\Publishers\PublisherRatingsQuery.cs" />
+    <Compile Include="Queries\Ratings\MultipleReaderRatingsQuery.cs" />
+    <Compile Include="Queries\Ratings\RatingByIdQuery.cs" />
+    <Compile Include="Queries\Ratings\ReaderBookRatingQuery.cs" />
+    <Compile Include="Queries\Ratings\ReaderByIdQuery.cs" />
+    <Compile Include="Queries\Ratings\ReaderRatingsByIdQuery.cs" />
+    <Compile Include="Queries\Readers\ReaderRatingsQuery.cs" />
+    <Compile Include="Queries\Series\MultipleSeriesStatisticsQuery.cs" />
+    <Compile Include="Queries\Series\SeriesByGuidQuery.cs" />
+    <Compile Include="Queries\Series\SeriesRatingsQuery.cs" />
+    <Compile Include="QueryHandlers\Authors\AuthorByGuidHandler.cs" />
+    <Compile Include="QueryHandlers\Authors\AuthorRatingsHandler.cs" />
+    <Compile Include="QueryHandlers\Books\BookGroupedRatingsByIdHandler.cs" />
+    <Compile Include="QueryHandlers\Books\BookByGuidHandler.cs" />
+    <Compile Include="QueryHandlers\Books\BookHandler.cs" />
+    <Compile Include="QueryHandlers\Books\MultipleBooksHandler.cs" />
+    <Compile Include="QueryHandlers\GetRatingsInboxMessagesHandler.cs" />
+    <Compile Include="QueryHandlers\GetRatingsOutboxMessagesHandler.cs" />
+    <Compile Include="QueryHandlers\Publishers\PublisherByGuidHandler.cs" />
+    <Compile Include="QueryHandlers\Publishers\PublisherRatingsHandler.cs" />
+    <Compile Include="QueryHandlers\Ratings\ReaderByIdHandler.cs" />
+    <Compile Include="QueryHandlers\Ratings\MultipleReaderRatingsHandler.cs" />
+    <Compile Include="QueryHandlers\Ratings\RatingByIdHandler.cs" />
+    <Compile Include="QueryHandlers\Ratings\ReaderBookRatingHandler.cs" />
+    <Compile Include="QueryHandlers\Ratings\ReaderRatingsHandler.cs" />
+    <Compile Include="QueryHandlers\Readers\ReaderRatingsHandler.cs" />
+    <Compile Include="QueryHandlers\Series\MultipleSeriesStatisticsHandler.cs" />
+    <Compile Include="QueryHandlers\Series\SeriesByGuidHandler.cs" />
+    <Compile Include="QueryHandlers\Series\SeriesRatingsHandler.cs" />
+    <Compile Include="Root\CompositionRoot.cs" />
+    <Compile Include="Root\Domain\DomainModule.cs" />
+    <Compile Include="Root\Events\BusExtensions.cs" />
+    <Compile Include="Root\Events\DomainEventDispatcher.cs" />
+    <Compile Include="Root\Events\DomainEventDispatcherLoggingDecorator.cs" />
+    <Compile Include="Root\Events\EventModule.cs" />
+    <Compile Include="Root\Events\EventBusStartup.cs" />
+    <Compile Include="Root\Events\GenericIntegrationEventHandler.cs" />
+    <Compile Include="Root\Events\GenericIntegrationLoggingEventHandler.cs" />
+    <Compile Include="Root\Events\GenericProducerLoggingNotifier.cs" />
+    <Compile Include="Root\Events\GenericProducerNotifier.cs" />
+    <Compile Include="Root\Events\IntegrationEventDispatcher.cs" />
+    <Compile Include="Root\Inbox\InboxMessagesJobInvoker.cs" />
+    <Compile Include="Root\Inbox\InboxMessagesProcessor.cs" />
+    <Compile Include="Root\Inbox\InboxModule.cs" />
+    <Compile Include="Root\Infrastructure\BookInBookcaseChecker.cs" />
+    <Compile Include="Root\Infrastructure\HandlersModule.cs" />
+    <Compile Include="Root\Infrastructure\InfrastructureModule.cs" />
+    <Compile Include="Root\InternalProcessing\InternalCommandDispatcher.cs" />
+    <Compile Include="Root\InternalProcessing\InternalProcessingModule.cs" />
+    <Compile Include="Root\Jobs\ProcessInboxMessagesJob.cs" />
+    <Compile Include="Root\Jobs\ProcessOutboxMessagesJob.cs" />
+    <Compile Include="Root\Jobs\RatingsJobsRegistry.cs" />
+    <Compile Include="Root\LoggingModule.cs" />
+    <Compile Include="Root\ModuleLoggingDecorator.cs" />
+    <Compile Include="Root\ModuleValidationDecorator.cs" />
+    <Compile Include="Root\Outbox\OutboxMessagesJobInvoker.cs" />
+    <Compile Include="Root\Outbox\OutboxMessagesProcessor.cs" />
+    <Compile Include="Root\Outbox\OutboxModule.cs" />
+    <Compile Include="Root\Persistence\PersistenceModule.cs" />
+    <Compile Include="Root\Persistence\PersistenceStartup.cs" />
+    <Compile Include="Root\RatingsModule.cs" />
+    <Compile Include="Root\RatingsModuleStartup.cs" />
+    <Compile Include="Root\UnitOfWork.cs" />
+    <Compile Include="Root\Validation\ValidationModule.cs" />
+    <Compile Include="Root\Validation\ValidatorFactory.cs" />
+    <Compile Include="Validators\Commands\AddRatingValidator.cs" />
+    <Compile Include="Validators\Commands\ChangeRatingValidator.cs" />
+    <Compile Include="Validators\Commands\RemoveRatingValidator.cs" />
+    <Compile Include="Validators\Queries\MultipleBooksRatingsQueryValidator.cs" />
+    <Compile Include="Validators\Queries\MultipleSeriesStatisticsQueryValidator.cs" />
+    <Compile Include="Validators\Queries\ReaderRatingsByIdQueryValidator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BookLovers.Auth.Integration\BookLovers.Auth.Integration.csproj">
+      <Project>{82c700e5-d693-4ea7-b57d-51b864e82aa8}</Project>
+      <Name>BookLovers.Auth.Integration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Base.Infrastructure\BookLovers.Base.Infrastructure.csproj">
+      <Project>{15735bdd-1be2-4660-8880-64eb06e20ab5}</Project>
+      <Name>BookLovers.Base.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Base\BookLovers.Base.csproj">
+      <Project>{e15ff1ae-818a-4616-a56b-c232ab9b4569}</Project>
+      <Name>BookLovers.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Bookcases.Integration\BookLovers.Bookcases.Integration.csproj">
+      <Project>{59b09168-8098-4ae9-b588-14e9657833c8}</Project>
+      <Name>BookLovers.Bookcases.Integration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Publication.Integration\BookLovers.Publication.Integration.csproj">
+      <Project>{4e049363-88a9-465f-ae48-abe505ca1cc0}</Project>
+      <Name>BookLovers.Publication.Integration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Ratings.Application\BookLovers.Ratings.Application.csproj">
+      <Project>{845f7e8f-b8d2-48fe-8102-83326e2a2718}</Project>
+      <Name>BookLovers.Ratings.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Ratings\BookLovers.Ratings.csproj">
+      <Project>{de720c43-c24c-42b2-8fe5-ecd38be29b55}</Project>
+      <Name>BookLovers.Ratings</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Persistence\Scripts\CreateRatingsDatabase.sql" />
+    <Content Include="Persistence\Scripts\CreateRatingsStructure.sql" />
+    <Content Include="StyleCop.Analyzers.ruleset" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105.The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

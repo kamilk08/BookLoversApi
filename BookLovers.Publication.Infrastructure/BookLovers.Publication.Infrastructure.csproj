@@ -1,0 +1,600 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{035AB7EC-CDD0-424E-BBAA-0C3A94920322}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BookLovers.Publication.Infrastructure</RootNamespace>
+    <AssemblyName>BookLovers.Publication.Infrastructure</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <CodeAnalysisRuleSet>StyleCop.Analyzers.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=8.1.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005">
+      <HintPath>..\packages\AutoMapper.8.1.0\lib\net461\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc">
+      <HintPath>..\packages\Castle.Core.4.2.0\lib\net45\Castle.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="dbup-core, Version=4.5.0.0, Culture=neutral, PublicKeyToken=4b419c53bdfd4cbf">
+      <HintPath>..\packages\dbup-core.4.5.0\lib\net45\dbup-core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="dbup-sqlserver, Version=4.5.0.0, Culture=neutral, PublicKeyToken=4b419c53bdfd4cbf">
+      <HintPath>..\packages\dbup-sqlserver.4.5.0\lib\net46\dbup-sqlserver.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FluentScheduler, Version=5.3.0.0, Culture=neutral, PublicKeyToken=b76503528a14ebd1">
+      <HintPath>..\packages\FluentScheduler.5.3.0\lib\net40\FluentScheduler.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FluentValidation, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0">
+      <HintPath>..\packages\FluentValidation.8.2.1\lib\net45\FluentValidation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Azure.Services.AppAuthentication, Version=1.3.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.Azure.Services.AppAuthentication.1.3.1\lib\net472\Microsoft.Azure.Services.AppAuthentication.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Clients.ActiveDirectory, Version=4.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.IdentityModel.Clients.ActiveDirectory.4.3.0\lib\net45\Microsoft.IdentityModel.Clients.ActiveDirectory.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7">
+      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Extensions.Conventions, Version=3.3.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7">
+      <HintPath>..\packages\Ninject.Extensions.Conventions.3.3.0\lib\net45\Ninject.Extensions.Conventions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Extensions.Factory, Version=3.3.3.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7">
+      <HintPath>..\packages\Ninject.Extensions.Factory.3.3.3\lib\net45\Ninject.Extensions.Factory.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Web.Common, Version=3.3.2.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7">
+      <HintPath>..\packages\Ninject.Web.Common.3.3.2\lib\net45\Ninject.Web.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Serilog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10">
+      <HintPath>..\packages\Serilog.2.10.0-dev-01211\lib\net46\Serilog.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Serilog.Sinks.File, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10">
+      <HintPath>..\packages\Serilog.Sinks.File.5.0.0-dev-00887\lib\net45\Serilog.Sinks.File.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.ComponentModel.Primitives, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Primitives.4.3.0\lib\net45\System.ComponentModel.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Z.EntityFramework.Plus.EF6, Version=1.10.1.0, Culture=neutral, PublicKeyToken=59b66d028979105b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Z.EntityFramework.Plus.EF6.1.10.1\lib\net45\Z.EntityFramework.Plus.EF6.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Directories\PublicationsDirectories.cs" />
+    <Compile Include="Dtos\BookReaderDto.cs" />
+    <Compile Include="Dtos\Publications\AuthorDto.cs" />
+    <Compile Include="Dtos\Publications\AuthorFollowerDto.cs" />
+    <Compile Include="Dtos\Publications\AuthorImageDto.cs" />
+    <Compile Include="Dtos\Publications\AuthorStatisticsDto.cs" />
+    <Compile Include="Dtos\Publications\BookCoverDto.cs" />
+    <Compile Include="Dtos\Publications\BookDto.cs" />
+    <Compile Include="Dtos\Publications\BookStatisticsDto.cs" />
+    <Compile Include="Dtos\Publications\CategoryDto.cs" />
+    <Compile Include="Dtos\Publications\LanguageDto.cs" />
+    <Compile Include="Dtos\Publications\PublisherCycleDto.cs" />
+    <Compile Include="Dtos\Publications\PublisherDto.cs" />
+    <Compile Include="Dtos\Publications\QuoteDto.cs" />
+    <Compile Include="Dtos\Publications\QuoteLikeDto.cs" />
+    <Compile Include="Dtos\Publications\SeriesDto.cs" />
+    <Compile Include="Dtos\Publications\SeriesStatisticsDto.cs" />
+    <Compile Include="Dtos\Publications\SubCategoryDto.cs" />
+    <Compile Include="Dtos\Readers\ReaderStatisticsDto.cs" />
+    <Compile Include="Dtos\ReviewDto.cs" />
+    <Compile Include="Dtos\SearchDto.cs" />
+    <Compile Include="Events\AuthorImageSaved.cs" />
+    <Compile Include="Events\BookCoverSaved.cs" />
+    <Compile Include="Events\InfrastructureEvents\AuthorImagePresentHandler.cs" />
+    <Compile Include="Events\InfrastructureEvents\CoverSavedHandler.cs" />
+    <Compile Include="Mappings\AuthorMapping.cs" />
+    <Compile Include="Mappings\BookMapping.cs" />
+    <Compile Include="Mappings\BookReaderMapping.cs" />
+    <Compile Include="Mappings\CategoriesMapping.cs" />
+    <Compile Include="Mappings\MappingConfiguration.cs" />
+    <Compile Include="Mappings\PublisherCyclesMapping.cs" />
+    <Compile Include="Mappings\PublisherMapping.cs" />
+    <Compile Include="Mappings\QuotesMapping.cs" />
+    <Compile Include="Mappings\ReviewMapping.cs" />
+    <Compile Include="Mappings\SeriesMapping.cs" />
+    <Compile Include="Mementos\AuthorMemento.cs" />
+    <Compile Include="Mementos\BookMemento.cs" />
+    <Compile Include="Mementos\PublisherCycleMemento.cs" />
+    <Compile Include="Mementos\PublisherMemento.cs" />
+    <Compile Include="Mementos\QuoteMemento.cs" />
+    <Compile Include="Mementos\SeriesMemento.cs" />
+    <Compile Include="Persistence\Configuration\Authors\AuthorFollowersTableConfiguration.cs" />
+    <Compile Include="Persistence\Configuration\Authors\AuthorImagesTableConfiguration.cs" />
+    <Compile Include="Persistence\Configuration\Books\BookCoversTableConfiguration.cs" />
+    <Compile Include="Persistence\Configuration\Books\BookReviewsTableConfiguration.cs" />
+    <Compile Include="Persistence\Configuration\Books\BooksTableConfiguration.cs" />
+    <Compile Include="Persistence\Configuration\Books\CategoriesTableConfiguration.cs" />
+    <Compile Include="Persistence\Configuration\Books\CoverTypesTableConfiguration.cs" />
+    <Compile Include="Persistence\Configuration\CyclesTableConfiguration.cs" />
+    <Compile Include="Persistence\Configuration\Books\LanguagesTableConfiguration.cs" />
+    <Compile Include="Persistence\Configuration\PublishersTableConfiguration.cs" />
+    <Compile Include="Persistence\Configuration\Quotes\QuoteLikesTableConfiguration.cs" />
+    <Compile Include="Persistence\Configuration\Quotes\QuotesTableConfiguration.cs" />
+    <Compile Include="Persistence\Configuration\Authors\AuthorsTableConfiguration.cs" />
+    <Compile Include="Persistence\Configuration\ReadersTableConfiguration.cs" />
+    <Compile Include="Persistence\Configuration\SeriesTableConfiguration.cs" />
+    <Compile Include="Persistence\Configuration\Books\SubCategoriesTableConfiguration.cs" />
+    <Compile Include="Persistence\Messages\InBoxMessagesTableConfiguration.cs" />
+    <Compile Include="Persistence\Messages\OutboxMessagesTableConfiguration.cs" />
+    <Compile Include="Persistence\PublicationsContext.cs" />
+    <Compile Include="Persistence\PublicationsContextExtensions.cs" />
+    <Compile Include="Persistence\ReadModels\Authors\AuthorFollowerReadModel.cs" />
+    <Compile Include="Persistence\ReadModels\Authors\AuthorImageReadModel.cs" />
+    <Compile Include="Persistence\ReadModels\Authors\AuthorReadModel.cs" />
+    <Compile Include="Persistence\ReadModels\Books\BookCoverReadModel.cs" />
+    <Compile Include="Persistence\ReadModels\Books\BookReadModel.cs" />
+    <Compile Include="Persistence\ReadModels\Books\CategoryReadModel.cs" />
+    <Compile Include="Persistence\ReadModels\Books\CoverTypeReadModel.cs" />
+    <Compile Include="Persistence\ReadModels\Books\LanguageReadModel.cs" />
+    <Compile Include="Persistence\ReadModels\Books\ReviewReadModel.cs" />
+    <Compile Include="Persistence\ReadModels\Books\SubCategoryReadModel.cs" />
+    <Compile Include="Persistence\ReadModels\PublisherCycleReadModel.cs" />
+    <Compile Include="Persistence\ReadModels\PublisherReadModel.cs" />
+    <Compile Include="Persistence\ReadModels\Quotes\QuoteLikeReadModel.cs" />
+    <Compile Include="Persistence\ReadModels\Quotes\QuoteReadModel.cs" />
+    <Compile Include="Persistence\ReadModels\ReaderReadModel.cs" />
+    <Compile Include="Persistence\ReadModels\SeriesReadModel.cs" />
+    <Compile Include="Projections\AuthorProjectionHandlers\AuthorArchivedProjection.cs" />
+    <Compile Include="Projections\AuthorProjectionHandlers\AuthorBasicsProjection.cs" />
+    <Compile Include="Projections\AuthorProjectionHandlers\AuthorBookAddedProjection.cs" />
+    <Compile Include="Projections\AuthorProjectionHandlers\AuthorCreatedProjection.cs" />
+    <Compile Include="Projections\AuthorProjectionHandlers\AuthorDescriptionProjection.cs" />
+    <Compile Include="Projections\AuthorProjectionHandlers\AuthorDetailsProjection.cs" />
+    <Compile Include="Projections\AuthorProjectionHandlers\AuthorFollowedProjection.cs" />
+    <Compile Include="Projections\AuthorProjectionHandlers\AuthorGenreAddedProjection.cs" />
+    <Compile Include="Projections\AuthorProjectionHandlers\AuthorGenreRemovedProjection.cs" />
+    <Compile Include="Projections\AuthorProjectionHandlers\AuthorsBookRemovedProjection.cs" />
+    <Compile Include="Projections\AuthorProjectionHandlers\AuthorUnFollowedProjection.cs" />
+    <Compile Include="Projections\AuthorProjectionHandlers\QuoteAddedToAuthorProjection.cs" />
+    <Compile Include="Projections\AuthorProjectionHandlers\QuoteRemovedFromAuthorProjection.cs" />
+    <Compile Include="Projections\BookProjectionHandlers\AddBooksAuthorProjection.cs" />
+    <Compile Include="Projections\BookProjectionHandlers\BookArchivedProjection.cs" />
+    <Compile Include="Projections\BookProjectionHandlers\BookHashTagsChangedProjection.cs" />
+    <Compile Include="Projections\BookProjectionHandlers\BookHasNoSeriesProjection.cs" />
+    <Compile Include="Projections\BookProjectionHandlers\BookReviewAddedProjection.cs" />
+    <Compile Include="Projections\BookProjectionHandlers\BookReviewRemovedProjection.cs" />
+    <Compile Include="Projections\BookProjectionHandlers\ChangeBookBasicInformationProjection.cs" />
+    <Compile Include="Projections\BookProjectionHandlers\ChangeBookDescriptionProjection.cs" />
+    <Compile Include="Projections\BookProjectionHandlers\ChangeBookDetailedInformationProjection.cs" />
+    <Compile Include="Projections\BookProjectionHandlers\ChangeBookPublisherProjection.cs" />
+    <Compile Include="Projections\BookProjectionHandlers\ChangeBookSeriesPositionProjection.cs" />
+    <Compile Include="Projections\BookProjectionHandlers\ChangeBookSeriesProjection.cs" />
+    <Compile Include="Projections\BookProjectionHandlers\CoverChangedProjection.cs" />
+    <Compile Include="Projections\BookProjectionHandlers\CreateBookProjection.cs" />
+    <Compile Include="Projections\BookProjectionHandlers\QuoteAddedToBookProjection.cs" />
+    <Compile Include="Projections\BookProjectionHandlers\QuoteRemovedFromBookProjection.cs" />
+    <Compile Include="Projections\BookProjectionHandlers\RemoveBookAuthorProjection.cs" />
+    <Compile Include="Projections\BookReadersHandlers\BookReaderCreatedProjection.cs" />
+    <Compile Include="Projections\BookReadersHandlers\BookReaderSuspendedProjection.cs" />
+    <Compile Include="Projections\PublisherCyclesProjectionHandlers\AddedToCycleProjection.cs" />
+    <Compile Include="Projections\PublisherCyclesProjectionHandlers\CycleCreatedProjection.cs" />
+    <Compile Include="Projections\PublisherCyclesProjectionHandlers\PublisherCycleArchivedProjection.cs" />
+    <Compile Include="Projections\PublisherCyclesProjectionHandlers\RemovedFromCycleProjection.cs" />
+    <Compile Include="Projections\PublisherProjectionHandlers\CycleAddedToPublisherProjection.cs" />
+    <Compile Include="Projections\PublisherProjectionHandlers\PublisherArchivedProjection.cs" />
+    <Compile Include="Projections\PublisherProjectionHandlers\PublisherBookAddedProjection.cs" />
+    <Compile Include="Projections\PublisherProjectionHandlers\PublisherCreatedProjection.cs" />
+    <Compile Include="Projections\PublisherProjectionHandlers\PublisherCycleRemovedProjection.cs" />
+    <Compile Include="Projections\PublisherProjectionHandlers\RemovePublisherBookProjection.cs" />
+    <Compile Include="Projections\QuotesProjectionHandlers\AuthorQuoteAddedProjection.cs" />
+    <Compile Include="Projections\QuotesProjectionHandlers\BookQuoteAddedProjection.cs" />
+    <Compile Include="Projections\QuotesProjectionHandlers\QuoteArchivedProjection.cs" />
+    <Compile Include="Projections\QuotesProjectionHandlers\QuoteLikedProjection.cs" />
+    <Compile Include="Projections\QuotesProjectionHandlers\QuoteUnLikedProjection.cs" />
+    <Compile Include="Projections\SeriesProjectionHandlers\AddedToSeriesProjection.cs" />
+    <Compile Include="Projections\SeriesProjectionHandlers\ChangePositionInSeriesProjection.cs" />
+    <Compile Include="Projections\SeriesProjectionHandlers\RemovedFromSeriesProjection.cs" />
+    <Compile Include="Projections\SeriesProjectionHandlers\SeriesArchivedProjection.cs" />
+    <Compile Include="Projections\SeriesProjectionHandlers\SeriesCreatedProjection.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queries\Authors\AuthorByGuidQuery.cs" />
+    <Compile Include="Queries\Authors\AuthorByIdQuery.cs" />
+    <Compile Include="Queries\Authors\AuthorByNameQuery.cs" />
+    <Compile Include="Queries\Authors\AuthorFollowersQuery.cs" />
+    <Compile Include="Queries\Authors\AuthorImageQuery.cs" />
+    <Compile Include="Queries\Authors\AuthorsCollectionQuery.cs" />
+    <Compile Include="Queries\Authors\MultipleAuthorsByGuidQuery.cs" />
+    <Compile Include="Queries\Authors\PaginatedAuthorsQuery.cs" />
+    <Compile Include="Queries\Authors\MultipleAuthorsQuery.cs" />
+    <Compile Include="Queries\BookFilterCriteria.cs" />
+    <Compile Include="Queries\BookReaderByIdQuery.cs" />
+    <Compile Include="Queries\BookSearchQuery.cs" />
+    <Compile Include="Queries\Books\BookByGuidQuery.cs" />
+    <Compile Include="Queries\Books\BookByIdQuery.cs" />
+    <Compile Include="Queries\Books\BookByIsbnQuery.cs" />
+    <Compile Include="Queries\Books\BookByTitleQuery.cs" />
+    <Compile Include="Queries\Books\BookCategoriesQuery.cs" />
+    <Compile Include="Queries\Books\BookCoverQuery.cs" />
+    <Compile Include="Queries\Books\MultipleBooksByGuidQuery.cs" />
+    <Compile Include="Queries\Books\PaginatedBooksQuery.cs" />
+    <Compile Include="Queries\Books\MultipleBooksByIdQuery.cs" />
+    <Compile Include="Queries\Books\FindBookByTitleQuery.cs" />
+    <Compile Include="Queries\GetBooksInboxMessagesQuery.cs" />
+    <Compile Include="Queries\GetBooksOutboxMessagesQuery.cs" />
+    <Compile Include="Queries\Quotes\QuotesAvailableOrders.cs" />
+    <Compile Include="Queries\UnProcessedEventsInPublicationModuleQuery.cs" />
+    <Compile Include="Queries\IsAuthorAddedByQuery.cs" />
+    <Compile Include="Queries\IsBookAddedByQuery.cs" />
+    <Compile Include="Queries\PublisherCycles\FindCycleQuery.cs" />
+    <Compile Include="Queries\PublisherCycles\CycleByGuidQuery.cs" />
+    <Compile Include="Queries\PublisherCycles\CycleByIdQuery.cs" />
+    <Compile Include="Queries\PublisherCycles\CycleByNameQuery.cs" />
+    <Compile Include="Queries\PublisherCycles\PaginatedCyclesQuery.cs" />
+    <Compile Include="Queries\Publishers\FindPublisherQuery.cs" />
+    <Compile Include="Queries\Publishers\PaginatedPublishersQuery.cs" />
+    <Compile Include="Queries\Publishers\PublisherByBookIdQuery.cs" />
+    <Compile Include="Queries\Publishers\PublisherByIdQuery.cs" />
+    <Compile Include="Queries\Publishers\PublisherByNameQuery.cs" />
+    <Compile Include="Queries\Publishers\PaginatedPublishersCollectionQuery.cs" />
+    <Compile Include="Queries\QueryFilters\Extensions\AuthorFilterExtensions.cs" />
+    <Compile Include="Queries\QueryFilters\Extensions\BookFilterExtensions.cs" />
+    <Compile Include="Queries\QueryFilters\Extensions\PublisherCycleFilterExtensions.cs" />
+    <Compile Include="Queries\QueryFilters\Extensions\PublisherFilterExtensions.cs" />
+    <Compile Include="Queries\QueryFilters\Extensions\SeriesFilterExtensions.cs" />
+    <Compile Include="Queries\Quotes\PaginatedAuthorQuotesQuery.cs" />
+    <Compile Include="Queries\Quotes\PaginatedBookQuotesQuery.cs" />
+    <Compile Include="Queries\Quotes\QuoteByGuidQuery.cs" />
+    <Compile Include="Queries\Quotes\QuoteByIdQuery.cs" />
+    <Compile Include="Queries\Quotes\PaginatedUserQuotesQuery.cs" />
+    <Compile Include="Queries\Quotes\IsQuoteAddedByQuery.cs" />
+    <Compile Include="Queries\Quotes\QuotesFilteringExtensions.cs" />
+    <Compile Include="Queries\Quotes\QuotesOrder.cs" />
+    <Compile Include="Queries\Series\PaginatedAuthorSeriesQuery.cs" />
+    <Compile Include="Queries\Series\BookSeriesQuery.cs" />
+    <Compile Include="Queries\Series\FindSeriesQuery.cs" />
+    <Compile Include="Queries\Series\PaginatedSeriesCollectionQuery.cs" />
+    <Compile Include="Queries\Series\PaginatedSeriesQuery.cs" />
+    <Compile Include="Queries\Series\MultipleSeriesQuery.cs" />
+    <Compile Include="Queries\Series\SeriesByIdQuery.cs" />
+    <Compile Include="Queries\Series\SeriesByNameQuery.cs" />
+    <Compile Include="QueryHandlers\Authors\AuthorByGuidHandler.cs" />
+    <Compile Include="QueryHandlers\Authors\AuthorByIdHandler.cs" />
+    <Compile Include="QueryHandlers\Authors\AuthorByNameHandler.cs" />
+    <Compile Include="QueryHandlers\Authors\AuthorFollowersHandler.cs" />
+    <Compile Include="QueryHandlers\Authors\AuthorsCollectionHandler.cs" />
+    <Compile Include="QueryHandlers\Authors\MultipleAuthorsByGuidHandler.cs" />
+    <Compile Include="QueryHandlers\Authors\MultipleAuthorsHandler.cs" />
+    <Compile Include="QueryHandlers\Authors\FindAuthorHandler.cs" />
+    <Compile Include="QueryHandlers\BookReaderQueryHandler.cs" />
+    <Compile Include="QueryHandlers\Books\BookByGuidHandler.cs" />
+    <Compile Include="QueryHandlers\Books\BookByIdHandler.cs" />
+    <Compile Include="QueryHandlers\Books\BookByIsbnHandler.cs" />
+    <Compile Include="QueryHandlers\Books\BookByTitleHandler.cs" />
+    <Compile Include="QueryHandlers\Books\BookSearchHandler.cs" />
+    <Compile Include="QueryHandlers\Books\MultipleBooksByGuidHandler.cs" />
+    <Compile Include="QueryHandlers\Books\MultipleBooksByIdHandler.cs" />
+    <Compile Include="QueryHandlers\Books\PaginatedBooksHandler.cs" />
+    <Compile Include="QueryHandlers\Books\FindBookByTitleHandler.cs" />
+    <Compile Include="QueryHandlers\GetBooksInboxMessagesHandler.cs" />
+    <Compile Include="QueryHandlers\GetBooksOutboxMessagesHandler.cs" />
+    <Compile Include="QueryHandlers\IsAuthorAddedByHandler.cs" />
+    <Compile Include="QueryHandlers\IsBookAddedByHandler.cs" />
+    <Compile Include="QueryHandlers\PublisherCycles\FindCycleHandler.cs" />
+    <Compile Include="QueryHandlers\PublisherCycles\CycleByGuidHandler.cs" />
+    <Compile Include="QueryHandlers\PublisherCycles\CycleByIdHandler.cs" />
+    <Compile Include="QueryHandlers\PublisherCycles\CycleByNameHandler.cs" />
+    <Compile Include="QueryHandlers\PublisherCycles\PaginatedCyclesHandler.cs" />
+    <Compile Include="QueryHandlers\Publishers\FindPublisherHandler.cs" />
+    <Compile Include="QueryHandlers\Publishers\PublisherByBookIdHandler.cs" />
+    <Compile Include="QueryHandlers\Publishers\PublisherByIdHandler.cs" />
+    <Compile Include="QueryHandlers\Publishers\PublisherByNameHandler.cs" />
+    <Compile Include="QueryHandlers\Publishers\PaginatedPublisherCollectionsHandler.cs" />
+    <Compile Include="QueryHandlers\Publishers\PaginatedPublishersHandler.cs" />
+    <Compile Include="QueryHandlers\Quotes\PaginatedAuthorQuotesHandler.cs" />
+    <Compile Include="QueryHandlers\Quotes\PaginatedBookQuotesHandler.cs" />
+    <Compile Include="QueryHandlers\Quotes\GetQuoteByGuidHandler.cs" />
+    <Compile Include="QueryHandlers\Quotes\QuoteByIdHandler.cs" />
+    <Compile Include="QueryHandlers\Quotes\PaginatedUserQuotesHandler.cs" />
+    <Compile Include="QueryHandlers\Quotes\IsQuoteAddedByHandler.cs" />
+    <Compile Include="QueryHandlers\Series\FindSeriesHandler.cs" />
+    <Compile Include="QueryHandlers\Series\PaginatedAuthorSeriesHandler.cs" />
+    <Compile Include="QueryHandlers\Series\BookSeriesHandler.cs" />
+    <Compile Include="QueryHandlers\Series\PaginatedSeriesCollectionHandler.cs" />
+    <Compile Include="QueryHandlers\Series\MultipleSeriesHandler.cs" />
+    <Compile Include="QueryHandlers\Series\SeriesByIdHandler.cs" />
+    <Compile Include="QueryHandlers\Series\SeriesByNameHandler.cs" />
+    <Compile Include="QueryHandlers\Series\PaginatedSeriesHandler.cs" />
+    <Compile Include="Root\Domain\BookReaderAccessor.cs" />
+    <Compile Include="Root\Domain\Providers\AuthorEditorsProvider.cs" />
+    <Compile Include="Root\Domain\Providers\BookEditorsProvider.cs" />
+    <Compile Include="Root\Domain\Providers\IsbnValidatorProvider.cs" />
+    <Compile Include="Root\Domain\Providers\QuoteFactoryProvider.cs" />
+    <Compile Include="Root\Domain\SelfPublisherService.cs" />
+    <Compile Include="Root\Domain\UnknownAuthorService.cs" />
+    <Compile Include="Root\Events\BusExtensions.cs" />
+    <Compile Include="Root\Events\DomainEventDispatcherLoggingDecorator.cs" />
+    <Compile Include="Root\Events\GenericIntegrationEventLoggingEventHandler.cs" />
+    <Compile Include="Root\Events\GenericProducerLoggingNotifier.cs" />
+    <Compile Include="Root\Events\GenericProducerNotifier.cs" />
+    <Compile Include="Root\Events\IntegrationEventDispatcher.cs" />
+    <Compile Include="Root\Inbox\InboxMessagesJobInvoker.cs" />
+    <Compile Include="Root\Inbox\InboxMessagesProcessor.cs" />
+    <Compile Include="Root\Inbox\InboxModule.cs" />
+    <Compile Include="Root\Infrastructure\Providers\AuthorsCollectionSortingProvider.cs" />
+    <Compile Include="Root\Infrastructure\Providers\PublisherCollectionSortingProvider.cs" />
+    <Compile Include="Root\Infrastructure\Providers\ResourcesProvider.cs" />
+    <Compile Include="Root\Infrastructure\Providers\SeriesCollectionSortingProvider.cs" />
+    <Compile Include="Root\Jobs\ProcessInboxMessagesJob.cs" />
+    <Compile Include="Root\Jobs\ProcessOutboxMessagesJob.cs" />
+    <Compile Include="Root\ModuleValidationDecorator.cs" />
+    <Compile Include="Root\CompositionRoot.cs" />
+    <Compile Include="Root\Domain\DomainModule.cs" />
+    <Compile Include="Root\InternalProcessing\InternalCommandDispatcher.cs" />
+    <Compile Include="Root\InternalProcessing\InternalProcessingModule.cs" />
+    <Compile Include="Root\Jobs\PublicationJobsRegistry.cs" />
+    <Compile Include="Root\Logging\LoggingModule.cs" />
+    <Compile Include="Root\ModuleLoggingDecorator.cs" />
+    <Compile Include="Root\Outbox\OutboxMessagesJobInvoker.cs" />
+    <Compile Include="Root\Outbox\OutboxMessagesProcessor.cs" />
+    <Compile Include="Root\Outbox\OutboxModule.cs" />
+    <Compile Include="Root\Persistence\MementoFactory.cs" />
+    <Compile Include="Root\Persistence\PersistenceModule.cs" />
+    <Compile Include="Root\Persistence\PersistenceStartup.cs" />
+    <Compile Include="Root\Events\DomainEventDispatcher.cs" />
+    <Compile Include="Root\Events\EventBusModule.cs" />
+    <Compile Include="Root\Events\EventBusStartup.cs" />
+    <Compile Include="Root\Events\GenericIntegrationEventHandler.cs" />
+    <Compile Include="Root\Events\InfrastructureEventDispatcher.cs" />
+    <Compile Include="Root\Events\ProjectionDispatcher.cs" />
+    <Compile Include="Root\Infrastructure\HandlersModule.cs" />
+    <Compile Include="Root\Infrastructure\InfrastructureModule.cs" />
+    <Compile Include="Root\PublicationModule.cs" />
+    <Compile Include="Root\PublicationModuleStartup.cs" />
+    <Compile Include="Root\UnitOfWork.cs" />
+    <Compile Include="Root\Validation\ValidationModule.cs" />
+    <Compile Include="Root\Validation\ValidatorsFactory.cs" />
+    <Compile Include="Services\AuthorImageService.cs" />
+    <Compile Include="Services\AuthorBooksSortingServices\AuthorCollectionAverageSorter.cs" />
+    <Compile Include="Services\AuthorBooksSortingServices\AuthorCollectionRecord.cs" />
+    <Compile Include="Services\AuthorBooksSortingServices\AuthorCollectionSorType.cs" />
+    <Compile Include="Services\AuthorBooksSortingServices\AuthorCollectionTitleSorter.cs" />
+    <Compile Include="Services\AuthorBooksSortingServices\IAuthorCollectionSorter.cs" />
+    <Compile Include="Services\AuthorBooksSortingServices\SqlExtensions\AuthorIdParameter.cs" />
+    <Compile Include="Services\AuthorUniquenessChecker.cs" />
+    <Compile Include="Services\BookCoverService.cs" />
+    <Compile Include="Services\IResourceService.cs" />
+    <Compile Include="Services\IsbnUniquenessChecker.cs" />
+    <Compile Include="Services\PublisherBooksSortingServices\IPublisherCollectionSorter.cs" />
+    <Compile Include="Services\PublisherBooksSortingServices\PublisherBookRecord.cs" />
+    <Compile Include="Services\PublisherBooksSortingServices\PublisherCollectionAverageSorter.cs" />
+    <Compile Include="Services\PublisherBooksSortingServices\PublisherCollectionDateSorter.cs" />
+    <Compile Include="Services\PublisherBooksSortingServices\PublisherCollectionSortingType.cs" />
+    <Compile Include="Services\PublisherBooksSortingServices\PublisherCollectionTitleSorter.cs" />
+    <Compile Include="Services\PublisherBooksSortingServices\SqlExtensions\PublisherIdParameter.cs" />
+    <Compile Include="Services\PublisherCycleUniquenessChecker.cs" />
+    <Compile Include="Services\PublisherUniquenessChecker.cs" />
+    <Compile Include="Services\QuoteUniquenessChecker.cs" />
+    <Compile Include="Services\ReadContextAccessor.cs" />
+    <Compile Include="Services\ResourceSaver.cs" />
+    <Compile Include="Services\SeriesBooksSortingServices\SqlExtensions\SeriesIdParameter.cs" />
+    <Compile Include="Services\SeriesBooksSortingServices\ISeriesCollectionSorter.cs" />
+    <Compile Include="Services\SeriesBooksSortingServices\SeriesBookRecord.cs" />
+    <Compile Include="Services\SeriesBooksSortingServices\SeriesCollectionAverageSorter.cs" />
+    <Compile Include="Services\SeriesBooksSortingServices\SeriesCollectionBookPositionSorter.cs" />
+    <Compile Include="Services\SeriesBooksSortingServices\SeriesCollectionSortingType.cs" />
+    <Compile Include="Services\SeriesBooksSortingServices\SeriesCollectionTitleSorter.cs" />
+    <Compile Include="Services\SeriesUniquenessChecker.cs" />
+    <Compile Include="Services\TitleUniquenessChecker.cs" />
+    <Compile Include="Validators\Commands\Authors\AddAuthorValidator.cs" />
+    <Compile Include="Validators\Commands\Authors\ArchiveAuthorValidator.cs" />
+    <Compile Include="Validators\Commands\Authors\AuthorBasicsValidator.cs" />
+    <Compile Include="Validators\Commands\Authors\AuthorDescriptionValidator.cs" />
+    <Compile Include="Validators\Commands\Authors\AuthorDetailsValidator.cs" />
+    <Compile Include="Validators\Commands\Authors\AuthorDtoValidator.cs" />
+    <Compile Include="Validators\Commands\Authors\AuthorPictureValidator.cs" />
+    <Compile Include="Validators\Commands\Authors\CreateUnknownAuthorValidator.cs" />
+    <Compile Include="Validators\Commands\Authors\EditAuthorValidator.cs" />
+    <Compile Include="Validators\Commands\Authors\FollowAuthorValidator.cs" />
+    <Compile Include="Validators\Commands\Authors\UnFollowAuthorValidator.cs" />
+    <Compile Include="Validators\Commands\Books\AddBookValidator.cs" />
+    <Compile Include="Validators\Commands\Books\ArchiveBookValidator.cs" />
+    <Compile Include="Validators\Commands\Books\BookBasicsValidator.cs" />
+    <Compile Include="Validators\Commands\Books\BookCoverValidator.cs" />
+    <Compile Include="Validators\Commands\Books\BookDescriptionValidator.cs" />
+    <Compile Include="Validators\Commands\Books\BookDetailsValidator.cs" />
+    <Compile Include="Validators\Commands\Books\BookValidator.cs" />
+    <Compile Include="Validators\Commands\Books\EditBookValidator.cs" />
+    <Compile Include="Validators\Commands\PublisherCycles\AddPublisherCycleBookValidator.cs" />
+    <Compile Include="Validators\Commands\PublisherCycles\AddPublisherCycleValidator.cs" />
+    <Compile Include="Validators\Commands\PublisherCycles\ArchivePublisherCycleValidator.cs" />
+    <Compile Include="Validators\Commands\PublisherCycles\RemovePublisherCycleBookValidator.cs" />
+    <Compile Include="Validators\Commands\Publisher\ArchivePublisherValidator.cs" />
+    <Compile Include="Validators\Commands\Publisher\CreatePublisherValidator.cs" />
+    <Compile Include="Validators\Commands\Publisher\CreateSelfPublishedValidator.cs" />
+    <Compile Include="Validators\Commands\Publisher\PublisherValidator.cs" />
+    <Compile Include="Validators\Commands\Quotes\AddAuthorQuoteValidator.cs" />
+    <Compile Include="Validators\Commands\Quotes\AddBookQuoteValidator.cs" />
+    <Compile Include="Validators\Commands\Quotes\ArchiveQuoteValidator.cs" />
+    <Compile Include="Validators\Commands\Quotes\LikeQuoteValidator.cs" />
+    <Compile Include="Validators\Commands\Quotes\UnLikeQuoteValidator.cs" />
+    <Compile Include="Validators\Commands\Series\ArchiveSeriesValidator.cs" />
+    <Compile Include="Validators\Commands\Series\CreateSeriesValidator.cs" />
+    <Compile Include="Validators\Commands\Series\SeriesValidator.cs" />
+    <Compile Include="Validators\Queries\Authors\AuthorsCollectionQueryValidator.cs" />
+    <Compile Include="Validators\Queries\Authors\MultipleAuthorsByGuidQueryValidator.cs" />
+    <Compile Include="Validators\Queries\Authors\MultipleAuthorsQueryValidator.cs" />
+    <Compile Include="Validators\Queries\Authors\PaginatedAuthorsQueryValidator.cs" />
+    <Compile Include="Validators\Queries\Books\BookSearchQueryValidator.cs" />
+    <Compile Include="Validators\Queries\Books\FindBooksByTitleQueryValidator.cs" />
+    <Compile Include="Validators\Queries\Books\MultipleBooksByGuidQueryValidator.cs" />
+    <Compile Include="Validators\Queries\Books\MultipleBooksByIdQueryValidator.cs" />
+    <Compile Include="Validators\Queries\Books\PaginatedBooksQueryValidator.cs" />
+    <Compile Include="Validators\Queries\Cycles\FindCycleQueryValidator.cs" />
+    <Compile Include="Validators\Queries\Cycles\PaginatedCyclesQueryValidator.cs" />
+    <Compile Include="Validators\Queries\Publishers\FindPublisherQueryValidator.cs" />
+    <Compile Include="Validators\Queries\Publishers\PaginatedPublishersCollectionQueryValidator.cs" />
+    <Compile Include="Validators\Queries\Quotes\PaginatedAuthorQuotesQueryValidator.cs" />
+    <Compile Include="Validators\Queries\Quotes\PaginatedBookQuotesQueryValidator.cs" />
+    <Compile Include="Validators\Queries\Quotes\PaginatedUserQuotesQueryValidator.cs" />
+    <Compile Include="Validators\Queries\Series\MultipleSeriesQueryValidator.cs" />
+    <Compile Include="Validators\Queries\Series\PaginatedAuthorSeriesQueryValidator.cs" />
+    <Compile Include="Validators\Queries\Series\PaginatedSeriesCollectionQueryValidator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BookLovers.Auth.Integration\BookLovers.Auth.Integration.csproj">
+      <Project>{82c700e5-d693-4ea7-b57d-51b864e82aa8}</Project>
+      <Name>BookLovers.Auth.Integration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Base.Infrastructure\BookLovers.Base.Infrastructure.csproj">
+      <Project>{15735bdd-1be2-4660-8880-64eb06e20ab5}</Project>
+      <Name>BookLovers.Base.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Base\BookLovers.Base.csproj">
+      <Project>{e15ff1ae-818a-4616-a56b-c232ab9b4569}</Project>
+      <Name>BookLovers.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Librarians.Integration\BookLovers.Librarians.Integration.csproj">
+      <Project>{ff66acb8-b1c1-4e89-89df-a15404bfbd4f}</Project>
+      <Name>BookLovers.Librarians.Integration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Publication.Application\BookLovers.Publication.Application.csproj">
+      <Project>{ffbc8345-68b9-4af2-bedf-e574591316b5}</Project>
+      <Name>BookLovers.Publication.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Publication.Integration\BookLovers.Publication.Integration.csproj">
+      <Project>{4e049363-88a9-465f-ae48-abe505ca1cc0}</Project>
+      <Name>BookLovers.Publication.Integration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Publication.Store\BookLovers.Publication.Store.csproj">
+      <Project>{6b6153c6-e034-4d5e-bbaa-62a269e296cb}</Project>
+      <Name>BookLovers.Publication.Store</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Publication\BookLovers.Publication.csproj">
+      <Project>{98bc0f3c-e154-4d12-b291-d56dabec8cba}</Project>
+      <Name>BookLovers.Publication</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Readers.Integration\BookLovers.Readers.Integration.csproj">
+      <Project>{ecf351d2-4452-4c55-ac6c-67641c139c59}</Project>
+      <Name>BookLovers.Readers.Integration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Shared\BookLovers.Shared.csproj">
+      <Project>{96f5e5d1-331f-428b-b0e1-d9b66542eebd}</Project>
+      <Name>BookLovers.Shared</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Persistence\Procedures\SortAuthorBooksByAverage.sql" />
+    <EmbeddedResource Include="Persistence\Procedures\SortAuthorBooksByAverageTotalCount.sql" />
+    <EmbeddedResource Include="Persistence\Procedures\SortPublisherBooksByAverage.sql" />
+    <EmbeddedResource Include="Persistence\Procedures\SortPublisherBooksByAverageTotalCount.sql" />
+    <EmbeddedResource Include="Persistence\Procedures\SortSeriesBooksByAverage.sql" />
+    <EmbeddedResource Include="Persistence\Procedures\SortSeriesBooksByAverageTotalCount.sql" />
+    <Content Include="Persistence\Scripts\CreatePublicationsDatabase.sql" />
+    <Content Include="Persistence\Scripts\CreatePublicationsStructure.sql" />
+    <Content Include="Persistence\Scripts\CreatePublicationsStore.sql" />
+    <Content Include="Persistence\Scripts\CreatePublicationsStoreStructure.sql" />
+    <Content Include="StyleCop.Analyzers.ruleset" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105.The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

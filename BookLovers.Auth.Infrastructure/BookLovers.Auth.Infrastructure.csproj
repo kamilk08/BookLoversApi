@@ -1,0 +1,378 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{74686CCF-AB6B-43F0-ACAF-F9310427207A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BookLovers.Auth.Infrastructure</RootNamespace>
+    <AssemblyName>BookLovers.Auth.Infrastructure</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <CodeAnalysisRuleSet>StyleCop.Analyzers.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=8.1.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005">
+      <HintPath>..\packages\AutoMapper.8.1.0\lib\net461\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc">
+      <HintPath>..\packages\Castle.Core.4.2.0\lib\net45\Castle.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="dbup-core, Version=4.5.0.0, Culture=neutral, PublicKeyToken=4b419c53bdfd4cbf">
+      <HintPath>..\packages\dbup-core.4.5.0\lib\net45\dbup-core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="dbup-sqlserver, Version=4.5.0.0, Culture=neutral, PublicKeyToken=4b419c53bdfd4cbf">
+      <HintPath>..\packages\dbup-sqlserver.4.5.0\lib\net46\dbup-sqlserver.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FluentScheduler, Version=5.3.0.0, Culture=neutral, PublicKeyToken=b76503528a14ebd1">
+      <HintPath>..\packages\FluentScheduler.5.3.0\lib\net40\FluentScheduler.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FluentValidation, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0">
+      <HintPath>..\packages\FluentValidation.8.2.1\lib\net45\FluentValidation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Azure.Services.AppAuthentication, Version=1.3.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.Azure.Services.AppAuthentication.1.3.1\lib\net472\Microsoft.Azure.Services.AppAuthentication.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Clients.ActiveDirectory, Version=4.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.IdentityModel.Clients.ActiveDirectory.4.3.0\lib\net45\Microsoft.IdentityModel.Clients.ActiveDirectory.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.JsonWebTokens, Version=6.7.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.IdentityModel.JsonWebTokens.6.7.1\lib\net461\Microsoft.IdentityModel.JsonWebTokens.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=6.7.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.IdentityModel.Logging.6.7.1\lib\net461\Microsoft.IdentityModel.Logging.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=6.7.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.IdentityModel.Tokens.6.7.1\lib\net461\Microsoft.IdentityModel.Tokens.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.Owin.4.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.Owin.Security.4.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="mscorlib" />
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7">
+      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Extensions.Conventions, Version=3.3.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7">
+      <HintPath>..\packages\Ninject.Extensions.Conventions.3.3.0\lib\net45\Ninject.Extensions.Conventions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Extensions.Factory, Version=3.3.3.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7">
+      <HintPath>..\packages\Ninject.Extensions.Factory.3.3.3\lib\net45\Ninject.Extensions.Factory.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Web.Common, Version=3.3.2.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7">
+      <HintPath>..\packages\Ninject.Web.Common.3.3.2\lib\net45\Ninject.Web.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Serilog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10">
+      <HintPath>..\packages\Serilog.2.10.0-dev-01213\lib\net46\Serilog.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Serilog.Sinks.File, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10">
+      <HintPath>..\packages\Serilog.Sinks.File.5.0.0-dev-00887\lib\net45\Serilog.Sinks.File.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\System.ComponentModel.Annotations.4.4.1\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.ComponentModel.Primitives, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\System.ComponentModel.Primitives.4.3.0\lib\net45\System.ComponentModel.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=6.7.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.6.7.1\lib\net461\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Z.EntityFramework.Plus.EF6, Version=1.10.1.0, Culture=neutral, PublicKeyToken=59b66d028979105b">
+      <HintPath>..\packages\Z.EntityFramework.Plus.EF6.1.10.1\lib\net45\Z.EntityFramework.Plus.EF6.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dtos\Registrations\RegistrationSummaryDto.cs" />
+    <Compile Include="Dtos\Tokens\ClaimsIdentityDto.cs" />
+    <Compile Include="Dtos\Tokens\RefreshTokenDto.cs" />
+    <Compile Include="Dtos\Users\PasswordDto.cs" />
+    <Compile Include="Dtos\Users\UserDto.cs" />
+    <Compile Include="Mappings\AccountMapping.cs" />
+    <Compile Include="Mappings\AudienceMapping.cs" />
+    <Compile Include="Mappings\MappingsConfiugration.cs" />
+    <Compile Include="Mappings\PasswordResetTokenMapping.cs" />
+    <Compile Include="Mappings\RegisterSummaryMapping.cs" />
+    <Compile Include="Mappings\TokenMapping.cs" />
+    <Compile Include="Mappings\UserMapping.cs" />
+    <Compile Include="Mappings\UserRoleMapping.cs" />
+    <Compile Include="Persistence\AuthContextExtensions.cs" />
+    <Compile Include="Persistence\Configuration\AccountsTableConfiguration.cs" />
+    <Compile Include="Persistence\AuthContext.cs" />
+    <Compile Include="Persistence\Configuration\AudiencesTableConfiguration.cs" />
+    <Compile Include="Persistence\Configuration\InboxTableConfiguration.cs" />
+    <Compile Include="Persistence\Configuration\OutboxTableConfiguration.cs" />
+    <Compile Include="Persistence\Configuration\RegistrationSummariesTableConfiguration.cs" />
+    <Compile Include="Persistence\Configuration\ResetPasswordsTableConfiguration.cs" />
+    <Compile Include="Persistence\ReadContextAccessor.cs" />
+    <Compile Include="Persistence\ReadModels\AccountReadModel.cs" />
+    <Compile Include="Persistence\ReadModels\AudienceReadModel.cs" />
+    <Compile Include="Persistence\ReadModels\RefreshTokenReadModel.cs" />
+    <Compile Include="Persistence\ReadModels\RegistrationSummaryReadModel.cs" />
+    <Compile Include="Persistence\ReadModels\PasswordResetTokenReadModel.cs" />
+    <Compile Include="Persistence\ReadModels\UserReadModel.cs" />
+    <Compile Include="Persistence\ReadModels\UserRoleReadModel.cs" />
+    <Compile Include="Persistence\Repositories\AudienceRepository.cs" />
+    <Compile Include="Persistence\Repositories\PasswordResetTokenRepository.cs" />
+    <Compile Include="Persistence\Repositories\RefreshTokenRepository.cs" />
+    <Compile Include="Persistence\Repositories\RegistrationSummaryRepository.cs" />
+    <Compile Include="Persistence\Repositories\UserRepository.cs" />
+    <Compile Include="Persistence\RoleProvider.cs" />
+    <Compile Include="Persistence\Configuration\UsersTableConfiguration.cs" />
+    <Compile Include="Persistence\Configuration\RefreshTokenTableConfiguration.cs" />
+    <Compile Include="Persistence\Configuration\RolesTableConfiguration.cs" />
+    <Compile Include="Persistence\UserUniquenessChecker.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queries\Audiences\GetAudienceQuery.cs" />
+    <Compile Include="Queries\GetAuthInboxMessagesQuery.cs" />
+    <Compile Include="Queries\GetAuthOutboxMessagesQuery.cs" />
+    <Compile Include="Queries\GetResetPasswordTokenQuery.cs" />
+    <Compile Include="Queries\Registrations\GetRegistrationSummaryByGuidQuery.cs" />
+    <Compile Include="Queries\Registrations\GetRegistrationSummaryByUserGuidQuery.cs" />
+    <Compile Include="Queries\Registrations\GetRegistrationSummaryTokenQuery.cs" />
+    <Compile Include="Queries\Tokens\GetClaimsIdentityFromProtectedTokenQuery.cs" />
+    <Compile Include="Queries\Tokens\GetRefreshTokenBasedOnProtectedTokenQuery.cs" />
+    <Compile Include="Queries\Tokens\GetRefreshTokenReadModelQuery.cs" />
+    <Compile Include="Queries\Tokens\IsRefreshTokenValidQuery.cs" />
+    <Compile Include="Queries\Users\GetUserByGuidQuery.cs" />
+    <Compile Include="Queries\Users\GetUserByEmailAccountQuery.cs" />
+    <Compile Include="Queries\Users\GetUserClaimsQuery.cs" />
+    <Compile Include="Queries\Users\IsEmailUniqueQuery.cs" />
+    <Compile Include="Queries\Users\IsSuperAdminCreatedQuery.cs" />
+    <Compile Include="Queries\Users\IsUserBlockedQuery.cs" />
+    <Compile Include="Queries\Users\IsUserLibrarianQuery.cs" />
+    <Compile Include="Queries\Users\IsUserNameUniqueQuery.cs" />
+    <Compile Include="QueryHandlers\Audiences\GetAudienceHandler.cs" />
+    <Compile Include="QueryHandlers\GetAuthInboxMessagesHandler.cs" />
+    <Compile Include="QueryHandlers\GetAuthOutboxMessagesHandler.cs" />
+    <Compile Include="QueryHandlers\GetResetPasswordTokenHandler.cs" />
+    <Compile Include="QueryHandlers\Registrations\GetRegistrationSummaryByGuidHandler.cs" />
+    <Compile Include="QueryHandlers\Registrations\GetRegistrationSummaryByUserGuidHandler.cs" />
+    <Compile Include="QueryHandlers\Registrations\GetRegistrationSummaryTokenHandler.cs" />
+    <Compile Include="QueryHandlers\Tokens\GetClaimsIdentityFromProtectedTokenHandler.cs" />
+    <Compile Include="QueryHandlers\Tokens\GetRefreshTokenBasedOnProtectedTokenHandler.cs" />
+    <Compile Include="QueryHandlers\Tokens\GetRefreshTokenReadModelHandler.cs" />
+    <Compile Include="QueryHandlers\Tokens\IsRefreshTokenValidQueryHandler.cs" />
+    <Compile Include="QueryHandlers\Users\GetUserClaimsHandler.cs" />
+    <Compile Include="QueryHandlers\Users\GetUserByGuidHandler.cs" />
+    <Compile Include="QueryHandlers\Users\GetUserByEmailAccountHandler.cs" />
+    <Compile Include="QueryHandlers\Users\IsEmailUniqueHandler.cs" />
+    <Compile Include="QueryHandlers\Users\IsSuperAdminCreatedHandler.cs" />
+    <Compile Include="QueryHandlers\Users\IsUserBlockedHandler.cs" />
+    <Compile Include="QueryHandlers\Users\IsUserLibrarianHandler.cs" />
+    <Compile Include="QueryHandlers\Users\IsUserNameUniqueHandler.cs" />
+    <Compile Include="Root\AuthModule.cs" />
+    <Compile Include="Root\AuthModuleStartup.cs" />
+    <Compile Include="Root\Events\DomainEventDispatcherLoggingDecorator.cs" />
+    <Compile Include="Root\Events\GenericIntegrationLoggingEventHandlerDecorator.cs" />
+    <Compile Include="Root\Events\GenericProducerLoggingNotifier.cs" />
+    <Compile Include="Root\Events\GenericProducerNotifier.cs" />
+    <Compile Include="Root\Events\IntegrationEventDispatcher.cs" />
+    <Compile Include="Root\Inbox\InboxMessagesJobInvoker.cs" />
+    <Compile Include="Root\Inbox\InboxMessagesProcessor.cs" />
+    <Compile Include="Root\Inbox\InboxModule.cs" />
+    <Compile Include="Root\Infrastructure\ServicesModule.cs" />
+    <Compile Include="Root\InternalProcessing\InternalProcessingModule.cs" />
+    <Compile Include="Root\Jobs\AuthJobRegistry.cs" />
+    <Compile Include="Root\Jobs\CheckNotConfirmedAccountsJob.cs" />
+    <Compile Include="Root\Jobs\ProcessInboxMessagesJob.cs" />
+    <Compile Include="Root\Jobs\ProcessOutboxMessagesJob.cs" />
+    <Compile Include="Root\ModuleLoggingDecorator.cs" />
+    <Compile Include="Root\CompositionRoot.cs" />
+    <Compile Include="Root\Domain\DomainModule.cs" />
+    <Compile Include="Root\Events\BusExtension.cs" />
+    <Compile Include="Root\Events\DomainEventDispatcher.cs" />
+    <Compile Include="Root\Events\EventsModule.cs" />
+    <Compile Include="Root\Events\EventsStartup.cs" />
+    <Compile Include="Root\Events\GenericIntegrationEventHandler.cs" />
+    <Compile Include="Root\Infrastructure\HandlersModule.cs" />
+    <Compile Include="Root\InternalProcessing\InternalCommandDispatcher.cs" />
+    <Compile Include="Root\Logging\LoggingModule.cs" />
+    <Compile Include="Root\Outbox\OutboxMessagesJobInvoker.cs" />
+    <Compile Include="Root\Outbox\OutboxMessagesProcessor.cs" />
+    <Compile Include="Root\Outbox\OutboxModule.cs" />
+    <Compile Include="Root\Persistence\PersistenceModule.cs" />
+    <Compile Include="Root\Persistence\PersistenceStartup.cs" />
+    <Compile Include="Root\UnitOfWork.cs" />
+    <Compile Include="Root\ModuleValidationDecorator.cs" />
+    <Compile Include="Root\Validation\ValidationModule.cs" />
+    <Compile Include="Root\Validation\ValidatorFactory.cs" />
+    <Compile Include="Services\Authentication\ClaimsBuilder.cs" />
+    <Compile Include="Services\Emails\EmailService.cs" />
+    <Compile Include="Services\JwtSettings.cs" />
+    <Compile Include="Services\TokenManager.cs" />
+    <Compile Include="Services\Tokens\RandomSecretKeyGenerator.cs" />
+    <Compile Include="Services\Tokens\SigningCredentialsFactory.cs" />
+    <Compile Include="Services\Tokens\SymmetricSecurityKeyFactory.cs" />
+    <Compile Include="Services\Tokens\JwtTokenDescriptorBuilder.cs" />
+    <Compile Include="Services\Tokens\JwtTokenReader.cs" />
+    <Compile Include="Services\Tokens\JwtTokenWriter.cs" />
+    <Compile Include="Services\Authentication\CustomClaimNames.cs" />
+    <Compile Include="Services\Authorization\AuthorizationService.cs" />
+    <Compile Include="Services\HashingService.cs" />
+    <Compile Include="Services\Hashing\IHasher.cs" />
+    <Compile Include="Services\Hashing\PBKDF2Hasher.cs" />
+    <Compile Include="Services\TimeStamper.cs" />
+    <Compile Include="Validators\Commands\Audience\AddAudienceValidator.cs" />
+    <Compile Include="Validators\Commands\Audience\AuthenticateAudienceValidator.cs" />
+    <Compile Include="Validators\Commands\AuthenticateUserValidator.cs" />
+    <Compile Include="Validators\Commands\CheckCredentialsValidator.cs" />
+    <Compile Include="Validators\Commands\CreateSuperAdminValidator.cs" />
+    <Compile Include="Validators\Commands\PasswordResets\GenerateResetTokenValidator.cs" />
+    <Compile Include="Validators\Commands\PasswordResets\ResetPasswordCommandValidator.cs" />
+    <Compile Include="Validators\Commands\Tokens\CreateAccessTokenValidator.cs" />
+    <Compile Include="Validators\Commands\Tokens\RefreshTokenValidator.cs" />
+    <Compile Include="Validators\Commands\Tokens\RevokeTokenValidator.cs" />
+    <Compile Include="Validators\Commands\Users\AccountDetailsValidator.cs" />
+    <Compile Include="Validators\Commands\Users\AccountSecurityValidator.cs" />
+    <Compile Include="Validators\Commands\Users\AccountValidator.cs" />
+    <Compile Include="Validators\Commands\Users\BlockAccountValidator.cs" />
+    <Compile Include="Validators\Commands\Users\ChangeEmailValidator.cs" />
+    <Compile Include="Validators\Commands\Users\ChangePasswordValidator.cs" />
+    <Compile Include="Validators\Commands\Users\CompleteRegistrationValidator.cs" />
+    <Compile Include="Validators\Commands\Users\PasswordValidator.cs" />
+    <Compile Include="Validators\Commands\Users\SignUpValidator.cs" />
+    <Compile Include="Validators\Queries\IsSuperAdminCreatedQueryValidator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BookLovers.Auth.Application\BookLovers.Auth.Application.csproj">
+      <Project>{6d3c8243-7f16-4a5d-b823-3d8d61e03979}</Project>
+      <Name>BookLovers.Auth.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Auth.Integration\BookLovers.Auth.Integration.csproj">
+      <Project>{82c700e5-d693-4ea7-b57d-51b864e82aa8}</Project>
+      <Name>BookLovers.Auth.Integration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Auth\BookLovers.Auth.csproj">
+      <Project>{155d2aa3-c8ac-47f5-8f5e-a80dd5eac542}</Project>
+      <Name>BookLovers.Auth</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Base.Infrastructure\BookLovers.Base.Infrastructure.csproj">
+      <Project>{15735bdd-1be2-4660-8880-64eb06e20ab5}</Project>
+      <Name>BookLovers.Base.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Base\BookLovers.Base.csproj">
+      <Project>{e15ff1ae-818a-4616-a56b-c232ab9b4569}</Project>
+      <Name>BookLovers.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Librarians.Integration\BookLovers.Librarians.Integration.csproj">
+      <Project>{ff66acb8-b1c1-4e89-89df-a15404bfbd4f}</Project>
+      <Name>BookLovers.Librarians.Integration</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Persistence\Scripts\CreateAuthDatabase.sql" />
+    <Content Include="Persistence\Scripts\CreateAuthStructure.sql" />
+    <Content Include="StyleCop.Analyzers.ruleset" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105.The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+</Project>

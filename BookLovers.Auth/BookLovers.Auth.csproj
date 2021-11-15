@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{155D2AA3-C8AC-47F5-8F5E-A80DD5EAC542}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BookLovers.Auth</RootNamespace>
+    <AssemblyName>BookLovers.Auth</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <CodeAnalysisRuleSet>StyleCop.Analyzers.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=8.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005">
+      <HintPath>..\packages\AutoMapper.8.0.0\lib\net461\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FluentValidation, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentValidation.8.4.0\lib\net45\FluentValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.ComponentModel.Primitives, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Primitives.4.3.0\lib\net45\System.ComponentModel.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Z.EntityFramework.Plus.EF6, Version=1.10.1.0, Culture=neutral, PublicKeyToken=59b66d028979105b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Z.EntityFramework.Plus.EF6.1.10.1\lib\net45\Z.EntityFramework.Plus.EF6.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Domain\Audiences\AudienceType.cs" />
+    <Compile Include="Domain\Audiences\Audience.cs" />
+    <Compile Include="Domain\Audiences\AudienceDetails.cs" />
+    <Compile Include="Domain\Audiences\AudienceSecurity.cs" />
+    <Compile Include="Domain\Audiences\AudienceState.cs" />
+    <Compile Include="Domain\Audiences\AudienceTypes.cs" />
+    <Compile Include="Domain\PasswordResets\GeneratePasswordResetTokenRules.cs" />
+    <Compile Include="Domain\PasswordResets\PasswordResetToken.cs" />
+    <Compile Include="Domain\PasswordResets\PasswordResetTokenCannotBeExpired.cs" />
+    <Compile Include="Domain\Permissions\BookcasePermissions.cs" />
+    <Compile Include="Domain\Permissions\LibrarianPermissions.cs" />
+    <Compile Include="Domain\Permissions\PermissionGroup.cs" />
+    <Compile Include="Domain\Permissions\ProfilePermissions.cs" />
+    <Compile Include="Domain\Permissions\PublicationPermissions.cs" />
+    <Compile Include="Domain\Permissions\UserPermissions.cs" />
+    <Compile Include="Domain\RegistrationSummaries\BusinessRules\FinishRegistrationWithoutCompletionRules.cs" />
+    <Compile Include="Domain\RegistrationSummaries\BusinessRules\RegistrationCannotBeCompleted.cs" />
+    <Compile Include="Domain\RegistrationSummaries\BusinessRules\RegistrationCompletionCannotBeExpired.cs" />
+    <Compile Include="Domain\RegistrationSummaries\BusinessRules\RegistrationCompletionRules.cs" />
+    <Compile Include="Domain\RegistrationSummaries\BusinessRules\RegistrationTokensMustBeEqual.cs" />
+    <Compile Include="Domain\RegistrationSummaries\RegistrationIdentification.cs" />
+    <Compile Include="Domain\RegistrationSummaries\RegistrationCompletion.cs" />
+    <Compile Include="Domain\RegistrationSummaries\RegistrationSummary.cs" />
+    <Compile Include="Domain\RegistrationSummaries\Services\IRegistrationSummaryRepository.cs" />
+    <Compile Include="Domain\Roles\IRoleProvider.cs" />
+    <Compile Include="Domain\Roles\RoleManager.cs" />
+    <Compile Include="Domain\Roles\RoleRulesCollection.cs" />
+    <Compile Include="Domain\Tokens\RefreshTokenDetails.cs" />
+    <Compile Include="Domain\Tokens\RefreshTokenIdentification.cs" />
+    <Compile Include="Domain\Tokens\RefreshTokenSecurity.cs" />
+    <Compile Include="Domain\Tokens\Rules\RefreshTokenRules.cs" />
+    <Compile Include="Domain\Tokens\Rules\RevokeTokenRules.cs" />
+    <Compile Include="Domain\Tokens\Rules\TokenCannotBeExpired.cs" />
+    <Compile Include="Domain\Tokens\Rules\TokenCannotBeRevoked.cs" />
+    <Compile Include="Domain\Tokens\Rules\TokenNeedsToBelongToUser.cs" />
+    <Compile Include="Domain\Tokens\Rules\TokenSecurityMustBePresent.cs" />
+    <Compile Include="Domain\Tokens\Services\ITokenRepository.cs" />
+    <Compile Include="Domain\Tokens\Services\RefreshTokenFactory.cs" />
+    <Compile Include="Domain\Tokens\Services\RefreshTokenProperties.cs" />
+    <Compile Include="Domain\Users\Account.cs" />
+    <Compile Include="Domain\Users\BusinessRules\AccountCannotBeBlocked.cs" />
+    <Compile Include="Domain\Users\BusinessRules\AccountCannotBeConfirmed.cs" />
+    <Compile Include="Domain\Users\BusinessRules\AccountMustBeConfirmed.cs" />
+    <Compile Include="Domain\Users\BusinessRules\ChangeEmailRules.cs" />
+    <Compile Include="Domain\Users\BusinessRules\ChangePasswordRules.cs" />
+    <Compile Include="Domain\Users\BusinessRules\ReaderRoleRules.cs" />
+    <Compile Include="Domain\Users\BusinessRules\EmailMustBeUnique.cs" />
+    <Compile Include="Domain\Users\BusinessRules\LibrarianRoleRules.cs" />
+    <Compile Include="Domain\Users\BusinessRules\ResetPasswordRules.cs" />
+    <Compile Include="Domain\Users\BusinessRules\UserMustBeAReader.cs" />
+    <Compile Include="Domain\Users\BusinessRules\UserCannotHaveZeroRoles.cs" />
+    <Compile Include="Domain\Users\BusinessRules\AccountConfirmationRules.cs" />
+    <Compile Include="Domain\Users\BusinessRules\UserMustBeAvailable.cs" />
+    <Compile Include="Domain\Users\BusinessRules\UserMustHaveMoreThenZeroRoles.cs" />
+    <Compile Include="Domain\Users\BusinessRules\UserNameMustBeUnique.cs" />
+    <Compile Include="Domain\Users\BusinessRules\UserShouldNotBeBlockedPreviously.cs" />
+    <Compile Include="Domain\Users\Email.cs" />
+    <Compile Include="Domain\Users\AccountConfirmation.cs" />
+    <Compile Include="Domain\Users\Role.cs" />
+    <Compile Include="Domain\Users\Services\AccountBlocker.cs" />
+    <Compile Include="Domain\Users\Services\Factories\AccountFactoryData.cs" />
+    <Compile Include="Domain\Users\Services\Factories\BasicsFactoryData.cs" />
+    <Compile Include="Domain\Users\Services\Factories\IUserFactory.cs" />
+    <Compile Include="Domain\Users\Services\Factories\SuperAdminFactory.cs" />
+    <Compile Include="Domain\Users\Services\Factories\SuperAdminFactorySetup.cs" />
+    <Compile Include="Domain\Users\Services\Factories\UserFactory.cs" />
+    <Compile Include="Domain\Users\Services\Factories\UserFactoryData.cs" />
+    <Compile Include="Domain\Users\Services\Factories\UserFactorySetup.cs" />
+    <Compile Include="Domain\Users\Services\IEmailUniquenessChecker.cs" />
+    <Compile Include="Domain\Users\Services\IHashingService.cs" />
+    <Compile Include="Domain\Users\Services\IPasswordResetTokenRepository.cs" />
+    <Compile Include="Domain\Users\Services\IUserNameUniquenessChecker.cs" />
+    <Compile Include="Domain\Users\Services\IUserRepository.cs" />
+    <Compile Include="Domain\Users\Services\UserAuthenticationService.cs" />
+    <Compile Include="Domain\Users\UserName.cs" />
+    <Compile Include="Domain\Users\AccountDetails.cs" />
+    <Compile Include="Domain\Tokens\RefreshToken.cs" />
+    <Compile Include="Domain\Users\AccountSecurity.cs" />
+    <Compile Include="Domain\Users\User.cs" />
+    <Compile Include="Domain\Users\UserRole.cs" />
+    <Compile Include="Events\RegistrationSummaryCompleted.cs" />
+    <Compile Include="Events\RegistrationSummaryNotCompleted.cs" />
+    <Compile Include="Events\ResetPasswordTokenGenerated.cs" />
+    <Compile Include="Events\UserArchived.cs" />
+    <Compile Include="Events\UserCreated.cs" />
+    <Compile Include="Events\UserPromotedToLibrarianEvent.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BookLovers.Base.Infrastructure\BookLovers.Base.Infrastructure.csproj">
+      <Project>{15735bdd-1be2-4660-8880-64eb06e20ab5}</Project>
+      <Name>BookLovers.Base.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Base\BookLovers.Base.csproj">
+      <Project>{e15ff1ae-818a-4616-a56b-c232ab9b4569}</Project>
+      <Name>BookLovers.Base</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="StyleCop.Analyzers.ruleset" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

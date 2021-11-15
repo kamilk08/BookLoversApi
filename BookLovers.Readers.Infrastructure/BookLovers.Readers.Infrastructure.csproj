@@ -1,0 +1,489 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FF790995-BA95-4AD9-B590-230E5EDF3250}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BookLovers.Readers.Infrastructure</RootNamespace>
+    <AssemblyName>BookLovers.Readers.Infrastructure</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <CodeAnalysisRuleSet>StyleCop.Analyzers.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=8.1.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005">
+      <HintPath>..\packages\AutoMapper.8.1.0\lib\net461\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc">
+      <HintPath>..\packages\Castle.Core.4.2.0\lib\net45\Castle.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FluentScheduler, Version=5.3.0.0, Culture=neutral, PublicKeyToken=b76503528a14ebd1">
+      <HintPath>..\packages\FluentScheduler.5.3.0\lib\net40\FluentScheduler.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FluentValidation, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0">
+      <HintPath>..\packages\FluentValidation.8.2.1\lib\net45\FluentValidation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Diagnostics.Tracing.EventSource, Version=2.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Diagnostics.Tracing.EventSource.Redist.2.0.1\lib\net461\Microsoft.Diagnostics.Tracing.EventSource.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json.Bson, Version=1.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.Bson.1.0.2\lib\net45\Newtonsoft.Json.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7">
+      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Extensions.Conventions, Version=3.3.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7">
+      <HintPath>..\packages\Ninject.Extensions.Conventions.3.3.0\lib\net45\Ninject.Extensions.Conventions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Extensions.Factory, Version=3.3.3.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7">
+      <HintPath>..\packages\Ninject.Extensions.Factory.3.3.3\lib\net45\Ninject.Extensions.Factory.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Serilog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10">
+      <HintPath>..\packages\Serilog.2.10.0-dev-01211\lib\net46\Serilog.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Serilog.Sinks.File, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10">
+      <HintPath>..\packages\Serilog.Sinks.File.5.0.0-dev-00887\lib\net45\Serilog.Sinks.File.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.ComponentModel.Primitives, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Primitives.4.3.0\lib\net45\System.ComponentModel.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Z.EntityFramework.Plus.EF6, Version=1.10.1.0, Culture=neutral, PublicKeyToken=59b66d028979105b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Z.EntityFramework.Plus.EF6.1.10.1\lib\net45\Z.EntityFramework.Plus.EF6.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Directories\ModuleDirectories.cs" />
+    <Compile Include="Dtos\AuthorDto.cs" />
+    <Compile Include="Dtos\Followers\FollowDto.cs" />
+    <Compile Include="Dtos\Readers\AvatarDto.cs" />
+    <Compile Include="Dtos\Readers\FavouriteAuthorDto.cs" />
+    <Compile Include="Dtos\Readers\FavouriteBookDto.cs" />
+    <Compile Include="Dtos\Readers\PrivacyOptionDto.cs" />
+    <Compile Include="Dtos\Readers\ProfileDto.cs" />
+    <Compile Include="Dtos\Readers\ProfilePrivacyDto.cs" />
+    <Compile Include="Dtos\Readers\ProfilePrivacyOptionDto.cs" />
+    <Compile Include="Dtos\Readers\ReaderDto.cs" />
+    <Compile Include="Dtos\Readers\ReaderStatusDto.cs" />
+    <Compile Include="Dtos\Readers\ReaderStatisticsDto.cs" />
+    <Compile Include="Dtos\Readers\TimeLineActivityDto.cs" />
+    <Compile Include="Dtos\Readers\TimeLineDto.cs" />
+    <Compile Include="Dtos\Reviews\ReviewDto.cs" />
+    <Compile Include="Dtos\Reviews\ReviewLikeDto.cs" />
+    <Compile Include="Dtos\Reviews\ReviewReportDto.cs" />
+    <Compile Include="Dtos\Reviews\SpoilerTagDto.cs" />
+    <Compile Include="EventHandlers\AvatarChanged.cs" />
+    <Compile Include="EventHandlers\AvatarChangedHandler.cs" />
+    <Compile Include="Mappings\AuthorsMapping.cs" />
+    <Compile Include="Mappings\FollowMapping.cs" />
+    <Compile Include="Mappings\ProfileMapping.cs" />
+    <Compile Include="Mappings\MappingConfiguration.cs" />
+    <Compile Include="Mappings\ReviewMapping.cs" />
+    <Compile Include="Mappings\ReaderMapping.cs" />
+    <Compile Include="Mappings\StatisticsMapping.cs" />
+    <Compile Include="Mappings\TimelineActivityMapping.cs" />
+    <Compile Include="Mappings\TimelineMapping.cs" />
+    <Compile Include="Mementos\NotificationWallMemento.cs" />
+    <Compile Include="Mementos\PrivacyManagerMemento.cs" />
+    <Compile Include="Mementos\ReaderMemento.cs" />
+    <Compile Include="Mementos\ReviewMemento.cs" />
+    <Compile Include="Mementos\SocialProfileMemento.cs" />
+    <Compile Include="Mementos\StatisticsGathererMemento.cs" />
+    <Compile Include="Persistence\Configuration\AddedResourcesTableConfiguration.cs" />
+    <Compile Include="Persistence\Configuration\AuthorsTableConfiguration.cs" />
+    <Compile Include="Persistence\Configuration\AvatarsTableConfiguration.cs" />
+    <Compile Include="Persistence\Configuration\BooksTableConfiguration.cs" />
+    <Compile Include="Persistence\Configuration\FavouriteOwnersTableConfiguration.cs" />
+    <Compile Include="Persistence\Configuration\FavouritesTableConfiguration.cs" />
+    <Compile Include="Persistence\Configuration\ProfileFavouritesTableConfiguration.cs" />
+    <Compile Include="Persistence\Configuration\NotificationsTableConfiguration.cs" />
+    <Compile Include="Persistence\Configuration\NotificationsWallTableConfiguration.cs" />
+    <Compile Include="Persistence\Configuration\PrivacyProfileTableConfiguration.cs" />
+    <Compile Include="Persistence\Configuration\ProfilePrivacyOptionTableConfiguration.cs" />
+    <Compile Include="Persistence\Configuration\ReviewEditTableConfiguration.cs" />
+    <Compile Include="Persistence\Configuration\ReviewLikesTableConfiguration.cs" />
+    <Compile Include="Persistence\Configuration\ReviewReportsTableConfiguration.cs" />
+    <Compile Include="Persistence\Configuration\ReviewSpoilerTagsTableConfiguration.cs" />
+    <Compile Include="Persistence\Configuration\ReviewsTableConfiguration.cs" />
+    <Compile Include="Persistence\Configuration\SexesTableConfiguration.cs" />
+    <Compile Include="Persistence\Configuration\ProfileTableConfiguration.cs" />
+    <Compile Include="Persistence\Configuration\StatisticsTableConfiguration.cs" />
+    <Compile Include="Persistence\Configuration\TimeLineActivitiesTableConfiguration.cs" />
+    <Compile Include="Persistence\Configuration\TimeLinesTableConfiguration.cs" />
+    <Compile Include="Persistence\Configuration\ReadersFollowsTableConfiguration.cs" />
+    <Compile Include="Persistence\Configuration\ReadersTableConfiguration.cs" />
+    <Compile Include="Persistence\Messages\InboxMessagesTableConfiguration.cs" />
+    <Compile Include="Persistence\Messages\OutboxMessagesTableConfiguration.cs" />
+    <Compile Include="Persistence\ReadersContext.cs" />
+    <Compile Include="Persistence\ReadersContextExtensions.cs" />
+    <Compile Include="Persistence\ReadModels\AddedResourceReadModel.cs" />
+    <Compile Include="Persistence\ReadModels\AuthorReadModel.cs" />
+    <Compile Include="Persistence\ReadModels\AvatarReadModel.cs" />
+    <Compile Include="Persistence\ReadModels\BookReadModel.cs" />
+    <Compile Include="Persistence\ReadModels\FavouriteOwnerReadModel.cs" />
+    <Compile Include="Persistence\ReadModels\FavouriteReadModel.cs" />
+    <Compile Include="Persistence\ReadModels\ProfileFavouriteReadModel.cs" />
+    <Compile Include="Persistence\ReadModels\FollowReadModel.cs" />
+    <Compile Include="Persistence\ReadModels\NotificationReadModel.cs" />
+    <Compile Include="Persistence\ReadModels\NotificationWallReadModel.cs" />
+    <Compile Include="Persistence\ReadModels\ProfilePrivacyManagerReadModel.cs" />
+    <Compile Include="Persistence\ReadModels\ProfilePrivacyOptionReadModel.cs" />
+    <Compile Include="Persistence\ReadModels\ProfileReadModel.cs" />
+    <Compile Include="Persistence\ReadModels\ReaderReadModel.cs" />
+    <Compile Include="Persistence\ReadModels\ReviewEditReadModel.cs" />
+    <Compile Include="Persistence\ReadModels\ReviewLikeReadModel.cs" />
+    <Compile Include="Persistence\ReadModels\ReviewReadModel.cs" />
+    <Compile Include="Persistence\ReadModels\ReviewReportReadModel.cs" />
+    <Compile Include="Persistence\ReadModels\ReviewSpoilerTagReadModel.cs" />
+    <Compile Include="Persistence\ReadModels\SexReadModel.cs" />
+    <Compile Include="Persistence\ReadModels\StatisticsReadModel.cs" />
+    <Compile Include="Persistence\ReadModels\TimeLineActivityReadModel.cs" />
+    <Compile Include="Persistence\ReadModels\TimeLineReadModel.cs" />
+    <Compile Include="Projections\Favourites\FavouriteArchivedProjection.cs" />
+    <Compile Include="Projections\Favourites\FavouriteCreatedProjection.cs" />
+    <Compile Include="Projections\Favourites\FavouriteOwnerAddedProjection.cs" />
+    <Compile Include="Projections\Favourites\FavouriteOwnerRemovedProjection.cs" />
+    <Compile Include="Projections\NotificationWalls\NotificationCreatedProjection.cs" />
+    <Compile Include="Projections\NotificationWalls\NotificationHiddenProjection.cs" />
+    <Compile Include="Projections\NotificationWalls\NotificationSeenByReaderProjection.cs" />
+    <Compile Include="Projections\NotificationWalls\NotificationShownProjection.cs" />
+    <Compile Include="Projections\NotificationWalls\NotificationWallArchivedProjection.cs" />
+    <Compile Include="Projections\NotificationWalls\NotificationWallCreatedProjection.cs" />
+    <Compile Include="Projections\ProfileManagers\PrivacyManagerCreatedProjection.cs" />
+    <Compile Include="Projections\ProfileManagers\ProfilePrivacyOptionAddedProjection.cs" />
+    <Compile Include="Projections\Profiles\AddressChangedProjection.cs" />
+    <Compile Include="Projections\Profiles\CurrentRoleChangedProjection.cs" />
+    <Compile Include="Projections\Profiles\FavouriteAuthorAddedProjection.cs" />
+    <Compile Include="Projections\Profiles\FavouriteBookAddedProjection.cs" />
+    <Compile Include="Projections\Profiles\FavouriteAuthorRemovedProjection.cs" />
+    <Compile Include="Projections\Profiles\FavouriteBookRemovedProjection.cs" />
+    <Compile Include="Projections\Profiles\IdentityChangedProjection.cs" />
+    <Compile Include="Projections\Profiles\SocialMediaChangedProjection.cs" />
+    <Compile Include="Projections\Profiles\SocialProfileArchivedProjection.cs" />
+    <Compile Include="Projections\Profiles\SocialProfileCreatedProjection.cs" />
+    <Compile Include="Projections\Readers\AddedResourceRemovedProjection.cs" />
+    <Compile Include="Projections\Readers\ReaderAddedAuthorProjection.cs" />
+    <Compile Include="Projections\Readers\ReaderAddedBookProjection.cs" />
+    <Compile Include="Projections\Readers\ReaderAddedReviewProjection.cs" />
+    <Compile Include="Projections\Readers\ReaderChangedEmailProjection.cs" />
+    <Compile Include="Projections\Readers\ReaderFollowedProjection.cs" />
+    <Compile Include="Projections\Readers\ReaderRegisteredProjection.cs" />
+    <Compile Include="Projections\Readers\ReaderSuspendedProjection.cs" />
+    <Compile Include="Projections\Readers\ReaderUnFollowedProjection.cs" />
+    <Compile Include="Projections\Reviews\NewReviewSpoilerTagProjection.cs" />
+    <Compile Include="Projections\Reviews\ReviewArchivedProjection.cs" />
+    <Compile Include="Projections\Reviews\ReviewCreatedProjection.cs" />
+    <Compile Include="Projections\Reviews\ReviewEditedProjection.cs" />
+    <Compile Include="Projections\Reviews\ReviewLikedProjection.cs" />
+    <Compile Include="Projections\Reviews\ReviewMarkedAsSpoilerByOthersProjection.cs" />
+    <Compile Include="Projections\Reviews\ReviewMarkedAsSpoilerProjection.cs" />
+    <Compile Include="Projections\Reviews\ReviewReportedProjection.cs" />
+    <Compile Include="Projections\Reviews\ReviewSpoilerTagRemovedProjection.cs" />
+    <Compile Include="Projections\Reviews\ReviewUnLikedProjection.cs" />
+    <Compile Include="Projections\Statistics\StatisticsGathererCreatedProjection.cs" />
+    <Compile Include="Projections\Statistics\GathererStatisticChangedProjection.cs" />
+    <Compile Include="Projections\TimeLines\ReaderActivityAddedToTimeLineProjection.cs" />
+    <Compile Include="Projections\TimeLines\TimeLineActivityHiddenProjection.cs" />
+    <Compile Include="Projections\TimeLines\TimeLineActivityShownProjection.cs" />
+    <Compile Include="Projections\TimeLines\TimeLIneAddedToReaderProjection.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queries\FilteringExtensions\ReadersQueriesExtensions.cs" />
+    <Compile Include="Queries\FilteringExtensions\ReviewsFilteringExtensions.cs" />
+    <Compile Include="Queries\GetReadersInboxMessagesQuery.cs" />
+    <Compile Include="Queries\GetReadersOutboxMessagesQuery.cs" />
+    <Compile Include="Queries\Readers\Follows\IsFollowingQuery.cs" />
+    <Compile Include="Queries\AuthorByGuidQuery.cs" />
+    <Compile Include="Queries\Readers\BlockedReadersQuery.cs" />
+    <Compile Include="Queries\Readers\Follows\ReaderPaginatedFollowersQuery.cs" />
+    <Compile Include="Queries\Readers\Follows\ReaderPaginatedFollowingsQuery.cs" />
+    <Compile Include="Queries\Readers\Profiles\FavouriteAuthorsQuery.cs" />
+    <Compile Include="Queries\Readers\Profiles\FavouriteBooksQuery.cs" />
+    <Compile Include="Queries\Readers\Profiles\DoesProfileBelongToReaderQuery.cs" />
+    <Compile Include="Queries\Readers\Profiles\ReaderProfilePrivacy.cs" />
+    <Compile Include="Queries\Readers\Profiles\ReaderProfileQuery.cs" />
+    <Compile Include="Queries\Readers\ReaderAvatarQuery.cs" />
+    <Compile Include="Queries\Readers\ReaderByGuidQuery.cs" />
+    <Compile Include="Queries\Readers\ReaderByIdQuery.cs" />
+    <Compile Include="Queries\Readers\ReaderByUserNameQuery.cs" />
+    <Compile Include="Queries\Readers\ReadersPageQuery.cs" />
+    <Compile Include="Queries\Readers\ReaderStatisticsQuery.cs" />
+    <Compile Include="Queries\Readers\Reviews\DoesReviewBelongToReaderQuery.cs" />
+    <Compile Include="Queries\Readers\Reviews\ReviewByGuidQuery.cs" />
+    <Compile Include="Queries\Readers\Reviews\ReviewByIdQuery.cs" />
+    <Compile Include="Queries\Readers\Reviews\PaginatedBookReviewsQuery.cs" />
+    <Compile Include="Queries\Readers\Reviews\ReaderBookReviewQuery.cs" />
+    <Compile Include="Queries\Readers\Reviews\ReaderReviewsIdsQuery.cs" />
+    <Compile Include="Queries\Readers\Reviews\ReaderReviewsListQuery.cs" />
+    <Compile Include="Queries\Readers\TimeLines\ReaderTimeLineQuery.cs" />
+    <Compile Include="Queries\Readers\TimeLines\TimelineActivitiesQuery.cs" />
+    <Compile Include="Queries\Readers\TimeLines\TimeLineByIdQuery.cs" />
+    <Compile Include="QueryHandlers\ReaderAvatarQueryHandler.cs" />
+    <Compile Include="QueryHandlers\Followers\ReaderPaginatedFollowersHandler.cs" />
+    <Compile Include="QueryHandlers\Followings\IsFollowingHandler.cs" />
+    <Compile Include="QueryHandlers\Followings\ReaderPaginatedFollowingsHandler.cs" />
+    <Compile Include="QueryHandlers\AuthorByGuidHandler.cs" />
+    <Compile Include="QueryHandlers\GetInboxMessagesHandler.cs" />
+    <Compile Include="QueryHandlers\GetOutboxMessagesHandler.cs" />
+    <Compile Include="QueryHandlers\Profiles\DoesProfileBelongToReaderHandler.cs" />
+    <Compile Include="QueryHandlers\Profiles\FavouriteAuthorsHandler.cs" />
+    <Compile Include="QueryHandlers\Profiles\FavouriteBooksHandler.cs" />
+    <Compile Include="QueryHandlers\Profiles\ProfileHandler.cs" />
+    <Compile Include="QueryHandlers\Profiles\ReaderProfilePrivacyHandler.cs" />
+    <Compile Include="QueryHandlers\Readers\ReaderByGuidHandler.cs" />
+    <Compile Include="QueryHandlers\Readers\ReaderByIdHandler.cs" />
+    <Compile Include="QueryHandlers\Readers\ReaderByUserNameHandler.cs" />
+    <Compile Include="QueryHandlers\Readers\ReadersPageHandler.cs" />
+    <Compile Include="QueryHandlers\Reviews\DoesReviewBelongToReaderHandler.cs" />
+    <Compile Include="QueryHandlers\Reviews\ReviewByGuidHandler.cs" />
+    <Compile Include="QueryHandlers\Reviews\PaginatedBookReviewsHandler.cs" />
+    <Compile Include="QueryHandlers\Reviews\ReaderBookReviewHandler.cs" />
+    <Compile Include="QueryHandlers\Reviews\ReaderReviewsIdsHandler.cs" />
+    <Compile Include="QueryHandlers\Reviews\ReaderReviewsListHandler.cs" />
+    <Compile Include="QueryHandlers\Reviews\ReviewByIdHandler.cs" />
+    <Compile Include="QueryHandlers\Statistics\ReaderStatisticsHandler.cs" />
+    <Compile Include="QueryHandlers\TimeLines\ReaderTimeLineHandler.cs" />
+    <Compile Include="QueryHandlers\TimeLines\TimeLineActivitiesHandler.cs" />
+    <Compile Include="QueryHandlers\TimeLines\TimeLineByIdHandler.cs" />
+    <Compile Include="Root\Events\DomainEventDispatcherLoggingDecorator.cs" />
+    <Compile Include="Root\Events\GenericIntegrationLoggingEventHandler.cs" />
+    <Compile Include="Root\Events\GenericProducerLoggingNotifier.cs" />
+    <Compile Include="Root\Events\GenericProducerNotifier.cs" />
+    <Compile Include="Root\Events\IntegrationEventDispatcher.cs" />
+    <Compile Include="Root\Inbox\InboxMessagesJobInvoker.cs" />
+    <Compile Include="Root\Inbox\InboxMessagesProcessor.cs" />
+    <Compile Include="Root\Inbox\InboxModule.cs" />
+    <Compile Include="Root\Infrastructure\ResourceProvider.cs" />
+    <Compile Include="Root\Infrastructure\ReviewsSortersProvider.cs" />
+    <Compile Include="Root\Jobs\ProcessInboxMessagesJob.cs" />
+    <Compile Include="Root\Jobs\ProcessOutboxMessagesJob.cs" />
+    <Compile Include="Root\Jobs\ReadersJobsRegistry.cs" />
+    <Compile Include="Root\ModuleValidationDecorator.cs" />
+    <Compile Include="Root\CompositionRoot.cs" />
+    <Compile Include="Root\Domain\DomainModule.cs" />
+    <Compile Include="Root\Domain\FavouriteAdderProvider.cs" />
+    <Compile Include="Root\Domain\FavouriteRemoverProvider.cs" />
+    <Compile Include="Root\Domain\ResourceAdderProvider.cs" />
+    <Compile Include="Root\Events\BusExtension.cs" />
+    <Compile Include="Root\Events\DomainEventDispatcher.cs" />
+    <Compile Include="Root\Events\EventsModule.cs" />
+    <Compile Include="Root\Events\EventsStartup.cs" />
+    <Compile Include="Root\Events\GenericIntegrationEventHandler.cs" />
+    <Compile Include="Root\Events\InfrastructureEventDispatcher.cs" />
+    <Compile Include="Root\Events\ProjectionDispatcher.cs" />
+    <Compile Include="Root\Infrastructure\HandlersModule.cs" />
+    <Compile Include="Root\Infrastructure\InfrastructureModule.cs" />
+    <Compile Include="Root\InternalProcessing\InternalCommandDispatcher.cs" />
+    <Compile Include="Root\InternalProcessing\InternalProcessingModule.cs" />
+    <Compile Include="Root\Logging\LoggingModule.cs" />
+    <Compile Include="Root\ModuleLoggingDecorator.cs" />
+    <Compile Include="Root\Outbox\OutboxMessagesJobInvoker.cs" />
+    <Compile Include="Root\Outbox\OutboxMessagesProcessor.cs" />
+    <Compile Include="Root\Outbox\OutboxModule.cs" />
+    <Compile Include="Root\Persistence\MementoFactory.cs" />
+    <Compile Include="Root\Persistence\PersistenceModule.cs" />
+    <Compile Include="Root\Persistence\PersistenceStartup.cs" />
+    <Compile Include="Root\ReadersModule.cs" />
+    <Compile Include="Root\ReadersModuleStartup.cs" />
+    <Compile Include="Root\UnitOfWork.cs" />
+    <Compile Include="Root\Validation\ValidationModule.cs" />
+    <Compile Include="Root\Validation\ValidatorFactory.cs" />
+    <Compile Include="Services\AvatarImageService.cs" />
+    <Compile Include="Services\BookReviewsSortingServices\LikesReviewsSorter.cs" />
+    <Compile Include="Services\IResourceService.cs" />
+    <Compile Include="Services\ReadContextAccessor.cs" />
+    <Compile Include="Services\ResourceSaver.cs" />
+    <Compile Include="Services\BookReviewsSortingServices\DateReviewsSorter.cs" />
+    <Compile Include="Services\BookReviewsSortingServices\IReviewsSorter.cs" />
+    <Compile Include="Services\BookReviewsSortingServices\ReviewsSortingType.cs" />
+    <Compile Include="Validators\Commands\Readers\FollowReaderValidator.cs" />
+    <Compile Include="Validators\Commands\Readers\FollowValidator.cs" />
+    <Compile Include="Validators\Commands\Readers\ReaderDetailsValidator.cs" />
+    <Compile Include="Validators\Commands\Readers\ReaderSocialDetailsValidator.cs" />
+    <Compile Include="Validators\Commands\Readers\ReaderValidator.cs" />
+    <Compile Include="Validators\Commands\Readers\UnFollowReaderValidator.cs" />
+    <Compile Include="Validators\Commands\Reviews\AddReviewValidator.cs" />
+    <Compile Include="Validators\Commands\Reviews\AddSpoilerTagValidator.cs" />
+    <Compile Include="Validators\Commands\Reviews\EditReviewValidator.cs" />
+    <Compile Include="Validators\Commands\Reviews\LikeReviewValidator.cs" />
+    <Compile Include="Validators\Commands\Reviews\RemoveReviewValidator.cs" />
+    <Compile Include="Validators\Commands\Reviews\RemoveSpoilerTagValidator.cs" />
+    <Compile Include="Validators\Commands\Reviews\ReportReviewValidator.cs" />
+    <Compile Include="Validators\Commands\Reviews\ReviewDetailsValidator.cs" />
+    <Compile Include="Validators\Commands\Reviews\ReviewValidator.cs" />
+    <Compile Include="Validators\Commands\Reviews\UnlikeReviewValidator.cs" />
+    <Compile Include="Validators\Commands\SocialProfile\AddressValidator.cs" />
+    <Compile Include="Validators\Commands\SocialProfile\ChangeAvatarValidator.cs" />
+    <Compile Include="Validators\Commands\SocialProfile\EditSocialProfileValidator.cs" />
+    <Compile Include="Validators\Commands\SocialProfile\FavouritesValidator.cs" />
+    <Compile Include="Validators\Commands\SocialProfile\Favourites\AddFavouriteAuthorValidator.cs" />
+    <Compile Include="Validators\Commands\SocialProfile\Favourites\AddFavouriteBookValidator.cs" />
+    <Compile Include="Validators\Commands\SocialProfile\Favourites\RemoveFavouriteValidator.cs" />
+    <Compile Include="Validators\Commands\SocialProfile\IdentityValidator.cs" />
+    <Compile Include="Validators\Commands\SocialProfile\SocialMediaValidator.cs" />
+    <Compile Include="Validators\Commands\SocialProfile\SocialProfileValidator.cs" />
+    <Compile Include="Validators\Commands\TimeLines\HideTimeLineActivityValidator.cs" />
+    <Compile Include="Validators\Commands\TimeLines\ShowTimeLineActivityValidator.cs" />
+    <Compile Include="Validators\Queries\Readers\FavouriteAuthorsQueryValidator.cs" />
+    <Compile Include="Validators\Queries\Readers\ReaderPaginatedFollowersQueryValidator.cs" />
+    <Compile Include="Validators\Queries\Readers\ReaderPaginatedFollowingsQueryValidator.cs" />
+    <Compile Include="Validators\Queries\Readers\ReaderProfileQueryValidator.cs" />
+    <Compile Include="Validators\Queries\Readers\ReadersPageQueryValidator.cs" />
+    <Compile Include="Validators\Queries\Readers\ReaderTimelineQueryValidator.cs" />
+    <Compile Include="Validators\Queries\Readers\TimelineActivitiesQueryValidator.cs" />
+    <Compile Include="Validators\Queries\Readers\TimeLineByIdQueryValidator.cs" />
+    <Compile Include="Validators\Queries\Reviews\PaginatedBookReviewsQueryValidator.cs" />
+    <Compile Include="Validators\Queries\Reviews\ReaderReviewsIdsQueryValidator.cs" />
+    <Compile Include="Validators\Queries\Reviews\ReaderReviewsListQueryValidator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BookLovers.Auth.Integration\BookLovers.Auth.Integration.csproj">
+      <Project>{82c700e5-d693-4ea7-b57d-51b864e82aa8}</Project>
+      <Name>BookLovers.Auth.Integration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Base.Infrastructure\BookLovers.Base.Infrastructure.csproj">
+      <Project>{15735bdd-1be2-4660-8880-64eb06e20ab5}</Project>
+      <Name>BookLovers.Base.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Base\BookLovers.Base.csproj">
+      <Project>{e15ff1ae-818a-4616-a56b-c232ab9b4569}</Project>
+      <Name>BookLovers.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Bookcases.Integration\BookLovers.Bookcases.Integration.csproj">
+      <Project>{59b09168-8098-4ae9-b588-14e9657833c8}</Project>
+      <Name>BookLovers.Bookcases.Integration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Librarians.Integration\BookLovers.Librarians.Integration.csproj">
+      <Project>{ff66acb8-b1c1-4e89-89df-a15404bfbd4f}</Project>
+      <Name>BookLovers.Librarians.Integration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Publication.Integration\BookLovers.Publication.Integration.csproj">
+      <Project>{4e049363-88a9-465f-ae48-abe505ca1cc0}</Project>
+      <Name>BookLovers.Publication.Integration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Readers.Application\BookLovers.Readers.Application.csproj">
+      <Project>{b99b0659-d29e-4ff6-9ed9-868315f4d719}</Project>
+      <Name>BookLovers.Readers.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Readers.Integration\BookLovers.Readers.Integration.csproj">
+      <Project>{ecf351d2-4452-4c55-ac6c-67641c139c59}</Project>
+      <Name>BookLovers.Readers.Integration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Readers.Store\BookLovers.Readers.Store.csproj">
+      <Project>{407cb3d6-e29a-42ff-a80d-72b6aa432fe1}</Project>
+      <Name>BookLovers.Readers.Store</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Readers\BookLovers.Readers.csproj">
+      <Project>{9e33ab9e-82d7-43c2-b676-aa4561fc4ebd}</Project>
+      <Name>BookLovers.Readers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Shared\BookLovers.Shared.csproj">
+      <Project>{96f5e5d1-331f-428b-b0e1-d9b66542eebd}</Project>
+      <Name>BookLovers.Shared</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Persistence\Scripts\CreateReadersDatabase.sql" />
+    <Content Include="Persistence\Scripts\CreateReadersStructure.sql" />
+    <Content Include="Persistence\Scripts\CreateReadersStore.sql" />
+    <Content Include="Persistence\Scripts\CreateReadersStoreStructure.sql" />
+    <Content Include="StyleCop.Analyzers.ruleset" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105.The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

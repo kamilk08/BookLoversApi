@@ -1,0 +1,296 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FFBC8345-68B9-4AF2-BEDF-E574591316B5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BookLovers.Publication.Application</RootNamespace>
+    <AssemblyName>BookLovers.Publication.Application</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <CodeAnalysisRuleSet>StyleCop.Analyzers.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FluentScheduler, Version=5.3.0.0, Culture=neutral, PublicKeyToken=b76503528a14ebd1, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentScheduler.5.3.0\lib\net40\FluentScheduler.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Z.EntityFramework.Plus.EF6, Version=1.10.1.0, Culture=neutral, PublicKeyToken=59b66d028979105b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Z.EntityFramework.Plus.EF6.1.10.1\lib\net45\Z.EntityFramework.Plus.EF6.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CommandHandlers\Authors\AddAuthorBookHandler.cs" />
+    <Compile Include="CommandHandlers\Authors\AddAuthorFollowerHandler.cs" />
+    <Compile Include="CommandHandlers\Authors\AddQuoteToAuthorHandler.cs" />
+    <Compile Include="CommandHandlers\Authors\ArchiveAuthorHandler.cs" />
+    <Compile Include="CommandHandlers\Authors\CreateAuthorHandler.cs" />
+    <Compile Include="CommandHandlers\Authors\CreateUnknownAuthorHandler.cs" />
+    <Compile Include="CommandHandlers\Authors\EditAuthorHandler.cs" />
+    <Compile Include="CommandHandlers\Authors\FollowAuthorHandler.cs" />
+    <Compile Include="CommandHandlers\Authors\RemoveAuthorBookHandler.cs" />
+    <Compile Include="CommandHandlers\Authors\RemoveAuthorFollowerHandler.cs" />
+    <Compile Include="CommandHandlers\Authors\UnFollowAuthorHandler.cs" />
+    <Compile Include="CommandHandlers\BookReaders\CreateBookReaderHandler.cs" />
+    <Compile Include="CommandHandlers\BookReaders\SuspendBookReaderHandler.cs" />
+    <Compile Include="CommandHandlers\Books\AddBookAuthorHandler.cs" />
+    <Compile Include="CommandHandlers\Books\AddBookHandler.cs" />
+    <Compile Include="CommandHandlers\Books\AddBookReviewHandler.cs" />
+    <Compile Include="CommandHandlers\Books\AddQuoteToBookHandler.cs" />
+    <Compile Include="CommandHandlers\Books\ArchiveBookHandler.cs" />
+    <Compile Include="CommandHandlers\Books\ChangeBookPublisherHandler.cs" />
+    <Compile Include="CommandHandlers\Books\ChangeBookSeriesHandler.cs" />
+    <Compile Include="CommandHandlers\Books\EditBookHandler.cs" />
+    <Compile Include="CommandHandlers\Books\MakeBookAsSelfPublishedHandler.cs" />
+    <Compile Include="CommandHandlers\Books\RemoveBookAuthorHandler.cs" />
+    <Compile Include="CommandHandlers\Books\RemoveBookFromSeriesHandler.cs" />
+    <Compile Include="CommandHandlers\Books\RemoveBookReviewHandler.cs" />
+    <Compile Include="CommandHandlers\PublisherCycles\AddPublisherCycleBookHandler.cs" />
+    <Compile Include="CommandHandlers\PublisherCycles\AddPublisherCycleBookInternalHandler.cs" />
+    <Compile Include="CommandHandlers\PublisherCycles\AddPublisherCycleHandler.cs" />
+    <Compile Include="CommandHandlers\PublisherCycles\ArchivePublisherCycleHandler.cs" />
+    <Compile Include="CommandHandlers\PublisherCycles\RemovePublisherCycleBookHandler.cs" />
+    <Compile Include="CommandHandlers\Publishers\AddPublisherBookHandler.cs" />
+    <Compile Include="CommandHandlers\Publishers\AddPublisherCycleHandler.cs" />
+    <Compile Include="CommandHandlers\Publishers\ArchivePublisherHandler.cs" />
+    <Compile Include="CommandHandlers\Publishers\CreatePublisherHandler.cs" />
+    <Compile Include="CommandHandlers\Publishers\CreateSelfPublisherHandler.cs" />
+    <Compile Include="CommandHandlers\Publishers\RemovePublisherBookHandler.cs" />
+    <Compile Include="CommandHandlers\Publishers\RemovePublisherCycleHandler.cs" />
+    <Compile Include="CommandHandlers\Quotes\AddAuthorQuoteHandler.cs" />
+    <Compile Include="CommandHandlers\Quotes\AddBookQuoteHandler.cs" />
+    <Compile Include="CommandHandlers\Quotes\ArchiveQuoteHandler.cs" />
+    <Compile Include="CommandHandlers\Quotes\ArchiveQuoteInternalCommandHandler.cs" />
+    <Compile Include="CommandHandlers\Quotes\LikeQuoteHandler.cs" />
+    <Compile Include="CommandHandlers\Quotes\UnLikeQuoteHandler.cs" />
+    <Compile Include="CommandHandlers\SeriesCycle\AddSeriesBookHandler.cs" />
+    <Compile Include="CommandHandlers\SeriesCycle\ArchiveSeriesHandler.cs" />
+    <Compile Include="CommandHandlers\SeriesCycle\ChangeBookSeriesPositionHandler.cs" />
+    <Compile Include="CommandHandlers\SeriesCycle\CreateSeriesHandler.cs" />
+    <Compile Include="CommandHandlers\SeriesCycle\RemoveSeriesBookHandler.cs" />
+    <Compile Include="Commands\Authors\AddAuthorBookInternalCommand.cs" />
+    <Compile Include="Commands\Authors\AddAuthorFollowerInternalCommand.cs" />
+    <Compile Include="Commands\Authors\AddBookToUnknownAuthorInternalCommand.cs" />
+    <Compile Include="Commands\Authors\AddQuoteToAuthorInternalCommand.cs" />
+    <Compile Include="Commands\Authors\ArchiveAuthorCommand.cs" />
+    <Compile Include="Commands\Authors\CreateUnknownAuthorCommand.cs" />
+    <Compile Include="Commands\Authors\EditAuthorCommand.cs" />
+    <Compile Include="Commands\Authors\RemoveAuthorBookInternalCommand.cs" />
+    <Compile Include="Commands\Authors\RemoveAuthorFollowerInternalCommand.cs" />
+    <Compile Include="Commands\BookReaders\CreateBookReaderInternalCommand.cs" />
+    <Compile Include="Commands\BookReaders\SuspendBookReaderInternalCommand.cs" />
+    <Compile Include="Commands\Books\AddBookAuthorInternalCommand.cs" />
+    <Compile Include="Commands\Books\AddQuoteToBookInternalCommand.cs" />
+    <Compile Include="Commands\Books\AddBookReviewInternalCommand.cs" />
+    <Compile Include="Commands\Books\ChangeBookPublisherInternalCommand.cs" />
+    <Compile Include="Commands\Books\ChangeBookSeriesInternalCommand.cs" />
+    <Compile Include="Commands\Books\MakeBookAsSelfPublishedInternalCommand.cs" />
+    <Compile Include="Commands\Books\RemoveBookAuthorInternalCommand.cs" />
+    <Compile Include="Commands\Books\RemoveBookFromSeriesInternalCommand.cs" />
+    <Compile Include="Commands\Books\RemoveBookReviewInternalCommand.cs" />
+    <Compile Include="Commands\PublisherCycles\AddPublisherCycleBookCommand.cs" />
+    <Compile Include="Commands\PublisherCycles\AddPublisherCycleBookInternalCommand.cs" />
+    <Compile Include="Commands\PublisherCycles\ArchivePublisherCycleCommand.cs" />
+    <Compile Include="Commands\PublisherCycles\RemovePublisherCycleBookCommand.cs" />
+    <Compile Include="Commands\Publishers\AddPublisherBookInternalCommand.cs" />
+    <Compile Include="Commands\Publishers\AddPublisherCycleInternalCommand.cs" />
+    <Compile Include="Commands\Publishers\ArchivePublisherCommand.cs" />
+    <Compile Include="Commands\Publishers\CreateSelfPublisherCommand.cs" />
+    <Compile Include="Commands\Publishers\RemovePublisherBookInternalCommand.cs" />
+    <Compile Include="Commands\Publishers\RemovePublisherCycleInternalCommand.cs" />
+    <Compile Include="Commands\Quotes\AddAuthorQuoteCommand.cs" />
+    <Compile Include="Commands\Quotes\AddBookQuoteCommand.cs" />
+    <Compile Include="Commands\Quotes\ArchiveQuoteCommand.cs" />
+    <Compile Include="Commands\Quotes\ArchiveQuoteInternalCommand.cs" />
+    <Compile Include="Commands\Quotes\LikeQuoteCommand.cs" />
+    <Compile Include="Commands\Quotes\UnLikeQuoteCommand.cs" />
+    <Compile Include="Commands\Authors\CreateAuthorCommand.cs" />
+    <Compile Include="Commands\Authors\FollowAuthorCommand.cs" />
+    <Compile Include="Commands\Authors\UnFollowAuthorCommand.cs" />
+    <Compile Include="Commands\Books\AddBookCommand.cs" />
+    <Compile Include="Commands\Books\ArchiveBookCommand.cs" />
+    <Compile Include="Commands\Books\EditBookCommand.cs" />
+    <Compile Include="Commands\PublisherCycles\AddPublisherCycleCommand.cs" />
+    <Compile Include="Commands\Publishers\CreatePublisherCommand.cs" />
+    <Compile Include="Commands\Series\AddSeriesBookInternalCommand.cs" />
+    <Compile Include="Commands\Series\ArchiveSeriesCommand.cs" />
+    <Compile Include="Commands\Series\ChangeBookSeriesPositionInternalCommand.cs" />
+    <Compile Include="Commands\Series\CreateSeriesCommand.cs" />
+    <Compile Include="Commands\Series\RemoveSeriesBookInternalCommand.cs" />
+    <Compile Include="Contracts\ConversionExtensions.cs" />
+    <Compile Include="Contracts\IResourceSaver.cs" />
+    <Compile Include="Contracts\ResourceInfo.cs" />
+    <Compile Include="Contracts\ResourceOwner.cs" />
+    <Compile Include="Contracts\ResourceType.cs" />
+    <Compile Include="Events\Authors\AuthorAddedEventHandler.cs" />
+    <Compile Include="Events\Authors\AuthorQuoteCreatedEventHandler.cs" />
+    <Compile Include="Events\Authors\AuthorRemovedEventHandler.cs" />
+    <Compile Include="Events\Authors\BookArchivedEventHandler.cs" />
+    <Compile Include="Events\Authors\BookCreatedEventHandler.cs" />
+    <Compile Include="Events\Books\BookQuoteCreatedEventHandler.cs" />
+    <Compile Include="Events\Quotes\AuthorArchivedEventHandler.cs" />
+    <Compile Include="Events\Quotes\BookArchivedEventHandler.cs" />
+    <Compile Include="Events\SeriesCycle\BookArchivedEventHandler.cs" />
+    <Compile Include="Events\SeriesCycle\BookCreatedEventHandler.cs" />
+    <Compile Include="Events\SeriesCycle\BookHasNoSeriesEventHandler.cs" />
+    <Compile Include="Events\SeriesCycle\SeriesChangedEventHandler.cs" />
+    <Compile Include="Events\Books\AddedToSeriesEventHandler.cs" />
+    <Compile Include="Events\Books\AuthorArchivedEventHandler.cs" />
+    <Compile Include="Events\Books\AuthorBookAddedEventHandler.cs" />
+    <Compile Include="Events\Books\AuthorBookRemovedEventHandler.cs" />
+    <Compile Include="Events\Books\BookRemovedFromSeriesEventHandler.cs" />
+    <Compile Include="Events\Books\PublisherArchivedEventHandler.cs" />
+    <Compile Include="Events\Books\PublisherBookAddedEventHandler.cs" />
+    <Compile Include="Events\Books\SeriesArchivedEventHandler.cs" />
+    <Compile Include="Events\Cycles\BookCreatedEventHandler.cs" />
+    <Compile Include="Events\Publishers\BookArchivedEventHandler.cs" />
+    <Compile Include="Events\Publishers\BookCreatedEventHandler.cs" />
+    <Compile Include="Events\Publishers\CycleArchivedEventHandler.cs" />
+    <Compile Include="Events\Publishers\CycleCreatedEventHandler.cs" />
+    <Compile Include="Events\Publishers\PublisherChangedEventHandler.cs" />
+    <Compile Include="Events\SeriesCycle\SeriesPositionChangedEventHandler.cs" />
+    <Compile Include="Integration\Authors\AuthorAcceptedByLibrarianHandler.cs" />
+    <Compile Include="Integration\Books\BookAcceptedByLibrarianHandler.cs" />
+    <Compile Include="Integration\Books\ReviewAddedByReaderHandler.cs" />
+    <Compile Include="Integration\Books\ReviewArchivedArchivedHandler.cs" />
+    <Compile Include="Integration\SuperAdminCreatedHandler.cs" />
+    <Compile Include="Integration\UserBlockedHandler.cs" />
+    <Compile Include="Integration\UserSignedUpHandler.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WriteModels\Author\ArchiveQuoteWriteModel.cs" />
+    <Compile Include="WriteModels\Author\AuthorBasicsWriteModel.cs" />
+    <Compile Include="WriteModels\Author\AuthorDescriptionWriteModel.cs" />
+    <Compile Include="WriteModels\Author\AuthorDetailsWriteModel.cs" />
+    <Compile Include="WriteModels\Author\AuthorPictureWriteModel.cs" />
+    <Compile Include="WriteModels\Author\AuthorWriteModel.cs" />
+    <Compile Include="WriteModels\Author\CreateAuthorWriteModel.cs" />
+    <Compile Include="WriteModels\Books\BookBasicsWriteModel.cs" />
+    <Compile Include="WriteModels\Books\BookCoverWriteModel.cs" />
+    <Compile Include="WriteModels\Books\BookDescriptionWriteModel.cs" />
+    <Compile Include="WriteModels\Books\BookDetailsWriteModel.cs" />
+    <Compile Include="WriteModels\Books\BookPictureWriteModel.cs" />
+    <Compile Include="WriteModels\Books\BookWriteModel.cs" />
+    <Compile Include="WriteModels\Books\CreateBookWriteModel.cs" />
+    <Compile Include="WriteModels\Books\EditAuthorWriteModel.cs" />
+    <Compile Include="WriteModels\Books\EditBookWriteModel.cs" />
+    <Compile Include="WriteModels\PublisherCycles\AddCycleBookWriteModel.cs" />
+    <Compile Include="WriteModels\PublisherCycles\AddCycleWriteModel.cs" />
+    <Compile Include="WriteModels\PublisherCycles\RemoveCycleBookWriteModel.cs" />
+    <Compile Include="WriteModels\Publisher\AddPublisherWriteModel.cs" />
+    <Compile Include="WriteModels\Quotes\AddQuoteWriteModel.cs" />
+    <Compile Include="WriteModels\Series\CreateSeriesWriteModel.cs" />
+    <Compile Include="WriteModels\Series\SeriesWriteModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BookLovers.Auth.Integration\BookLovers.Auth.Integration.csproj">
+      <Project>{82c700e5-d693-4ea7-b57d-51b864e82aa8}</Project>
+      <Name>BookLovers.Auth.Integration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Base.Infrastructure\BookLovers.Base.Infrastructure.csproj">
+      <Project>{15735bdd-1be2-4660-8880-64eb06e20ab5}</Project>
+      <Name>BookLovers.Base.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Base\BookLovers.Base.csproj">
+      <Project>{e15ff1ae-818a-4616-a56b-c232ab9b4569}</Project>
+      <Name>BookLovers.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Librarians.Integration\BookLovers.Librarians.Integration.csproj">
+      <Project>{ff66acb8-b1c1-4e89-89df-a15404bfbd4f}</Project>
+      <Name>BookLovers.Librarians.Integration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Publication.Integration\BookLovers.Publication.Integration.csproj">
+      <Project>{4e049363-88a9-465f-ae48-abe505ca1cc0}</Project>
+      <Name>BookLovers.Publication.Integration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Publication\BookLovers.Publication.csproj">
+      <Project>{98bc0f3c-e154-4d12-b291-d56dabec8cba}</Project>
+      <Name>BookLovers.Publication</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Readers.Integration\BookLovers.Readers.Integration.csproj">
+      <Project>{ecf351d2-4452-4c55-ac6c-67641c139c59}</Project>
+      <Name>BookLovers.Readers.Integration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Shared\BookLovers.Shared.csproj">
+      <Project>{96f5e5d1-331f-428b-b0e1-d9b66542eebd}</Project>
+      <Name>BookLovers.Shared</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="StyleCop.Analyzers.ruleset" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105.The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+</Project>

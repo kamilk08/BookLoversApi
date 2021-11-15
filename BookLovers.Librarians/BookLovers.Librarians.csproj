@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{58E32716-3775-4AAB-BC72-80884360452B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BookLovers.Librarians</RootNamespace>
+    <AssemblyName>BookLovers.Librarians</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <CodeAnalysisRuleSet>StyleCop.Analyzers.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Domain\Librarians\BusinessRules\ResolveTicketRules.cs" />
+    <Compile Include="Domain\Librarians\BusinessRules\TicketCanBeResolvedOnlyOnce.cs" />
+    <Compile Include="Domain\Librarians\BusinessRules\TicketDecisionMustBeValid.cs" />
+    <Compile Include="Domain\Librarians\DecisionJustification.cs" />
+    <Compile Include="Domain\Librarians\DecisionNotifiers\AcceptAuthorDecisionNotifier.cs" />
+    <Compile Include="Domain\Librarians\DecisionNotifiers\AcceptBookDecisionNotifier.cs" />
+    <Compile Include="Domain\Librarians\DecisionNotifiers\DismissAuthorDecisionNotifier.cs" />
+    <Compile Include="Domain\Librarians\DecisionNotifiers\DismissBookDecisionNotifier.cs" />
+    <Compile Include="Domain\Librarians\DecisionNotifiers\TicketDecisionNotifier.cs" />
+    <Compile Include="Domain\Librarians\DecisionNotifiers\IDecisionNotifier.cs" />
+    <Compile Include="Domain\Librarians\IDecisionChecker.cs" />
+    <Compile Include="Domain\Librarians\IDecisionProvider.cs" />
+    <Compile Include="Domain\Librarians\ILibrarianRepository.cs" />
+    <Compile Include="Domain\Librarians\LibrarianManager.cs" />
+    <Compile Include="Domain\Librarians\ResolvedTicket.cs" />
+    <Compile Include="Domain\Librarians\Decision.cs" />
+    <Compile Include="Domain\PromotionWaiters\BusinessRules\ChangeAvailabilityRules.cs" />
+    <Compile Include="Domain\PromotionWaiters\IPromotionAvailabilityProvider.cs" />
+    <Compile Include="Domain\PromotionWaiters\IPromotionWaiterRepository.cs" />
+    <Compile Include="Domain\PromotionWaiters\PromotionAvailability.cs" />
+    <Compile Include="Domain\PromotionWaiters\PromotionWaiter.cs" />
+    <Compile Include="Domain\ReviewReportRegisters\BusinessRules\AddReviewReportRules.cs" />
+    <Compile Include="Domain\ReviewReportRegisters\BusinessRules\ReviewReportCannotBeDuplicated.cs" />
+    <Compile Include="Domain\ReviewReportRegisters\BusinessRules\ReviewReportRegistrationCannotBeCompleted.cs" />
+    <Compile Include="Domain\ReviewReportRegisters\IReportReasonProvider.cs" />
+    <Compile Include="Domain\ReviewReportRegisters\IReviewReportRegisterRepository.cs" />
+    <Compile Include="Domain\ReviewReportRegisters\ReportReason.cs" />
+    <Compile Include="Domain\ReviewReportRegisters\ReportRegisterItem.cs" />
+    <Compile Include="Domain\ReviewReportRegisters\ReviewReportRegister.cs" />
+    <Compile Include="Domain\ReviewReportRegisters\ReviewReportRegisterManager.cs" />
+    <Compile Include="Domain\TicketOwners\BusinessRules\AddTicketRules.cs" />
+    <Compile Include="Domain\TicketOwners\BusinessRules\NotifyOwnerRules.cs" />
+    <Compile Include="Domain\TicketOwners\BusinessRules\OwnerMustHaveSelectedTicket.cs" />
+    <Compile Include="Domain\TicketOwners\BusinessRules\TicketMustBeIssuedByTicketOwner.cs" />
+    <Compile Include="Domain\TicketOwners\BusinessRules\TicketOwnerCannotHaveDuplicatedTickets.cs" />
+    <Compile Include="Domain\TicketOwners\CreatedTicket.cs" />
+    <Compile Include="Domain\TicketOwners\IOwnerNotification.cs" />
+    <Compile Include="Domain\TicketOwners\ITicketOwnerRepository.cs" />
+    <Compile Include="Domain\TicketOwners\TicketOwner.cs" />
+    <Compile Include="Domain\TicketOwners\TicketOwnerManager.cs" />
+    <Compile Include="Domain\Tickets\BusinessRules\CreatedTicketCannotHaveDecision.cs" />
+    <Compile Include="Domain\Tickets\BusinessRules\SolveTicketRules.cs" />
+    <Compile Include="Domain\Tickets\BusinessRules\TicketMustBeAvailable.cs" />
+    <Compile Include="Domain\Tickets\BusinessRules\TicketMustBeInProgress.cs" />
+    <Compile Include="Domain\Tickets\BusinessRules\TicketCannotBeSolvedTwiceOrMore.cs" />
+    <Compile Include="Domain\Tickets\BusinessRules\TicketConcernMustBeValid.cs" />
+    <Compile Include="Domain\Tickets\BusinessRules\TicketMustHaveHisOwner.cs" />
+    <Compile Include="Domain\Tickets\DecisionMade.cs" />
+    <Compile Include="Domain\Tickets\Services\Factories\TicketContentData.cs" />
+    <Compile Include="Domain\Tickets\Services\Factories\TicketDetailsData.cs" />
+    <Compile Include="Domain\Tickets\Services\Factories\TicketFactoryData.cs" />
+    <Compile Include="Domain\Tickets\Services\Factories\TicketFactorySetup.cs" />
+    <Compile Include="Domain\Tickets\Services\IDecisionGiver.cs" />
+    <Compile Include="Domain\Tickets\Services\ITicketConcernChecker.cs" />
+    <Compile Include="Domain\Tickets\Services\ITicketConcernProvider.cs" />
+    <Compile Include="Domain\Tickets\Services\ITicketRepository.cs" />
+    <Compile Include="Domain\Tickets\Services\TicketFactory.cs" />
+    <Compile Include="Domain\Tickets\Services\TicketManager.cs" />
+    <Compile Include="Domain\Tickets\SolvedBy.cs" />
+    <Compile Include="Domain\Tickets\TicketConcern.cs" />
+    <Compile Include="Domain\Tickets\TicketContent.cs" />
+    <Compile Include="Domain\Tickets\TicketDecisionAcceptedGiver.cs" />
+    <Compile Include="Domain\Tickets\TicketDecisionDeclinedGiver.cs" />
+    <Compile Include="Domain\Tickets\TicketDetails.cs" />
+    <Compile Include="Domain\Tickets\IssuedBy.cs" />
+    <Compile Include="Domain\Tickets\TicketReasons\AuthorTicketAccepted.cs" />
+    <Compile Include="Domain\Tickets\TicketReasons\AuthorTicketDismissed.cs" />
+    <Compile Include="Domain\Tickets\TicketReasons\BookTicketAccepted.cs" />
+    <Compile Include="Domain\Tickets\TicketReasons\BookTicketDismissed.cs" />
+    <Compile Include="Domain\Tickets\TicketReasons\ITicketSummary.cs" />
+    <Compile Include="Domain\Tickets\TicketReasons\TicketSummary.cs" />
+    <Compile Include="Events\Librarians\LibrarianCreated.cs" />
+    <Compile Include="Events\Librarians\LibrarianResolvedTicket.cs" />
+    <Compile Include="Events\Librarians\LibrarianSuspended.cs" />
+    <Compile Include="Events\PromotionWaiters\PromotionWaiterStatusChanged.cs" />
+    <Compile Include="Events\ReviewRegistrationReportArchived.cs" />
+    <Compile Include="Events\TicketOwners\CreatedAuthorAccepted.cs" />
+    <Compile Include="Events\TicketOwners\CreatedAuthorDismissed.cs" />
+    <Compile Include="Events\TicketOwners\CreatedBookAccepted.cs" />
+    <Compile Include="Events\TicketOwners\CreatedBookDismissed.cs" />
+    <Compile Include="Events\TicketOwners\TicketOwnerArchived.cs" />
+    <Compile Include="Events\Tickets\TicketArchived.cs" />
+    <Compile Include="Events\Tickets\TicketCreated.cs" />
+    <Compile Include="Events\Tickets\TicketSolved.cs" />
+    <Compile Include="Domain\Tickets\Ticket.cs" />
+    <Compile Include="Domain\Tickets\TicketState.cs" />
+    <Compile Include="Domain\Librarians\Librarian.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BookLovers.Base.Infrastructure\BookLovers.Base.Infrastructure.csproj">
+      <Project>{15735bdd-1be2-4660-8880-64eb06e20ab5}</Project>
+      <Name>BookLovers.Base.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Base\BookLovers.Base.csproj">
+      <Project>{e15ff1ae-818a-4616-a56b-c232ab9b4569}</Project>
+      <Name>BookLovers.Base</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="StyleCop.Analyzers.ruleset" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

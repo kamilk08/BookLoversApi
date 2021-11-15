@@ -1,0 +1,302 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9E33AB9E-82D7-43C2-B676-AA4561FC4EBD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BookLovers.Readers</RootNamespace>
+    <AssemblyName>BookLovers.Readers</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <CodeAnalysisRuleSet>StyleCop.Analyzers.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Domain\Favourites\Favourite.cs" />
+    <Compile Include="Domain\Favourites\FavouriteManager.cs" />
+    <Compile Include="Domain\Favourites\FavouriteOwner.cs" />
+    <Compile Include="Domain\NotificationWalls\BusinessRules\AddNotificationRules.cs" />
+    <Compile Include="Domain\NotificationWalls\BusinessRules\HideNotificationRules.cs" />
+    <Compile Include="Domain\NotificationWalls\BusinessRules\NotificationMustBeHidden.cs" />
+    <Compile Include="Domain\NotificationWalls\BusinessRules\NotificationMustBeVisible.cs" />
+    <Compile Include="Domain\NotificationWalls\BusinessRules\NotificationWallCannotContainDuplicatedNotificatio.cs" />
+    <Compile Include="Domain\NotificationWalls\BusinessRules\NotificationWallMustContainSelectedNotification.cs" />
+    <Compile Include="Domain\NotificationWalls\BusinessRules\ShowNotificationRules.cs" />
+    <Compile Include="Domain\NotificationWalls\Notifications\Notification.cs" />
+    <Compile Include="Domain\NotificationWalls\Notifications\NotificationItem.cs" />
+    <Compile Include="Domain\NotificationWalls\Notifications\NotificationItemType.cs" />
+    <Compile Include="Domain\NotificationWalls\Notifications\NotificationItemTypes.cs" />
+    <Compile Include="Domain\NotificationWalls\Notifications\NotificationSeen.cs" />
+    <Compile Include="Domain\NotificationWalls\Notifications\NotificationState.cs" />
+    <Compile Include="Domain\NotificationWalls\Notifications\NotificationSubType.cs" />
+    <Compile Include="Domain\NotificationWalls\Notifications\NotificationSubTypes.cs" />
+    <Compile Include="Domain\NotificationWalls\Notifications\NotificationType.cs" />
+    <Compile Include="Domain\NotificationWalls\Notifications\VisibleOnWall.cs" />
+    <Compile Include="Domain\NotificationWalls\NotificationWall.cs" />
+    <Compile Include="Domain\NotificationWalls\Services\NotificationService.cs" />
+    <Compile Include="Domain\NotificationWalls\Services\NotificationWallManager.cs" />
+    <Compile Include="Domain\NotificationWalls\Services\NotificationFactory.cs" />
+    <Compile Include="Domain\NotificationWalls\Services\NotificationHider.cs" />
+    <Compile Include="Domain\NotificationWalls\WallOptions\HideNewNotification.cs" />
+    <Compile Include="Domain\NotificationWalls\WallOptions\HideNotificationAboutBook.cs" />
+    <Compile Include="Domain\NotificationWalls\WallOptions\HideNotificationAboutReview.cs" />
+    <Compile Include="Domain\NotificationWalls\WallOptions\HideNotificationFromOther.cs" />
+    <Compile Include="Domain\NotificationWalls\WallOptions\IWallOption.cs" />
+    <Compile Include="Domain\NotificationWalls\WallOptionType.cs" />
+    <Compile Include="Domain\ProfileManagers\BusinessRules\ChangePrivacyBusinessRule.cs" />
+    <Compile Include="Domain\ProfileManagers\BusinessRules\PrivacyOptionMustBeValid.cs" />
+    <Compile Include="Domain\ProfileManagers\BusinessRules\PrivacyTypeMustBeValid.cs" />
+    <Compile Include="Domain\ProfileManagers\PrivacyOptions\AddressPrivacyOption.cs" />
+    <Compile Include="Domain\ProfileManagers\PrivacyOptions\FavouritePrivacyOption.cs" />
+    <Compile Include="Domain\ProfileManagers\PrivacyOptions\GenderPrivacyOption.cs" />
+    <Compile Include="Domain\ProfileManagers\PrivacyOptions\IdentityPrivacyOption.cs" />
+    <Compile Include="Domain\ProfileManagers\PrivacyOptions\IPrivacyOption.cs" />
+    <Compile Include="Domain\ProfileManagers\PrivacyOptions\ProfilePrivacy.cs" />
+    <Compile Include="Domain\ProfileManagers\PrivacyOptions\StatisticsPrivacy.cs" />
+    <Compile Include="Domain\ProfileManagers\ProfilePrivacyManager.cs" />
+    <Compile Include="Domain\ProfileManagers\Services\CurrentPrivacyOptions.cs" />
+    <Compile Include="Domain\ProfileManagers\Services\ProfilePrivacyManagerFactory.cs" />
+    <Compile Include="Domain\ProfileManagers\Services\ProfilePrivacyType.cs" />
+    <Compile Include="Domain\ProfileManagers\Services\ProfilePrivates.cs" />
+    <Compile Include="Domain\ProfileManagers\Services\SelectedProfileOption.cs" />
+    <Compile Include="Domain\Profiles\BusinessRules\ChangeIdentityRules.cs" />
+    <Compile Include="Domain\Profiles\BusinessRules\ProfileCannotHaveDuplicatedFavourite.cs" />
+    <Compile Include="Domain\Profiles\BusinessRules\ProfileFavouriteMustBeValid.cs" />
+    <Compile Include="Domain\Profiles\BusinessRules\ProfileMustHaveSelectedFavourite.cs" />
+    <Compile Include="Domain\Profiles\BusinessRules\RemoveFavouriteRules.cs" />
+    <Compile Include="Domain\Profiles\BusinessRules\SexTypeMustBeValid.cs" />
+    <Compile Include="Domain\Profiles\CurrentRole.cs" />
+    <Compile Include="Domain\Profiles\FavouriteAuthor.cs" />
+    <Compile Include="Domain\Profiles\FavouriteBook.cs" />
+    <Compile Include="Domain\Profiles\FavouriteType.cs" />
+    <Compile Include="Domain\Profiles\IFavourite.cs" />
+    <Compile Include="Domain\Profiles\IFavouriteAdder.cs" />
+    <Compile Include="Domain\Profiles\IFavouriteRemover.cs" />
+    <Compile Include="Domain\Profiles\Services\Factories\ProfileContentData.cs" />
+    <Compile Include="Domain\Profiles\Services\Factories\ProfileDetailsData.cs" />
+    <Compile Include="Domain\Profiles\Services\Factories\ProfileFactory.cs" />
+    <Compile Include="Domain\Profiles\Services\Factories\ProfileData.cs" />
+    <Compile Include="Domain\Profiles\Services\FavouriteAuthorAdder.cs" />
+    <Compile Include="Domain\Profiles\Services\FavouriteAuthorRemover.cs" />
+    <Compile Include="Domain\Profiles\Services\FavouriteBookAdder.cs" />
+    <Compile Include="Domain\Profiles\Services\FavouriteBookRemover.cs" />
+    <Compile Include="Domain\Profiles\Services\FavouritesService.cs" />
+    <Compile Include="Domain\Profiles\Services\ProfileEditor.cs" />
+    <Compile Include="Domain\Profiles\Services\ProfileManager.cs" />
+    <Compile Include="Domain\Readers\AddedAuthor.cs" />
+    <Compile Include="Domain\Readers\AddedBook.cs" />
+    <Compile Include="Domain\Readers\BusinessRules\ActivityCannotBeAlreadyOnTimeLine.cs" />
+    <Compile Include="Domain\Readers\BusinessRules\ActivityMustBeHidden.cs" />
+    <Compile Include="Domain\Readers\BusinessRules\ActivityMustBeOnTimeLine.cs" />
+    <Compile Include="Domain\Readers\BusinessRules\ActivityMustBeVisible.cs" />
+    <Compile Include="Domain\Readers\BusinessRules\ActivityTypeMustBeValid.cs" />
+    <Compile Include="Domain\Readers\BusinessRules\AddedResourceCannotBeDuplicated.cs" />
+    <Compile Include="Domain\Readers\BusinessRules\AddedResourceMustBePresent.cs" />
+    <Compile Include="Domain\Readers\BusinessRules\AddFollowerRules.cs" />
+    <Compile Include="Domain\Readers\BusinessRules\AddToTimeLineRules.cs" />
+    <Compile Include="Domain\Readers\BusinessRules\HideActivityRules.cs" />
+    <Compile Include="Domain\Readers\BusinessRules\ReaderCannotFollowHimself.cs" />
+    <Compile Include="Domain\Readers\BusinessRules\ReaderCannotHaveMultipleSameFollowers.cs" />
+    <Compile Include="Domain\Readers\BusinessRules\ReaderMustBeAssociatedWithProfile.cs" />
+    <Compile Include="Domain\Readers\BusinessRules\ReaderMustContainSelectedFollower.cs" />
+    <Compile Include="Domain\Readers\BusinessRules\ReaderMustHaveTimeline.cs" />
+    <Compile Include="Domain\Readers\BusinessRules\RemoveFollowerRules.cs" />
+    <Compile Include="Domain\Readers\BusinessRules\RemoveReaderResourceRules.cs" />
+    <Compile Include="Domain\Readers\BusinessRules\ShowActivityRules.cs" />
+    <Compile Include="Domain\Readers\IAddedResource.cs" />
+    <Compile Include="Domain\Readers\IResourceAdder.cs" />
+    <Compile Include="Domain\Readers\ReaderIdentification.cs" />
+    <Compile Include="Domain\Profiles\Address.cs" />
+    <Compile Include="Domain\Readers\ReaderReview.cs" />
+    <Compile Include="Domain\Readers\ReaderSocials.cs" />
+    <Compile Include="Domain\Readers\AddedResourceType.cs" />
+    <Compile Include="Domain\Readers\Services\AuthorResourceAdder.cs" />
+    <Compile Include="Domain\Readers\Services\BookResourceAdder.cs" />
+    <Compile Include="Domain\Readers\Services\ReaderFactory.cs" />
+    <Compile Include="Domain\Readers\Services\ReaderManager.cs" />
+    <Compile Include="Domain\Readers\Services\ResourceAdder.cs" />
+    <Compile Include="Domain\Readers\Services\ReviewResourceAdder.cs" />
+    <Compile Include="Domain\Readers\TimeLineActivities\ActivityContent.cs" />
+    <Compile Include="Domain\Profiles\Identity.cs" />
+    <Compile Include="Domain\Profiles\About.cs" />
+    <Compile Include="Domain\Reviews\BusinessRules\AddReviewLikeRules.cs" />
+    <Compile Include="Domain\Reviews\BusinessRules\AddSpoilerTagRules.cs" />
+    <Compile Include="Domain\Reviews\BusinessRules\EditReviewRules.cs" />
+    <Compile Include="Domain\Reviews\BusinessRules\OnlyReviewAuthorCanEditReview.cs" />
+    <Compile Include="Domain\Reviews\BusinessRules\ReaderCannotAddSpoilerTagToOwnReview.cs" />
+    <Compile Include="Domain\Reviews\BusinessRules\ReaderCannotLikeOwnReviews.cs" />
+    <Compile Include="Domain\Reviews\BusinessRules\RemoveLikeReviewRules.cs" />
+    <Compile Include="Domain\Reviews\BusinessRules\RemoveSpoilerTagRules.cs" />
+    <Compile Include="Domain\Reviews\BusinessRules\ReportReviewRules.cs" />
+    <Compile Include="Domain\Reviews\BusinessRules\ReviewCannotBeReportedMultipleTimesBySameReader.cs" />
+    <Compile Include="Domain\Reviews\BusinessRules\ReviewCannotHaveMultipleLikesFromSameReader.cs" />
+    <Compile Include="Domain\Reviews\BusinessRules\ReviewCannotHaveMultipleSpoilerTagsFromSameReader.cs" />
+    <Compile Include="Domain\Reviews\BusinessRules\ReviewMustBeAssociatedWithBook.cs" />
+    <Compile Include="Domain\Reviews\BusinessRules\ReviewMustContainSelectedLike.cs" />
+    <Compile Include="Domain\Reviews\BusinessRules\ReviewMustContainSelectedSpoilerTag.cs" />
+    <Compile Include="Domain\Reviews\BusinessRules\ReviewMustHaveAnOwner.cs" />
+    <Compile Include="Domain\Reviews\Review.cs" />
+    <Compile Include="Domain\Reviews\ReviewContent.cs" />
+    <Compile Include="Domain\Reviews\ReviewExtensions.cs" />
+    <Compile Include="Domain\Reviews\ReviewFactory.cs" />
+    <Compile Include="Domain\Reviews\ReviewIdentification.cs" />
+    <Compile Include="Domain\Reviews\ReviewReport.cs" />
+    <Compile Include="Domain\Reviews\ReviewSpoiler.cs" />
+    <Compile Include="Domain\Readers\TimeLineActivities\Activities.cs" />
+    <Compile Include="Domain\Readers\TimeLineActivities\Activity.cs" />
+    <Compile Include="Domain\Readers\TimeLineActivities\ActivityType.cs" />
+    <Compile Include="Domain\Readers\TimeLine.cs" />
+    <Compile Include="Domain\Profiles\Profile.cs" />
+    <Compile Include="Domain\Reviews\Services\ReviewAggregateManager.cs" />
+    <Compile Include="Domain\Reviews\Services\ReviewParts.cs" />
+    <Compile Include="Domain\Reviews\Services\ReviewEditor.cs" />
+    <Compile Include="Domain\Reviews\SpoilerTag.cs" />
+    <Compile Include="Domain\Statistics\AddedAuthors.cs" />
+    <Compile Include="Domain\Statistics\AddedBooks.cs" />
+    <Compile Include="Domain\Statistics\AddedQuotes.cs" />
+    <Compile Include="Domain\Statistics\BooksInBookcase.cs" />
+    <Compile Include="Domain\Statistics\Followers.cs" />
+    <Compile Include="Domain\Statistics\Followings.cs" />
+    <Compile Include="Domain\Statistics\GivenLikes.cs" />
+    <Compile Include="Domain\Statistics\IStatistic.cs" />
+    <Compile Include="Domain\Statistics\ReceivedLikes.cs" />
+    <Compile Include="Domain\Statistics\CreatedReviews.cs" />
+    <Compile Include="Domain\Statistics\CurrentShelves.cs" />
+    <Compile Include="Domain\Statistics\StatisticsGatherer.cs" />
+    <Compile Include="Domain\Statistics\StatisticStep.cs" />
+    <Compile Include="Domain\Statistics\StatisticType.cs" />
+    <Compile Include="Events\Favourites\FavouriteArchived.cs" />
+    <Compile Include="Events\Favourites\FavouriteCreated.cs" />
+    <Compile Include="Events\Favourites\FavouriteOwnerAdded.cs" />
+    <Compile Include="Events\Favourites\FavouriteOwnerRemoved.cs" />
+    <Compile Include="Events\NotificationWalls\NotificationCreated.cs" />
+    <Compile Include="Events\NotificationWalls\NotificationHiddenByReader.cs" />
+    <Compile Include="Events\NotificationWalls\NotificationSeenByReader.cs" />
+    <Compile Include="Events\NotificationWalls\NotificationShownByReader.cs" />
+    <Compile Include="Events\NotificationWalls\NotificationWallArchived.cs" />
+    <Compile Include="Events\NotificationWalls\NotificationWallCreated.cs" />
+    <Compile Include="Events\ProfileManagers\ProfilePrivacyManagerArchived.cs" />
+    <Compile Include="Events\ProfileManagers\ProfilePrivacyManagerCreated.cs" />
+    <Compile Include="Events\ProfileManagers\ProfilePrivacyOptionAdded.cs" />
+    <Compile Include="Events\ProfileManagers\ProfilePrivacyOptionChanged.cs" />
+    <Compile Include="Events\Profile\AddressChanged.cs" />
+    <Compile Include="Events\Profile\CurrentRoleChanged.cs" />
+    <Compile Include="Events\Profile\FavouriteAuthorAdded.cs" />
+    <Compile Include="Events\Profile\FavouriteAuthorRemoved.cs" />
+    <Compile Include="Events\Profile\FavouriteBookAdded.cs" />
+    <Compile Include="Events\Profile\FavouriteBookRemoved.cs" />
+    <Compile Include="Events\Profile\IdentityChanged.cs" />
+    <Compile Include="Events\Profile\ProfileAboutChanged.cs" />
+    <Compile Include="Events\Profile\ProfileRestored.cs" />
+    <Compile Include="Events\Profile\ProfileArchived.cs" />
+    <Compile Include="Events\Profile\ProfileCreated.cs" />
+    <Compile Include="Events\Readers\AddedResourceRemoved.cs" />
+    <Compile Include="Events\Readers\ReaderAddedAuthor.cs" />
+    <Compile Include="Events\Readers\ReaderAddedBook.cs" />
+    <Compile Include="Events\Readers\ReaderAddedReview.cs" />
+    <Compile Include="Events\Readers\ReaderAuthorRemoved.cs" />
+    <Compile Include="Events\Readers\ReaderEmailChanged.cs" />
+    <Compile Include="Events\Readers\ReaderFollowed.cs" />
+    <Compile Include="Events\Readers\ReaderUnFollowed.cs" />
+    <Compile Include="Events\Readers\ReviewRemoved.cs" />
+    <Compile Include="Events\Reviews\NewReviewSpoilerTag.cs" />
+    <Compile Include="Events\Reviews\ReviewArchived.cs" />
+    <Compile Include="Events\Reviews\ReviewCreated.cs" />
+    <Compile Include="Events\Reviews\ReviewEdited.cs" />
+    <Compile Include="Events\Reviews\ReviewLiked.cs" />
+    <Compile Include="Events\Reviews\ReviewMarkedByOtherReaders.cs" />
+    <Compile Include="Events\Reviews\ReviewMarkToggledByReader.cs" />
+    <Compile Include="Events\Reviews\ReviewReported.cs" />
+    <Compile Include="Events\Reviews\ReviewSpoilerTagRemoved.cs" />
+    <Compile Include="Events\Reviews\ReviewUnLiked.cs" />
+    <Compile Include="Events\Reviews\ReviewUnMarkedByOtherReaders.cs" />
+    <Compile Include="Events\Statistics\GathererStatisticChanged.cs" />
+    <Compile Include="Events\Statistics\StatisticsGathererCreated.cs" />
+    <Compile Include="Events\TimeLine\ActivityAddedToTimeLine.cs" />
+    <Compile Include="Events\TimeLine\ActivityHiddenOnTimeLine.cs" />
+    <Compile Include="Events\TimeLine\ActivityShownOnTimeLine.cs" />
+    <Compile Include="Events\Readers\ReaderCreated.cs" />
+    <Compile Include="Events\Readers\ReaderSuspended.cs" />
+    <Compile Include="Events\TimeLine\TimeLineAddedToReader.cs" />
+    <Compile Include="Domain\Readers\Reader.cs" />
+    <Compile Include="Mementos\INotificationWallMemento.cs" />
+    <Compile Include="Mementos\IPrivacyManagerMemento.cs" />
+    <Compile Include="Mementos\IReaderMemento.cs" />
+    <Compile Include="Mementos\IReviewMemento.cs" />
+    <Compile Include="Mementos\ISocialProfileMemento.cs" />
+    <Compile Include="Mementos\IStatisticsGathererMemento.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BookLovers.Base.Infrastructure\BookLovers.Base.Infrastructure.csproj">
+      <Project>{15735bdd-1be2-4660-8880-64eb06e20ab5}</Project>
+      <Name>BookLovers.Base.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Base\BookLovers.Base.csproj">
+      <Project>{e15ff1ae-818a-4616-a56b-c232ab9b4569}</Project>
+      <Name>BookLovers.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Shared\BookLovers.Shared.csproj">
+      <Project>{96f5e5d1-331f-428b-b0e1-d9b66542eebd}</Project>
+      <Name>BookLovers.Shared</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="StyleCop.Analyzers.ruleset" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

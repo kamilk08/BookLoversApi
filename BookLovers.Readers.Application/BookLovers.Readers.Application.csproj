@@ -1,0 +1,343 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B99B0659-D29E-4FF6-9ED9-868315F4D719}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BookLovers.Readers.Application</RootNamespace>
+    <AssemblyName>BookLovers.Readers.Application</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <CodeAnalysisRuleSet>StyleCop.Analyzers.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=8.1.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005">
+      <HintPath>..\packages\AutoMapper.8.1.0\lib\net461\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FluentScheduler, Version=5.3.0.0, Culture=neutral, PublicKeyToken=b76503528a14ebd1, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentScheduler.5.3.0\lib\net40\FluentScheduler.dll</HintPath>
+    </Reference>
+    <Reference Include="mscorlib" />
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.4.4.1\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.ComponentModel.Primitives, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\System.ComponentModel.Primitives.4.3.0\lib\net45\System.ComponentModel.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Z.EntityFramework.Plus.EF6, Version=1.10.1.0, Culture=neutral, PublicKeyToken=59b66d028979105b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Z.EntityFramework.Plus.EF6.1.10.1\lib\net45\Z.EntityFramework.Plus.EF6.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CommandHandlers\Favourites\AddFavouriteOwnerHandler.cs" />
+    <Compile Include="CommandHandlers\Favourites\ArchiveFavouriteHandler.cs" />
+    <Compile Include="CommandHandlers\Favourites\CreateFavouriteHandler.cs" />
+    <Compile Include="CommandHandlers\Favourites\RemoveFavouriteOwnerHandler.cs" />
+    <Compile Include="CommandHandlers\NotificationWalls\AddAuthorAcceptedNotificationHandler.cs" />
+    <Compile Include="CommandHandlers\NotificationWalls\AddAuthorDismissedNotificationHandler.cs" />
+    <Compile Include="CommandHandlers\NotificationWalls\AddBookAcceptedNotificationHandler.cs" />
+    <Compile Include="CommandHandlers\NotificationWalls\AddBookDismissedNotificationHandler.cs" />
+    <Compile Include="CommandHandlers\NotificationWalls\AddReaderFollowedNotificationHandler.cs" />
+    <Compile Include="CommandHandlers\NotificationWalls\AddRemoveFollowerNotificationHandler.cs" />
+    <Compile Include="CommandHandlers\NotificationWalls\AddReviewLikedNotificationHandler.cs" />
+    <Compile Include="CommandHandlers\NotificationWalls\AddReviewReportedNotificationHandler.cs" />
+    <Compile Include="CommandHandlers\NotificationWalls\ArchiveNotificationWallHandler.cs" />
+    <Compile Include="CommandHandlers\NotificationWalls\CreateNotificationWallHandler.cs" />
+    <Compile Include="CommandHandlers\Profiles\AddFavouriteAuthorHandler.cs" />
+    <Compile Include="CommandHandlers\Profiles\AddFavouriteBookHandler.cs" />
+    <Compile Include="CommandHandlers\Profiles\CreateProfilePrivacyHandler.cs" />
+    <Compile Include="CommandHandlers\Profiles\ArchiveProfileHandler.cs" />
+    <Compile Include="CommandHandlers\Profiles\ChangeAvatarHandler.cs" />
+    <Compile Include="CommandHandlers\Profiles\CreateProfileHandler.cs" />
+    <Compile Include="CommandHandlers\Profiles\EditProfileHandler.cs" />
+    <Compile Include="CommandHandlers\Profiles\RemoveFavouriteHandler.cs" />
+    <Compile Include="CommandHandlers\Profiles\RemoveFavouriteInternalHandler.cs" />
+    <Compile Include="CommandHandlers\Readers\AddAuthorResourceHandler.cs" />
+    <Compile Include="CommandHandlers\Readers\AddBookResourceHandler.cs" />
+    <Compile Include="CommandHandlers\Readers\AddReviewResourceHandler.cs" />
+    <Compile Include="CommandHandlers\Readers\ChangeReaderEmailHandler.cs" />
+    <Compile Include="CommandHandlers\Readers\CreateReaderHandler.cs" />
+    <Compile Include="CommandHandlers\Readers\FollowReaderHandler.cs" />
+    <Compile Include="CommandHandlers\Readers\RemoveReviewResourceHandler.cs" />
+    <Compile Include="CommandHandlers\Readers\SuspendReaderHandler.cs" />
+    <Compile Include="CommandHandlers\Readers\UnFollowReaderHandler.cs" />
+    <Compile Include="CommandHandlers\Reviews\AddReviewHandler.cs" />
+    <Compile Include="CommandHandlers\Reviews\AddSpoilerTagHandler.cs" />
+    <Compile Include="CommandHandlers\Reviews\EditReviewHandler.cs" />
+    <Compile Include="CommandHandlers\Reviews\LikeReviewHandler.cs" />
+    <Compile Include="CommandHandlers\Reviews\RemoveReviewHandler.cs" />
+    <Compile Include="CommandHandlers\Reviews\RemoveSpoilerTagHandler.cs" />
+    <Compile Include="CommandHandlers\Reviews\ReportReviewHandler.cs" />
+    <Compile Include="CommandHandlers\Reviews\UnLikeReviewHandler.cs" />
+    <Compile Include="CommandHandlers\Statistics\CreateStatisticsGathererHandler.cs" />
+    <Compile Include="CommandHandlers\Statistics\UpdateStatisticsGathererHandler.cs" />
+    <Compile Include="CommandHandlers\Timelines\AddActivityOfTypeAuthorQuoteAddedHandler.cs" />
+    <Compile Include="CommandHandlers\Timelines\AddActivityOfTypeBookQuoteAddedHandler.cs" />
+    <Compile Include="CommandHandlers\Timelines\AddActivityOfTypeRemoveFavouriteBookHandler.cs" />
+    <Compile Include="CommandHandlers\Timelines\AddAuthorActivityHandler.cs" />
+    <Compile Include="CommandHandlers\Timelines\AddBookActivityHandler.cs" />
+    <Compile Include="CommandHandlers\Timelines\AddBookToBookcaseResourceHandler.cs" />
+    <Compile Include="CommandHandlers\Timelines\AddFavouriteAuthorActivityHandler.cs" />
+    <Compile Include="CommandHandlers\Timelines\AddFavouriteBookActivityHandler.cs" />
+    <Compile Include="CommandHandlers\Timelines\AddReviewActivityHandler.cs" />
+    <Compile Include="CommandHandlers\Timelines\EditReviewActivityHandler.cs" />
+    <Compile Include="CommandHandlers\Timelines\HideTimeLineActivityHandler.cs" />
+    <Compile Include="CommandHandlers\Timelines\AddActivityOfTypeRemoveFavouriteAuthorHandler.cs" />
+    <Compile Include="CommandHandlers\Timelines\ShowTimeLineActivityHandler.cs" />
+    <Compile Include="Commands\Favourites\AddFavouriteOwnerInternalCommand.cs" />
+    <Compile Include="Commands\Favourites\CreateFavouriteInternalCommand.cs" />
+    <Compile Include="Commands\Favourites\ArchiveFavouriteInternalCommand.cs" />
+    <Compile Include="Commands\Favourites\RemoveFavouriteOwnerInternalCommand.cs" />
+    <Compile Include="Commands\NotificationWalls\AddAuthorAcceptedNotificationInternalCommand.cs" />
+    <Compile Include="Commands\NotificationWalls\AddAuthorDismissedNotificationInternalCommand.cs" />
+    <Compile Include="Commands\NotificationWalls\AddBookAcceptedNotificationInternalCommand.cs" />
+    <Compile Include="Commands\NotificationWalls\AddBookDismissedNotificationInternalCommand.cs" />
+    <Compile Include="Commands\NotificationWalls\AddNewFollowerNotificationInternalCommand.cs" />
+    <Compile Include="Commands\NotificationWalls\AddReviewLikedNotificationInternalCommand.cs" />
+    <Compile Include="Commands\NotificationWalls\AddReviewReportedNotificationInternalCommand.cs" />
+    <Compile Include="Commands\NotificationWalls\ArchiveNotificationWallInternalCommand.cs" />
+    <Compile Include="Commands\NotificationWalls\CreateNotificationWallInternalCommand.cs" />
+    <Compile Include="Commands\NotificationWalls\AddRemoveFollowerNotificationInternalCommand.cs" />
+    <Compile Include="Commands\Profile\AddFavouriteAuthorCommand.cs" />
+    <Compile Include="Commands\Profile\AddFavouriteBookCommand.cs" />
+    <Compile Include="Commands\Profile\CreateProfilePrivacyManagerInternalCommand.cs" />
+    <Compile Include="Commands\Profile\ArchiveProfileInternalCommand.cs" />
+    <Compile Include="Commands\Profile\ChangeAvatarCommand.cs" />
+    <Compile Include="Commands\Profile\CreateProfileInternalCommand.cs" />
+    <Compile Include="Commands\Profile\EditProfileCommand.cs" />
+    <Compile Include="Commands\Profile\RemoveFavouriteCommand.cs" />
+    <Compile Include="Commands\Profile\RemoveFavouriteInternalCommand.cs" />
+    <Compile Include="Commands\Readers\AddBookResourceInternalCommand.cs" />
+    <Compile Include="Commands\Readers\AddReviewResourceInternalCommand.cs" />
+    <Compile Include="Commands\Readers\ChangeReaderEmailInternalCommand.cs" />
+    <Compile Include="Commands\Readers\CreateReaderInternalCommand.cs" />
+    <Compile Include="Commands\Readers\RemoveReviewResourceInternalCommand.cs" />
+    <Compile Include="Commands\Readers\SuspendReaderInternalCommand.cs" />
+    <Compile Include="Commands\Readers\FollowReaderCommand.cs" />
+    <Compile Include="Commands\Readers\UnFollowReaderCommand.cs" />
+    <Compile Include="Commands\Reviews\AddReviewCommand.cs" />
+    <Compile Include="Commands\Reviews\AddSpoilerTagCommand.cs" />
+    <Compile Include="Commands\Reviews\EditReviewCommand.cs" />
+    <Compile Include="Commands\Reviews\LikeReviewCommand.cs" />
+    <Compile Include="Commands\Reviews\RemoveReviewCommand.cs" />
+    <Compile Include="Commands\Reviews\RemoveReviewInternalCommand.cs" />
+    <Compile Include="Commands\Reviews\RevokeReportReviewCommand.cs" />
+    <Compile Include="Commands\Reviews\RemoveSpoilerTagCommand.cs" />
+    <Compile Include="Commands\Reviews\ReportReviewCommand.cs" />
+    <Compile Include="Commands\Reviews\UnlikeReviewCommand.cs" />
+    <Compile Include="Commands\Reviews\UnLikeReviewInternalCommand.cs" />
+    <Compile Include="Commands\Statistics\CreateStatisticsGathererInternalCommand.cs" />
+    <Compile Include="Commands\Statistics\UpdateStatisticsGathererInternalCommand.cs" />
+    <Compile Include="Commands\Timelines\AddActivityOfTypeAuthorQuoteAddedInternalCommand.cs" />
+    <Compile Include="Commands\Timelines\AddActivityOfTypeBookQuoteAddedInternalCommand.cs" />
+    <Compile Include="Commands\Timelines\AddActivityOfTypeRemoveFavouriteAuthorInternalComm.cs" />
+    <Compile Include="Commands\Timelines\AddActivityOfTypeRemoveFavouriteBookInternalComman.cs" />
+    <Compile Include="Commands\Timelines\AddAuthorActivityInternalCommand.cs" />
+    <Compile Include="Commands\Timelines\AddAuthorResourceInternalCommand.cs" />
+    <Compile Include="Commands\Timelines\AddBookActivityInternalCommand.cs" />
+    <Compile Include="Commands\Timelines\AddBookToBookcaseActivityInternalCommand.cs" />
+    <Compile Include="Commands\Timelines\AddFavouriteAuthorActivityInternalCommand.cs" />
+    <Compile Include="Commands\Timelines\AddFavouriteBookActivityInternalCommand.cs" />
+    <Compile Include="Commands\Timelines\AddReviewActivityInternalCommand.cs" />
+    <Compile Include="Commands\Timelines\EditReviewActivityInternalCommand.cs" />
+    <Compile Include="Commands\Timelines\HideActivityCommand.cs" />
+    <Compile Include="Commands\Timelines\ShowActivityCommand.cs" />
+    <Compile Include="Contracts\Conversions\ConversionExtensions.cs" />
+    <Compile Include="Contracts\IResourceSaver.cs" />
+    <Compile Include="Contracts\ResourceInfo.cs" />
+    <Compile Include="Contracts\ResourceOwner.cs" />
+    <Compile Include="Contracts\ResourceType.cs" />
+    <Compile Include="Events\Favourites\FavouriteArchivedEventHandler.cs" />
+    <Compile Include="Events\NotificationsWall\Followers\ReaderFollowedEventHandler.cs" />
+    <Compile Include="Events\NotificationsWall\Followers\ReaderUnFollowedEventHandler.cs" />
+    <Compile Include="Events\NotificationsWall\ReaderCreatedEventHandler.cs" />
+    <Compile Include="Events\ProfileManagers\ProfileCreatedEventHandler.cs" />
+    <Compile Include="Events\Profiles\FavouriteAuthorAddedEventHandler.cs" />
+    <Compile Include="Events\Profiles\FavouriteAuthorRemovedEventHandler.cs" />
+    <Compile Include="Events\Profiles\FavouriteBookAddedEventHandler.cs" />
+    <Compile Include="Events\Profiles\FavouriteBookRemovedEventHandler.cs" />
+    <Compile Include="Events\Profiles\ReaderCreatedEventHandler.cs" />
+    <Compile Include="Events\Readers\Authors\ReaderAddedAuthorEventHandler.cs" />
+    <Compile Include="Events\Readers\Books\ReaderAddedBookEventHandler.cs" />
+    <Compile Include="Events\Readers\ReaderCreatedEventHandler.cs" />
+    <Compile Include="Events\Readers\ReaderFollowedEventHandler.cs" />
+    <Compile Include="Events\Readers\ReaderSuspendedEventHandler.cs" />
+    <Compile Include="Events\Readers\ReaderUnFollowedEventHandler.cs" />
+    <Compile Include="Events\Readers\Reviews\ReaderAddedReviewEventHandler.cs" />
+    <Compile Include="Events\Readers\Reviews\ReaderRemovedReviewEventHandler.cs" />
+    <Compile Include="Events\Reviews\ReviewArchivedEventHandler.cs" />
+    <Compile Include="Events\Reviews\ReviewCreatedEventHandler.cs" />
+    <Compile Include="Events\Reviews\ReviewEditedEventHandler.cs" />
+    <Compile Include="Events\Reviews\ReviewLikedEventHandler.cs" />
+    <Compile Include="Events\Reviews\ReviewReports\ReviewReportedEventHandler.cs" />
+    <Compile Include="Events\Reviews\ReviewUnLikedEventHandler.cs" />
+    <Compile Include="Integration\AuthorAddedHandler.cs" />
+    <Compile Include="Integration\AuthorQuoteAddedHandler.cs" />
+    <Compile Include="Integration\Authors\AuthorAcceptedByLibrarianHandler.cs" />
+    <Compile Include="Integration\Authors\AuthorArchivedHandler.cs" />
+    <Compile Include="Integration\Authors\AuthorDismissedByLibrarianHandler.cs" />
+    <Compile Include="Integration\BookQuoteAddedHandler.cs" />
+    <Compile Include="Integration\Books\BookAcceptedByLibrarianHandler.cs" />
+    <Compile Include="Integration\Books\BookArchivedHandler.cs" />
+    <Compile Include="Integration\Books\BookDismissedByLibrarianHandler.cs" />
+    <Compile Include="Integration\Books\BookRemovedFromBookcaseHandler.cs" />
+    <Compile Include="Integration\Books\BookCreatedHandler.cs" />
+    <Compile Include="Integration\Books\BookRemoveFromReadShelfHandler.cs" />
+    <Compile Include="Integration\Readers\BookAddedToBookcaseHandler.cs" />
+    <Compile Include="Integration\Readers\ReaderChangeEmailHandler.cs" />
+    <Compile Include="Integration\Readers\ShelfCreatedHandler.cs" />
+    <Compile Include="Integration\Readers\ShelfRemovedHandler.cs" />
+    <Compile Include="Integration\Readers\SuperAdminCreatedHandler.cs" />
+    <Compile Include="Integration\Readers\UserBlockedHandler.cs" />
+    <Compile Include="Integration\Readers\UserSignedUpHandler.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WriteModels\Profiles\AboutWriteModel.cs" />
+    <Compile Include="WriteModels\Profiles\AddFavouriteAuthorWriteModel.cs" />
+    <Compile Include="WriteModels\Profiles\AddFavouriteBookWriteModel.cs" />
+    <Compile Include="WriteModels\Profiles\AddFavouriteCategoryWriteModel.cs" />
+    <Compile Include="WriteModels\Profiles\AddressWriteModel.cs" />
+    <Compile Include="WriteModels\Profiles\ChangeAvatarWriteModel.cs" />
+    <Compile Include="WriteModels\Profiles\ChangeFavouritesWriteModel.cs" />
+    <Compile Include="WriteModels\Profiles\FavouritesWriteModel.cs" />
+    <Compile Include="WriteModels\Profiles\IdentityWriteModel.cs" />
+    <Compile Include="WriteModels\Profiles\ProfileWriteModel.cs" />
+    <Compile Include="WriteModels\Profiles\RemoveFavouriteWriteModel.cs" />
+    <Compile Include="WriteModels\Readers\ActivityWriteModel.cs" />
+    <Compile Include="WriteModels\Readers\ReaderDetailsWriteModel.cs" />
+    <Compile Include="WriteModels\Readers\ReaderFollowWriteModel.cs" />
+    <Compile Include="WriteModels\Readers\ReaderSocialDetailsWriteModel.cs" />
+    <Compile Include="WriteModels\Readers\ReaderWriteModel.cs" />
+    <Compile Include="WriteModels\Reviews\AddReviewWriteModel.cs" />
+    <Compile Include="WriteModels\Reviews\ArchiveReviewWriteModel.cs" />
+    <Compile Include="WriteModels\Reviews\EditReviewWriteModel.cs" />
+    <Compile Include="WriteModels\Reviews\ReportReviewWriteModel.cs" />
+    <Compile Include="WriteModels\Reviews\ReviewDetailsWriteModel.cs" />
+    <Compile Include="WriteModels\Reviews\ReviewLikeWriteModel.cs" />
+    <Compile Include="WriteModels\Reviews\ReviewWriteModel.cs" />
+    <Compile Include="WriteModels\Timelines\HideTimeLineActivityWriteModel.cs" />
+    <Compile Include="WriteModels\Timelines\ShowTimeLineActivityWriteModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BookLovers.Auth.Integration\BookLovers.Auth.Integration.csproj">
+      <Project>{82c700e5-d693-4ea7-b57d-51b864e82aa8}</Project>
+      <Name>BookLovers.Auth.Integration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Base.Infrastructure\BookLovers.Base.Infrastructure.csproj">
+      <Project>{15735bdd-1be2-4660-8880-64eb06e20ab5}</Project>
+      <Name>BookLovers.Base.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Base\BookLovers.Base.csproj">
+      <Project>{e15ff1ae-818a-4616-a56b-c232ab9b4569}</Project>
+      <Name>BookLovers.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Bookcases.Integration\BookLovers.Bookcases.Integration.csproj">
+      <Project>{59b09168-8098-4ae9-b588-14e9657833c8}</Project>
+      <Name>BookLovers.Bookcases.Integration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Librarians.Integration\BookLovers.Librarians.Integration.csproj">
+      <Project>{ff66acb8-b1c1-4e89-89df-a15404bfbd4f}</Project>
+      <Name>BookLovers.Librarians.Integration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Publication.Integration\BookLovers.Publication.Integration.csproj">
+      <Project>{4e049363-88a9-465f-ae48-abe505ca1cc0}</Project>
+      <Name>BookLovers.Publication.Integration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Readers.Integration\BookLovers.Readers.Integration.csproj">
+      <Project>{ecf351d2-4452-4c55-ac6c-67641c139c59}</Project>
+      <Name>BookLovers.Readers.Integration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Readers\BookLovers.Readers.csproj">
+      <Project>{9e33ab9e-82d7-43c2-b676-aa4561fc4ebd}</Project>
+      <Name>BookLovers.Readers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Shared\BookLovers.Shared.csproj">
+      <Project>{96f5e5d1-331f-428b-b0e1-d9b66542eebd}</Project>
+      <Name>BookLovers.Shared</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="StyleCop.Analyzers.ruleset" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105.The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+</Project>

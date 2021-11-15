@@ -1,0 +1,505 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\NUnit3TestAdapter.4.1.0\build\net35\NUnit3TestAdapter.props" Condition="Exists('..\packages\NUnit3TestAdapter.4.1.0\build\net35\NUnit3TestAdapter.props')" />
+  <Import Project="..\packages\NUnit.3.12.0\build\NUnit.props" Condition="Exists('..\packages\NUnit.3.12.0\build\NUnit.props')" />
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{86D4666D-1B5F-41F0-9EE0-A042E338F6F4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BaseTests</RootNamespace>
+    <AssemblyName>BaseTests</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <CodeAnalysisRuleSet>StyleCop.Analyzers.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoFixture, Version=4.11.0.0, Culture=neutral, PublicKeyToken=b24654c590009d4f">
+      <HintPath>..\packages\AutoFixture.4.11.0\lib\net452\AutoFixture.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Fare, Version=2.1.0.0, Culture=neutral, PublicKeyToken=ea68d375bf33a7c8">
+      <HintPath>..\packages\Fare.2.1.1\lib\net35\Fare.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FluentAssertions, Version=5.8.0.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentAssertions.5.8.0\lib\net45\FluentAssertions.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentHttpRequestBuilderLibrary, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\FluentHttpRequestBuilderLibrary.1.0.2\lib\net472\FluentHttpRequestBuilderLibrary.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.6.0.0-preview.6.21352.12\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.6.0.0-preview.6.21352.12\lib\net461\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.6.0.0-preview.6.21352.12\lib\net461\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Http, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
+      <HintPath>..\packages\Microsoft.Extensions.Http.6.0.0-preview.6.21352.12\lib\net461\Microsoft.Extensions.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.6.0.0-preview.6.21352.12\lib\net461\Microsoft.Extensions.Logging.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0-preview.6.21352.12\lib\net461\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
+      <HintPath>..\packages\Microsoft.Extensions.Options.6.0.0-preview.6.21352.12\lib\net461\Microsoft.Extensions.Options.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.6.0.0-preview.6.21352.12\lib\net461\Microsoft.Extensions.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=4.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.Owin.4.2.0\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.HttpListener, Version=2.0.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.Owin.Host.HttpListener.2.0.2\lib\net45\Microsoft.Owin.Host.HttpListener.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Hosting, Version=4.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.Owin.Hosting.4.2.0\lib\net45\Microsoft.Owin.Hosting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.Owin.Security.4.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.4.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Testing, Version=4.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.Owin.Testing.4.2.0\lib\net45\Microsoft.Owin.Testing.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Win32.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\Microsoft.Win32.Primitives.4.0.1\lib\net46\Microsoft.Win32.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Moq, Version=4.5.9.0, Culture=neutral, PublicKeyToken=69f491c39445e920">
+      <HintPath>..\packages\Moq.4.5.9-alpha\lib\net45\Moq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="mscorlib" />
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7">
+      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Web.Common, Version=3.3.2.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7">
+      <HintPath>..\packages\Ninject.Web.Common.3.3.2\lib\net45\Ninject.Web.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Web.Common.Owin, Version=3.3.2.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7">
+      <HintPath>..\packages\Ninject.Web.Common.Owin.3.3.2\lib\net45\Ninject.Web.Common.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Web.WebApi, Version=3.3.1.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7">
+      <HintPath>..\packages\Ninject.Web.WebApi.3.3.1\lib\net45\Ninject.Web.WebApi.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Web.WebApi.OwinSelfHost, Version=3.3.1.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7">
+      <HintPath>..\packages\Ninject.Web.WebApi.OwinSelfHost.3.3.1\lib\net45\Ninject.Web.WebApi.OwinSelfHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="nunit.framework, Version=3.12.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb">
+      <HintPath>..\packages\NUnit.3.12.0\lib\net45\nunit.framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Serilog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10">
+      <HintPath>..\packages\Serilog.2.9.0\lib\net46\Serilog.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Serilog.Exceptions, Version=5.0.0.0, Culture=neutral, PublicKeyToken=fc5550082a9c642c">
+      <HintPath>..\packages\Serilog.Exceptions.5.6.0\lib\net461\Serilog.Exceptions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Serilog.Sinks.Console, Version=4.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10">
+      <HintPath>..\packages\Serilog.Sinks.Console.4.0.0-dev-00839\lib\net45\Serilog.Sinks.Console.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Serilog.Sinks.File, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10">
+      <HintPath>..\packages\Serilog.Sinks.File.5.0.0-dev-00887\lib\net45\Serilog.Sinks.File.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SimpleE2ETesterLibrary, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\SimpleE2ETesterLibrary.1.0.4\lib\netstandard2.0\SimpleE2ETesterLibrary.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.6.0.0-preview.6.21352.12\lib\net461\System.Diagnostics.DiagnosticSource.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\System.Net.Http.4.1.0\lib\net46\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0-preview.6.21352.12\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net461\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Cors, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.7\lib\net45\System.Web.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.Cors, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.7\lib\net45\System.Web.Http.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.Owin, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Owin.5.2.7\lib\net45\System.Web.Http.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4">
+      <HintPath>..\packages\WebActivatorEx.2.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Aggregates\AggregateRootSpecification.cs" />
+    <Compile Include="Aggregates\CommonRoot\AggregateRootTests.cs" />
+    <Compile Include="Aggregates\CommonRoot\DummyAggregateRoot.cs" />
+    <Compile Include="Aggregates\EventSourcedAggregate\EventSourcedAggregateRootTests.cs" />
+    <Compile Include="Aggregates\EventSourcedAggregate\ITestAggregateMemento.cs" />
+    <Compile Include="Aggregates\EventSourcedAggregate\TestEventSourcedAggregateRoot.cs" />
+    <Compile Include="Aggregates\EventSourcedAggregate\TestAggregateMemento.cs" />
+    <Compile Include="Aggregates\DummyEvents\ClearWorkEvent.cs" />
+    <Compile Include="Aggregates\DummyEvents\DoWorkEvent.cs" />
+    <Compile Include="Aggregates\DummyEvents\DummyEventThatChangesStateToArchived.cs" />
+    <Compile Include="Aggregates\DummyEvents\DummyEventThatHasNoCorrespondingHandler.cs" />
+    <Compile Include="Aggregates\MementoTestSpecification.cs" />
+    <Compile Include="Aggregates\Rules\DummyBusinessRuleThatShouldFail.cs" />
+    <Compile Include="Aggregates\Rules\DummyBusinessRuleThatShouldSucceed.cs" />
+    <Compile Include="EndToEndHelpers\E2EConstants.cs" />
+    <Compile Include="EndToEndHelpers\EndToEndTest.cs" />
+    <Compile Include="EndToEndHelpers\FakeExceptionHandler.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Auth\BlockAccountHttpRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Auth\ChangeEmailHttpRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Auth\ChangePasswordHttpRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Auth\CompleteRegistrationHttpRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Auth\GetRegistrationSummaryHttpRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Auth\LoginUserRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Auth\LoginWithRefreshTokenRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Auth\RegisterUserHttpRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Auth\RevokeTokenHttpRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Bookcase\AddShelfHttpRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Bookcase\AddToShelfHttpRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Bookcase\ChangeBookcaseSettingsHttpRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Bookcase\ChangeShelfHttpRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Bookcase\ChangeShelfNameRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Bookcase\GetBookcaseByIdHttpRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Bookcase\GetBookcaseByReaderIdHttpRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Bookcase\RemoveFromBookcaseHttpRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Bookcase\RemoveFromShelfRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Bookcase\RemoveShelfHttpRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Librarians\CreateLibrarianHttpRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Librarians\CreateTicketHttpRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Librarians\DegradeLibrarianHttpRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Librarians\ResolveTicketHttpRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Publications\LikeAuthorQuoteHttpRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Readers\AddFavouriteAuthorHttpRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Readers\AddFavouriteBookHttpRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Readers\EditProfileHttpRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Publications\AddToPublisherCycleHttpRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Publications\ArchiveAuthorHttpRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Publications\ArchiveBookHttpRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Publications\ArchivePublisherCycleHttpRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Publications\ArchivePublisherHttpRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Publications\ArchiveQuoteHttpRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Publications\ArchiveSeriesHttpRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Publications\CreateAuthorHttpRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Publications\CreateAuthorQuoteHttpRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Publications\CreateBookHttpRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Publications\CreatePublisherCycleHttpRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Publications\CreatePublisherHttpRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Publications\CreateSeriesHttpRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Publications\EditAuthorHttpRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Publications\EditBookHttpRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Publications\FollowAuthorHttpRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Publications\RemoveBookFromPublisherCycleHttpRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Publications\UnFollowAuthorHttpRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Publications\UnLikeAuthorQuoteHttpRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Ratings\AddRatingHttpRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Ratings\ChangeRatingHttpRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Ratings\RemoveRatingHttpRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Readers\FollowReaderHttpRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Readers\GetReaderByGuidHttpRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Readers\GetReaderTimelineHttpRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Readers\GetTimelineActivityHttpRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Readers\HideActivityHttpRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Readers\RemoveFavouriteHttpRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Readers\ShowTimeLineActivityHttpRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Readers\UnFollowReaderHttpRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Reviews\AddReviewHttpRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Reviews\AddSpoilerTagHttpRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Reviews\EditReviewHttpRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Reviews\LikeReviewRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Reviews\RemoveSpoilerTagHttpRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Reviews\ReportReviewHttpRequest.cs" />
+    <Compile Include="EndToEndHelpers\HttpRequests\Reviews\UnLikeReviewHttpRequest.cs" />
+    <Compile Include="EndToEndHelpers\IProbe.cs" />
+    <Compile Include="EndToEndHelpers\Mocks\FakeHttpContextAccessor.cs" />
+    <Compile Include="EndToEndHelpers\Mocks\FakeReadContextAccessor.cs" />
+    <Compile Include="EndToEndHelpers\Poller.cs" />
+    <Compile Include="EndToEndHelpers\FakeLogger.cs" />
+    <Compile Include="EndToEndHelpers\TimeChecker.cs" />
+    <Compile Include="EventBusTests\FakeIntegrationEvent.cs" />
+    <Compile Include="EventBusTests\FirstIntegrationEventHandler.cs" />
+    <Compile Include="EventBusTests\InMemoryEventBusTests.cs" />
+    <Compile Include="EventBusTests\ProducerNotification.cs" />
+    <Compile Include="EventBusTests\SecondIntegrationEventHandler.cs" />
+    <Compile Include="EventBusTests\ThirdIntegrationEventHandler.cs" />
+    <Compile Include="EventStore\EventStoreTests.cs" />
+    <Compile Include="EventStore\InMemoryEventEntity.cs" />
+    <Compile Include="EventStore\InMemoryEventStore.cs" />
+    <Compile Include="EventStore\InMemoryEventStream.cs" />
+    <Compile Include="EventStore\InMemorySnapshot.cs" />
+    <Compile Include="EventStore\InMemorySnapshotProvider.cs" />
+    <Compile Include="EventStore\MementoFactory.cs" />
+    <Compile Include="EventStore\SnapshotMaker.cs" />
+    <Compile Include="EventStore\SnapshotMakerTests.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="DataCreationHelpers\AuthorFactoryFixtureExtensions.cs" />
+    <Compile Include="DataCreationHelpers\BookFactoryFixtureExtensions.cs" />
+    <Compile Include="Infrastructure\DistinguisherTests.cs" />
+    <Compile Include="Infrastructure\EnumerationTests.cs" />
+    <Compile Include="Infrastructure\DummyEnumeration.cs" />
+    <Compile Include="Infrastructure\MemoryCacherTests.cs" />
+    <Compile Include="Infrastructure\SmartEnumeration.cs" />
+    <Compile Include="IntegrationTest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ValueObjects\DummyObjectThatSupposedToBeImmutable.cs" />
+    <Compile Include="ValueObjects\DummyValueObject.cs" />
+    <Compile Include="ValueObjects\DummyValueObjectThatPretendsThatIsImmutable.cs" />
+    <Compile Include="ValueObjects\ValueObjectTests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BookLovers.Auth.Application\BookLovers.Auth.Application.csproj">
+      <Project>{6d3c8243-7f16-4a5d-b823-3d8d61e03979}</Project>
+      <Name>BookLovers.Auth.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Auth.Infrastructure\BookLovers.Auth.Infrastructure.csproj">
+      <Project>{74686ccf-ab6b-43f0-acaf-f9310427207a}</Project>
+      <Name>BookLovers.Auth.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Auth\BookLovers.Auth.csproj">
+      <Project>{155d2aa3-c8ac-47f5-8f5e-a80dd5eac542}</Project>
+      <Name>BookLovers.Auth</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Base.Infrastructure\BookLovers.Base.Infrastructure.csproj">
+      <Project>{15735bdd-1be2-4660-8880-64eb06e20ab5}</Project>
+      <Name>BookLovers.Base.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Base\BookLovers.Base.csproj">
+      <Project>{e15ff1ae-818a-4616-a56b-c232ab9b4569}</Project>
+      <Name>BookLovers.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Bookcases.Application\BookLovers.Bookcases.Application.csproj">
+      <Project>{11152644-9262-4057-aca5-64920fbf7af3}</Project>
+      <Name>BookLovers.Bookcases.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Bookcases.Infrastructure\BookLovers.Bookcases.Infrastructure.csproj">
+      <Project>{e804b864-7a77-4656-b5b5-1ad8c15d93d7}</Project>
+      <Name>BookLovers.Bookcases.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Bookcases\BookLovers.Bookcases.csproj">
+      <Project>{f9d6bfaa-535a-417a-8703-2f7e063543ad}</Project>
+      <Name>BookLovers.Bookcases</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Librarians.Application\BookLovers.Librarians.Application.csproj">
+      <Project>{4f0e63f1-bb73-4a51-bf16-96d12a4a9b96}</Project>
+      <Name>BookLovers.Librarians.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Librarians.Infrastructure\BookLovers.Librarians.Infrastructure.csproj">
+      <Project>{19cc2bc1-c505-46df-9ea9-4850af469fb3}</Project>
+      <Name>BookLovers.Librarians.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Librarians\BookLovers.Librarians.csproj">
+      <Project>{58e32716-3775-4aab-bc72-80884360452b}</Project>
+      <Name>BookLovers.Librarians</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Publication.Application\BookLovers.Publication.Application.csproj">
+      <Project>{ffbc8345-68b9-4af2-bedf-e574591316b5}</Project>
+      <Name>BookLovers.Publication.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Publication.Infrastructure\BookLovers.Publication.Infrastructure.csproj">
+      <Project>{035ab7ec-cdd0-424e-bbaa-0c3a94920322}</Project>
+      <Name>BookLovers.Publication.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Publication\BookLovers.Publication.csproj">
+      <Project>{98bc0f3c-e154-4d12-b291-d56dabec8cba}</Project>
+      <Name>BookLovers.Publication</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Ratings.Application\BookLovers.Ratings.Application.csproj">
+      <Project>{845f7e8f-b8d2-48fe-8102-83326e2a2718}</Project>
+      <Name>BookLovers.Ratings.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Ratings.Infrastructure\BookLovers.Ratings.Infrastructure.csproj">
+      <Project>{0285e8a0-1c35-465a-abc8-7188005839b9}</Project>
+      <Name>BookLovers.Ratings.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Ratings\BookLovers.Ratings.csproj">
+      <Project>{de720c43-c24c-42b2-8fe5-ecd38be29b55}</Project>
+      <Name>BookLovers.Ratings</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Readers.Application\BookLovers.Readers.Application.csproj">
+      <Project>{b99b0659-d29e-4ff6-9ed9-868315f4d719}</Project>
+      <Name>BookLovers.Readers.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Readers.Infrastructure\BookLovers.Readers.Infrastructure.csproj">
+      <Project>{ff790995-ba95-4ad9-b590-230e5edf3250}</Project>
+      <Name>BookLovers.Readers.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Readers\BookLovers.Readers.csproj">
+      <Project>{9e33ab9e-82d7-43c2-b676-aa4561fc4ebd}</Project>
+      <Name>BookLovers.Readers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers.Shared\BookLovers.Shared.csproj">
+      <Project>{96f5e5d1-331f-428b-b0e1-d9b66542eebd}</Project>
+      <Name>BookLovers.Shared</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLovers\BookLovers.csproj">
+      <Project>{1a745d37-217d-479d-b0f5-30703bf3b7f3}</Project>
+      <Name>BookLovers</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="StyleCop.Analyzers.ruleset" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\NUnit.3.12.0\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit.3.12.0\build\NUnit.props'))" />
+    <Error Condition="!Exists('..\packages\NUnit3TestAdapter.4.1.0\build\net35\NUnit3TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit3TestAdapter.4.1.0\build\net35\NUnit3TestAdapter.props'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+</Project>
