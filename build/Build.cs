@@ -54,7 +54,7 @@ public partial class Build : NukeBuild
         .Before(Restore)
         .Executes(() =>
         {
-            EnsureCleanDirectory(WorkingDirectory);
+            // EnsureCleanDirectory(WorkingDirectory);
         });
 
     public Target Restore => _ => _
