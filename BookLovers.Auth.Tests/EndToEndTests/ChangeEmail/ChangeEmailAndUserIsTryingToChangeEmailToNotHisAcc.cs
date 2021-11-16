@@ -62,11 +62,11 @@ namespace BookLovers.Auth.Tests.EndToEndTests.ChangeEmail
                 .Returns("http://localhost:64892/");
             appManagerMock.Setup(s => s.GetConfigValue(JwtSettings.JsonWebTokenKey))
                 .Returns("mySuperSecretKey");
-            
+
             var authConnectionString = Environment.GetEnvironmentVariable(AuthContext.ConnectionStringKey);
             if (authConnectionString.IsEmpty())
                 authConnectionString = E2EConstants.AuthConnectionString;
-            
+
             appManagerMock.Setup(s => s.GetConfigValue(AuthContext.ConnectionStringKey))
                 .Returns(authConnectionString);
 

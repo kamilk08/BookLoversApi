@@ -16,8 +16,7 @@ namespace BookLovers.Auth.Application.CommandHandlers.Registrations
         public CompleteRegistrationHandler(
             IUnitOfWork unitOfWork,
             IRegistrationSummaryRepository repository,
-            SummaryCompletionService completionService
-            )
+            SummaryCompletionService completionService)
         {
             this._unitOfWork = unitOfWork;
             this._repository = repository;

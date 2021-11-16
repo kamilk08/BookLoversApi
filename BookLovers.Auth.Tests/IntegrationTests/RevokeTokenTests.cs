@@ -76,7 +76,6 @@ namespace BookLovers.Auth.Tests.IntegrationTests
             appManagerMock.Setup(s => s.GetConfigValue(AuthContext.ConnectionStringKey))
                 .Returns(authConnectionString);
 
-
             AuthModuleStartup.Initialize(
                 httpContextAccessor.Object,
                 appManagerMock.Object,

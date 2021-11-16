@@ -29,9 +29,8 @@ namespace BookLovers.Auth.Application.CommandHandlers.Audiences
             if (audience == null) return;
 
             var generatedHash = this._hashingService.GetHash(command.SecretKey, audience.AudienceSecurity.Salt);
-            var flag = audience.IsAuthenticated(generatedHash);
 
-            command.IsAuthenticated = flag;
+            command.IsAuthenticated = audience.IsAuthenticated(generatedHash);
         }
     }
 }

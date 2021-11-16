@@ -104,10 +104,8 @@ namespace BookLovers.Auth.Tests.IntegrationTests
             if (authConnectionString.IsEmpty())
                 authConnectionString = E2EConstants.AuthConnectionString;
 
-
             _managerMock.Setup(s => s.GetConfigValue(AuthContext.ConnectionStringKey))
                 .Returns(authConnectionString);
-
 
             AuthModuleStartup.Initialize(
                 _httpContextAccessorMock.Object,

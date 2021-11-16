@@ -140,11 +140,9 @@
     <Compile Include="Commands\Users\SignUpCommand.cs" />
     <Compile Include="Commands\Users\VerifyAccountInternalCommand.cs" />
     <Compile Include="Contracts\IEmailService.cs" />
-    <Compile Include="Contracts\ISeedService.cs" />
     <Compile Include="Contracts\Tokens\AccessTokenProperties.cs" />
     <Compile Include="Contracts\Tokens\IRandomSecretKeyGenerator.cs" />
     <Compile Include="Contracts\Tokens\ITokenDescriptor.cs" />
-    <Compile Include="Contracts\Tokens\ITokenReader.cs" />
     <Compile Include="Contracts\Tokens\ITokenWriter.cs" />
     <Compile Include="Events\RegistrationSummaryCompletedEventHandler.cs" />
     <Compile Include="Events\ResetPasswordTokenGeneratedEventHandler.cs" />

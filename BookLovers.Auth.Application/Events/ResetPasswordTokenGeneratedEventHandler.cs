@@ -17,6 +17,7 @@ namespace BookLovers.Auth.Application.Events
 
         public Task HandleAsync(ResetPasswordTokenGenerated @event)
         {
+            // SEND USER A PASSWORD RESET TOKEN ON EMAIL THAT HE PROVIDED
             return Task.CompletedTask;
         }
     }

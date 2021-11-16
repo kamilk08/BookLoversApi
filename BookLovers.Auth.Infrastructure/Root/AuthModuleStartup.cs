@@ -73,8 +73,6 @@ namespace BookLovers.Auth.Infrastructure.Root
             var persistenceModule = new PersistenceModule(connectionString);
             _kernel.Load(persistenceModule);
 
-            logger.Information("Testing logging in auth module.");
-
             RegisterExternalServices(contextAccessor, appManager);
 
             CompositionRoot.SetKernel(_kernel);

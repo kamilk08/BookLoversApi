@@ -73,7 +73,7 @@ namespace BookLovers.Auth.Tests.EndToEndTests.CompleteRegistration
             var authConnectionString = Environment.GetEnvironmentVariable(AuthContext.ConnectionStringKey);
             if (authConnectionString.IsEmpty())
                 authConnectionString = E2EConstants.AuthConnectionString;
-            
+
             mock.Setup(s => s.GetConfigValue(AuthContext.ConnectionStringKey))
                 .Returns(authConnectionString);
 

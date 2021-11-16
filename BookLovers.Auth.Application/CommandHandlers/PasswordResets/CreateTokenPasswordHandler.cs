@@ -15,11 +15,11 @@ namespace BookLovers.Auth.Application.CommandHandlers.PasswordResets
             this._unitOfWork = unitOfWork;
         }
 
-        public async Task HandleAsync(CreateTokenPasswordCommand command)
+        public Task HandleAsync(CreateTokenPasswordCommand command)
         {
             var resetToken = new PasswordResetToken(command.UserGuid, command.Email);
 
-            await this._unitOfWork.CommitAsync(resetToken);
+            return this._unitOfWork.CommitAsync(resetToken);
         }
     }
 }

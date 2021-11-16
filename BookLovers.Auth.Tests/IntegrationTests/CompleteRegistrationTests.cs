@@ -71,11 +71,9 @@ namespace BookLovers.Auth.Tests.IntegrationTests
             var authConnectionString = Environment.GetEnvironmentVariable(AuthContext.ConnectionStringKey);
             if (authConnectionString.IsEmpty())
                 authConnectionString = E2EConstants.AuthConnectionString;
-            
 
             appManagerMock.Setup(s => s.GetConfigValue(AuthContext.ConnectionStringKey))
                 .Returns(authConnectionString);
-            
 
             AuthModuleStartup.Initialize(
                 httpContextAccessorMock.Object,

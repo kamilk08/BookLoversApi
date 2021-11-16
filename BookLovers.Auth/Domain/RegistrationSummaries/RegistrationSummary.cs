@@ -31,17 +31,6 @@ namespace BookLovers.Auth.Domain.RegistrationSummaries
             return new RegistrationSummary(Guid.NewGuid(), identification, token);
         }
 
-        // public void Complete(string token)
-        // {
-        //     CheckBusinessRules(new RegistrationCompletionRules(this, token));
-        //
-        //     var now = DateTime.UtcNow;
-        //
-        //     Completion = Completion.Completed(now);
-        //
-        //     Events.Add(new RegistrationSummaryCompleted(Guid, Identification.UserGuid, now));
-        // }
-
         public void EndWithoutCompletion()
         {
             CheckBusinessRules(new FinishRegistrationWithoutCompletionRules(this));
