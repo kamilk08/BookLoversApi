@@ -73,11 +73,10 @@ namespace BookLovers.Librarians.Tests.EndToEndTests.CreateTicketTests
             var authConnectionString = Environment.GetEnvironmentVariable(AuthContext.ConnectionStringKey);
             if (authConnectionString.IsEmpty())
                 authConnectionString = E2EConstants.AuthConnectionString;
-            
+
             var librariansConnectionString = Environment.GetEnvironmentVariable(LibrariansContext.ConnectionStringKey);
             if (librariansConnectionString.IsEmpty())
                 librariansConnectionString = E2EConstants.LibrariansConnectionString;
-
 
             appManagerMock.Setup(s => s.GetConfigValue(AuthContext.ConnectionStringKey))
                 .Returns(authConnectionString);

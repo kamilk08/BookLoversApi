@@ -146,7 +146,6 @@ namespace BookLovers.Librarians.Tests.EndToEndTests.ResolveTicketTests
             var librariansConnectionString = Environment.GetEnvironmentVariable(LibrariansContext.ConnectionStringKey);
             if (librariansConnectionString.IsEmpty())
                 librariansConnectionString = E2EConstants.LibrariansConnectionString;
-            
 
             var readersConnectionString = Environment.GetEnvironmentVariable(ReadersContext.ConnectionStringKey);
             if (readersConnectionString.IsEmpty())
@@ -155,7 +154,7 @@ namespace BookLovers.Librarians.Tests.EndToEndTests.ResolveTicketTests
             var ratingsConnectionString = Environment.GetEnvironmentVariable(RatingsContext.ConnectionStringKey);
             if (ratingsConnectionString.IsEmpty())
                 ratingsConnectionString = E2EConstants.RatingsConnectionString;
-            
+
             var readersStoreConnectionString =
                 Environment.GetEnvironmentVariable(ReadersStoreContext.ConnectionStringKey);
             if (readersStoreConnectionString.IsEmpty())
@@ -181,7 +180,7 @@ namespace BookLovers.Librarians.Tests.EndToEndTests.ResolveTicketTests
 
             appManagerMock.Setup(s => s.GetConfigValue(RatingsContext.ConnectionStringKey))
                 .Returns(ratingsConnectionString);
-            
+
             appManagerMock.Setup(s => s.GetConfigValue(ReadersContext.ConnectionStringKey))
                 .Returns(readersConnectionString);
 

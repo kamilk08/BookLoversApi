@@ -112,7 +112,6 @@ namespace BookLovers.Librarians.Tests.EndToEndTests.CreateLibrarianTests
             var librariansConnectionString = Environment.GetEnvironmentVariable(LibrariansContext.ConnectionStringKey);
             if (librariansConnectionString.IsEmpty())
                 librariansConnectionString = E2EConstants.LibrariansConnectionString;
-            
 
             var readersConnectionString = Environment.GetEnvironmentVariable(ReadersContext.ConnectionStringKey);
             if (readersConnectionString.IsEmpty())

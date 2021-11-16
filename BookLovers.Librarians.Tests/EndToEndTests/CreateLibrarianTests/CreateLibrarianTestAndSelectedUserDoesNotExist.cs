@@ -132,7 +132,6 @@ namespace BookLovers.Librarians.Tests.EndToEndTests.CreateLibrarianTests
 
             appManagerMock.Setup(s => s.GetConfigValue(LibrariansContext.ConnectionStringKey))
                 .Returns(librariansConnectionString);
-            
 
             appManagerMock.Setup(s => s.GetConfigValue(ReadersContext.ConnectionStringKey))
                 .Returns(readersConnectionString);

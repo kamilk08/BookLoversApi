@@ -64,11 +64,11 @@ namespace BookLovers.Librarians.Infrastructure.Root
             
             _kernel.Load(persistenceModule);
 
-            var loggingModule = new LoggingModule(logger.ForContext("Module", "LIBRARIANS_MODULE"));
+            logger = logger.ForContext("Module", "LIBRARIANS_MODULE");
+
+            var loggingModule = new LoggingModule(logger);
             _kernel.Load(loggingModule);
 
-            logger.Information("Testing logging in librarians module...");
-            
             ConfigureExternalServices(contextAccessor);
 
             CompositionRoot.SetKernel(_kernel);

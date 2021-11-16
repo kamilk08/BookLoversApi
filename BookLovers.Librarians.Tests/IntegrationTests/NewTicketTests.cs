@@ -68,11 +68,11 @@ namespace BookLovers.Librarians.Tests.IntegrationTests
             _httpAccessor.Setup(s => s.UserGuid).Returns(_readerGuid);
 
             var appManagerMock = new Mock<IAppManager>();
-            
+
             var librariansConnectionString = Environment.GetEnvironmentVariable(LibrariansContext.ConnectionStringKey);
             if (librariansConnectionString.IsEmpty())
                 librariansConnectionString = E2EConstants.LibrariansConnectionString;
-            
+
             appManagerMock.Setup(s => s.GetConfigValue(LibrariansContext.ConnectionStringKey))
                 .Returns(librariansConnectionString);
 

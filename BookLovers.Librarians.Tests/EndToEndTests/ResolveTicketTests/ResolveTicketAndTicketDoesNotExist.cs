@@ -173,7 +173,7 @@ namespace BookLovers.Librarians.Tests.EndToEndTests.ResolveTicketTests
 
             appManagerMock.Setup(s => s.GetConfigValue(RatingsContext.ConnectionStringKey))
                 .Returns(ratingsConnectionString);
-            
+
             appManagerMock.Setup(s => s.GetConfigValue(ReadersStoreContext.ConnectionStringKey))
                 .Returns(readersStoreConnectionString);
 

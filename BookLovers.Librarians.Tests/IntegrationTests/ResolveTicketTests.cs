@@ -94,7 +94,7 @@ namespace BookLovers.Librarians.Tests.IntegrationTests
             var librariansConnectionString = Environment.GetEnvironmentVariable(LibrariansContext.ConnectionStringKey);
             if (librariansConnectionString.IsEmpty())
                 librariansConnectionString = E2EConstants.LibrariansConnectionString;
-            
+
             _managerMock.Setup(s => s.GetConfigValue(LibrariansContext.ConnectionStringKey))
                 .Returns(librariansConnectionString);
 

@@ -76,18 +76,15 @@ namespace BookLovers.Librarians.Tests.EndToEndTests.CreateTicketTests
             if (authConnectionString.IsEmpty())
                 authConnectionString = E2EConstants.AuthConnectionString;
 
-
             var librariansConnectionString = Environment.GetEnvironmentVariable(LibrariansContext.ConnectionStringKey);
             if (librariansConnectionString.IsEmpty())
                 librariansConnectionString = E2EConstants.LibrariansConnectionString;
-
 
             _managerMock.Setup(s => s.GetConfigValue(AuthContext.ConnectionStringKey))
                 .Returns(authConnectionString);
 
             _managerMock.Setup(s => s.GetConfigValue(LibrariansContext.ConnectionStringKey))
                 .Returns(librariansConnectionString);
-
 
             kernel.Bind<IHttpContextAccessor>().ToConstant(httpContextAccessor);
             kernel.Bind<IAppManager>().ToConstant(this._managerMock.Object);
