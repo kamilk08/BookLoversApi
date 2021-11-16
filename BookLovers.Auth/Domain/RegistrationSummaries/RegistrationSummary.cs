@@ -9,7 +9,7 @@ namespace BookLovers.Auth.Domain.RegistrationSummaries
     {
         public RegistrationIdentification Identification { get; private set; }
 
-        public RegistrationCompletion Completion { get; private set; }
+        public RegistrationCompletion Completion { get; internal set; }
 
         public string Token { get; private set; }
 
@@ -31,16 +31,16 @@ namespace BookLovers.Auth.Domain.RegistrationSummaries
             return new RegistrationSummary(Guid.NewGuid(), identification, token);
         }
 
-        public void Complete(string token)
-        {
-            CheckBusinessRules(new RegistrationCompletionRules(this, token));
-
-            var now = DateTime.UtcNow;
-
-            Completion = Completion.Completed(now);
-
-            Events.Add(new RegistrationSummaryCompleted(Guid, Identification.UserGuid, now));
-        }
+        // public void Complete(string token)
+        // {
+        //     CheckBusinessRules(new RegistrationCompletionRules(this, token));
+        //
+        //     var now = DateTime.UtcNow;
+        //
+        //     Completion = Completion.Completed(now);
+        //
+        //     Events.Add(new RegistrationSummaryCompleted(Guid, Identification.UserGuid, now));
+        // }
 
         public void EndWithoutCompletion()
         {

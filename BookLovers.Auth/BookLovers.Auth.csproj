@@ -95,6 +95,7 @@
     <Compile Include="Domain\RegistrationSummaries\RegistrationCompletion.cs" />
     <Compile Include="Domain\RegistrationSummaries\RegistrationSummary.cs" />
     <Compile Include="Domain\RegistrationSummaries\Services\IRegistrationSummaryRepository.cs" />
+    <Compile Include="Domain\RegistrationSummaries\Services\SummaryCompletionService.cs" />
     <Compile Include="Domain\Roles\IRoleProvider.cs" />
     <Compile Include="Domain\Roles\RoleManager.cs" />
     <Compile Include="Domain\Roles\RoleRulesCollection.cs" />

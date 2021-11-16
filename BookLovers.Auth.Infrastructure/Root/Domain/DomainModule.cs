@@ -1,4 +1,5 @@
-﻿using BookLovers.Auth.Domain.Roles;
+﻿using BookLovers.Auth.Domain.RegistrationSummaries.Services;
+using BookLovers.Auth.Domain.Roles;
 using BookLovers.Auth.Domain.Tokens.Services;
 using BookLovers.Auth.Domain.Users;
 using BookLovers.Auth.Domain.Users.Services;
@@ -41,6 +42,8 @@ namespace BookLovers.Auth.Infrastructure.Root.Domain
             Bind<RefreshTokenFactory>().ToSelf();
 
             Bind<UserAuthenticationService>().ToSelf();
+
+            Bind<SummaryCompletionService>().ToSelf();
         }
     }
 }

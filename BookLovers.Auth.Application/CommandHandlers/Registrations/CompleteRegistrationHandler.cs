@@ -11,25 +11,26 @@ namespace BookLovers.Auth.Application.CommandHandlers.Registrations
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IRegistrationSummaryRepository _repository;
+        private readonly SummaryCompletionService _completionService;
 
         public CompleteRegistrationHandler(
             IUnitOfWork unitOfWork,
-            IRegistrationSummaryRepository repository)
+            IRegistrationSummaryRepository repository,
+            SummaryCompletionService completionService
+            )
         {
             this._unitOfWork = unitOfWork;
             this._repository = repository;
+            this._completionService = completionService;
         }
 
         public async Task HandleAsync(CompleteRegistrationCommand command)
         {
-            var registrationSummary = await this._repository.GetRegistrationSummaryByEmailAsync(command.Email);
+            var summary = await this._repository.GetRegistrationSummaryByEmailAsync(command.Email);
 
-            if (registrationSummary == null)
-                throw new BusinessRuleNotMetException("Account with given email does not exist.");
+            _completionService.CompleteRegistration(summary, command.Token);
 
-            registrationSummary.Complete(command.Token);
-
-            await this._unitOfWork.CommitAsync(registrationSummary);
+            await this._unitOfWork.CommitAsync(summary);
         }
     }
 }
