@@ -71,7 +71,7 @@ namespace BookLovers.Readers.Tests.IntegrationTests.UnFollowReader
 
             appManagerMock.Setup(s => s.GetConfigValue(ReadersStoreContext.ConnectionStringKey))
                 .Returns(readersStoreConnectionString);
-            
+
             ReadersModuleStartup.Initialize(new FakeHttpContextAccessor(_readerGuid, true), appManagerMock.Object,
                 new FakeLogger().GetLogger(), PersistenceSettings.Default());
         }

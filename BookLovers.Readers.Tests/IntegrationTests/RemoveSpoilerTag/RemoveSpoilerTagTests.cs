@@ -104,7 +104,7 @@ namespace BookLovers.Readers.Tests.IntegrationTests.RemoveSpoilerTag
 
             appManagerMock.Setup(s => s.GetConfigValue(ReadersStoreContext.ConnectionStringKey))
                 .Returns(readersStoreConnectionString);
-            
+
             ReadersModuleStartup.Initialize(
                 new FakeHttpContextAccessor(_spoilerTagRemoverGuid, true),
                 appManagerMock.Object,

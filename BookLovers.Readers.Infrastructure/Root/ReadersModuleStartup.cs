@@ -70,7 +70,9 @@ namespace BookLovers.Readers.Infrastructure.Root
 
             _kernel.Load(persistenceModule);
 
-            var loggingModule = new LoggingModule(logger.ForContext("Module", "READERS_MODULE"));
+            logger = logger.ForContext("Module", "READERS_MODULE");
+
+            var loggingModule = new LoggingModule(logger);
             _kernel.Load(loggingModule);
 
             _kernel.Load<InternalProcessingModule>();

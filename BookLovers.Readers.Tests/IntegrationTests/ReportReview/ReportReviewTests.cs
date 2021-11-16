@@ -60,7 +60,7 @@ namespace BookLovers.Readers.Tests.IntegrationTests.ReportReview
 
             appManagerMock.Setup(s => s.GetConfigValue(ReadersStoreContext.ConnectionStringKey))
                 .Returns(readersStoreConnectionString);
-            
+
             ReadersModuleStartup.Initialize(new FakeHttpContextAccessor(_readerWhoReports, true), appManagerMock.Object,
                 new FakeLogger().GetLogger(), PersistenceSettings.Default());
         }

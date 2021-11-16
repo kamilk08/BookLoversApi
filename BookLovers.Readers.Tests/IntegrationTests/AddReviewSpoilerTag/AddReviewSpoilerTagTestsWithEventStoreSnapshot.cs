@@ -66,7 +66,7 @@ namespace BookLovers.Readers.Tests.IntegrationTests.AddReviewSpoilerTag
 
             appManagerMock.Setup(s => s.GetConfigValue(ReadersStoreContext.ConnectionStringKey))
                 .Returns(readersStoreConnectionString);
-            
+
             ReadersModuleStartup.Initialize(new FakeHttpContextAccessor(_tagAdderGuid, true), appManagerMock.Object,
                 new FakeLogger().GetLogger(), PersistenceSettings.Default());
         }

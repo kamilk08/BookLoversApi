@@ -97,7 +97,7 @@ namespace BookLovers.Readers.Tests.EndToEndTests.LikeReviewTests
             var publicationsConnectionString = Environment.GetEnvironmentVariable(PublicationsContext.ConnectionStringKey);
             if (publicationsConnectionString.IsEmpty())
                 publicationsConnectionString = E2EConstants.PublicationsConnectionString;
-            
+
             var publicationsStoreConnectionString = Environment.GetEnvironmentVariable(PublicationsStoreContext.ConnectionStringKey);
             if (publicationsStoreConnectionString.IsEmpty())
                 publicationsStoreConnectionString = E2EConstants.PublicationsStoreConnectionString;
@@ -105,16 +105,15 @@ namespace BookLovers.Readers.Tests.EndToEndTests.LikeReviewTests
             var librariansConnectionString = Environment.GetEnvironmentVariable(LibrariansContext.ConnectionStringKey);
             if (librariansConnectionString.IsEmpty())
                 librariansConnectionString = E2EConstants.LibrariansConnectionString;
-            
 
             var readersConnectionString = Environment.GetEnvironmentVariable(ReadersContext.ConnectionStringKey);
             if (readersConnectionString.IsEmpty())
                 readersConnectionString = E2EConstants.ReadersConnectionString;
-            
+
             var readersStoreConnectionString = Environment.GetEnvironmentVariable(ReadersStoreContext.ConnectionStringKey);
             if (readersStoreConnectionString.IsEmpty())
                 readersStoreConnectionString = E2EConstants.ReadersStoreConnectionString;
-            
+
             _appManagerMock.Setup(s => s.GetConfigValue(AuthContext.ConnectionStringKey))
                 .Returns(authConnectionString);
 
@@ -126,7 +125,6 @@ namespace BookLovers.Readers.Tests.EndToEndTests.LikeReviewTests
 
             _appManagerMock.Setup(s => s.GetConfigValue(LibrariansContext.ConnectionStringKey))
                 .Returns(librariansConnectionString);
-            
 
             _appManagerMock.Setup(s => s.GetConfigValue(ReadersContext.ConnectionStringKey))
                 .Returns(readersConnectionString);

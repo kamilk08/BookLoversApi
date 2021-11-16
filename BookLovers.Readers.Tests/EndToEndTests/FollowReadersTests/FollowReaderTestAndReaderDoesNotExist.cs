@@ -77,11 +77,11 @@ namespace BookLovers.Readers.Tests.EndToEndTests.FollowReadersTests
             var readersConnectionString = Environment.GetEnvironmentVariable(ReadersContext.ConnectionStringKey);
             if (readersConnectionString.IsEmpty())
                 readersConnectionString = E2EConstants.ReadersConnectionString;
-            
+
             var readersStoreConnectionString = Environment.GetEnvironmentVariable(ReadersStoreContext.ConnectionStringKey);
             if (readersStoreConnectionString.IsEmpty())
                 readersStoreConnectionString = E2EConstants.ReadersStoreConnectionString;
-            
+
             appManagerMock.Setup(s => s.GetConfigValue(AuthContext.ConnectionStringKey))
                 .Returns(authConnectionString);
 
