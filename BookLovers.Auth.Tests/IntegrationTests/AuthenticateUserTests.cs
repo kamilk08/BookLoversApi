@@ -74,7 +74,7 @@ namespace BookLovers.Auth.Tests.IntegrationTests
         protected override void InitializeRoot()
         {
             var httpContextAccessorMock = new Mock<IHttpContextAccessor>();
-            
+
             var authConnectionString = Environment.GetEnvironmentVariable(AuthContext.ConnectionStringKey);
             if (authConnectionString.IsEmpty())
                 authConnectionString = E2EConstants.AuthConnectionString;

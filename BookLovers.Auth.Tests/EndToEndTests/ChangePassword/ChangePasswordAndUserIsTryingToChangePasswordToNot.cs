@@ -78,7 +78,7 @@ namespace BookLovers.Auth.Tests.EndToEndTests.ChangePassword
             var authConnectionString = Environment.GetEnvironmentVariable(AuthContext.ConnectionStringKey);
             if (authConnectionString.IsEmpty())
                 authConnectionString = E2EConstants.AuthConnectionString;
-            
+
             appManagerMock.Setup(s => s.GetConfigValue(AuthContext.ConnectionStringKey))
                 .Returns(authConnectionString);
 

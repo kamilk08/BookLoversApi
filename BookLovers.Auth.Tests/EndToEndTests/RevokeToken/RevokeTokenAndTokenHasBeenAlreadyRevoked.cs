@@ -88,7 +88,7 @@ namespace BookLovers.Auth.Tests.EndToEndTests.RevokeToken
             var librariansConnectionString = Environment.GetEnvironmentVariable(LibrariansContext.ConnectionStringKey);
             if (librariansConnectionString.IsEmpty())
                 librariansConnectionString = E2EConstants.LibrariansConnectionString;
-            
+
             appManagerMock.Setup(s => s.GetConfigValue(AuthContext.ConnectionStringKey))
                 .Returns(authConnectionString);
 
