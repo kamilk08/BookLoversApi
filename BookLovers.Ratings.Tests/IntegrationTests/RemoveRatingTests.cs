@@ -72,7 +72,7 @@ namespace BookLovers.Ratings.Tests.IntegrationTests
             var ratingsConnectionString = Environment.GetEnvironmentVariable(RatingsContext.ConnectionStringKey);
             if (ratingsConnectionString.IsEmpty())
                 ratingsConnectionString = E2EConstants.RatingsConnectionString;
-            
+
             appManagerMock.Setup(s => s.GetConfigValue(RatingsContext.ConnectionStringKey))
                 .Returns(ratingsConnectionString);
 

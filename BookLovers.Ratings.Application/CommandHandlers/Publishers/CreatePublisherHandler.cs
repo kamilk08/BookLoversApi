@@ -15,11 +15,11 @@ namespace BookLovers.Ratings.Application.CommandHandlers.Publishers
             _unitOfWork = unitOfWork;
         }
 
-        public async Task HandleAsync(CreatePublisherInternalCommand command)
+        public Task HandleAsync(CreatePublisherInternalCommand command)
         {
             var publisher = Publisher.Create(new PublisherIdentification(command.PublisherGuid, command.PublisherId));
 
-            await _unitOfWork.CommitAsync(publisher);
+            return _unitOfWork.CommitAsync(publisher);
         }
     }
 }
