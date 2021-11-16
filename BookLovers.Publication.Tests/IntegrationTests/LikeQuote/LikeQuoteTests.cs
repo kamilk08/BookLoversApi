@@ -179,7 +179,7 @@ namespace BookLovers.Publication.Tests.IntegrationTests.LikeQuote
                 .WithGuid(Fixture.Create<Guid>())
                 .AddedBy(new BookReader(Fixture.Create<Guid>(), _readerGuid, _readerId))
                 .WithBooks(new List<Guid>())
-                .WithGenres(new List<int> {SubCategory.FictionSubCategory.Thriller.Value});
+                .WithGenres(new List<int> { SubCategory.FictionSubCategory.Thriller.Value });
         }
     }
 }

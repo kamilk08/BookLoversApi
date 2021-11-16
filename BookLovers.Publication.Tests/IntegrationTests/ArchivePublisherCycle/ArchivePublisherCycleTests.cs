@@ -70,7 +70,7 @@ namespace BookLovers.Publication.Tests.IntegrationTests.ArchivePublisherCycle
                 Environment.GetEnvironmentVariable(PublicationsStoreContext.ConnectionStringKey);
             if (publicationsStoreConnectionString.IsEmpty())
                 publicationsStoreConnectionString = E2EConstants.PublicationsStoreConnectionString;
-            
+
             appManagerMock.Setup(s => s.GetConfigValue(PublicationsContext.ConnectionStringKey))
                 .Returns(publicationsConnectionString);
             appManagerMock.Setup(s => s.GetConfigValue(PublicationsStoreContext.ConnectionStringKey)).Returns(

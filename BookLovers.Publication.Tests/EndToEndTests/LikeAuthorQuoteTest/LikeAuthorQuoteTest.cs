@@ -113,7 +113,6 @@ namespace BookLovers.Publication.Tests.EndToEndTests.LikeAuthorQuoteTest
 
             appManagerMock.Setup(s => s.GetConfigValue(AuthContext.ConnectionStringKey))
                 .Returns(authConnectionString);
-            
 
             appManagerMock.Setup(s => s.GetConfigValue(PublicationsContext.ConnectionStringKey))
                 .Returns(publicationsConnectionString);
@@ -123,7 +122,6 @@ namespace BookLovers.Publication.Tests.EndToEndTests.LikeAuthorQuoteTest
 
             appManagerMock.Setup(s => s.GetConfigValue(LibrariansContext.ConnectionStringKey))
                 .Returns(librariansConnectionString);
-            
 
             appManagerMock.Setup(s => s.GetConfigValue(ReadersContext.ConnectionStringKey))
                 .Returns(readersConnectionString);

@@ -101,7 +101,6 @@ namespace BookLovers.Publication.Tests.EndToEndTests.LikeAuthorQuoteTest
             var librariansConnectionString = Environment.GetEnvironmentVariable(LibrariansContext.ConnectionStringKey);
             if (librariansConnectionString.IsEmpty())
                 librariansConnectionString = E2EConstants.LibrariansConnectionString;
-            
 
             var readersConnectionString = Environment.GetEnvironmentVariable(ReadersContext.ConnectionStringKey);
             if (readersConnectionString.IsEmpty())
@@ -114,7 +113,6 @@ namespace BookLovers.Publication.Tests.EndToEndTests.LikeAuthorQuoteTest
 
             appManagerMock.Setup(s => s.GetConfigValue(AuthContext.ConnectionStringKey))
                 .Returns(authConnectionString);
-            
 
             appManagerMock.Setup(s => s.GetConfigValue(PublicationsContext.ConnectionStringKey))
                 .Returns(publicationsConnectionString);
@@ -124,7 +122,6 @@ namespace BookLovers.Publication.Tests.EndToEndTests.LikeAuthorQuoteTest
 
             appManagerMock.Setup(s => s.GetConfigValue(LibrariansContext.ConnectionStringKey))
                 .Returns(librariansConnectionString);
-            
 
             appManagerMock.Setup(s => s.GetConfigValue(ReadersContext.ConnectionStringKey))
                 .Returns(readersConnectionString);

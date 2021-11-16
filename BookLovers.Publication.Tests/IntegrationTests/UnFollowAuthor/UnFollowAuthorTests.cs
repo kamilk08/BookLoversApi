@@ -192,7 +192,7 @@ namespace BookLovers.Publication.Tests.IntegrationTests.UnFollowAuthor
                 .WithGuid(Fixture.Create<Guid>())
                 .AddedBy(new BookReader(Fixture.Create<Guid>(), _readerGuid, Fixture.Create<int>()))
                 .WithBooks(new List<Guid>())
-                .WithGenres(new List<int> {SubCategory.FictionSubCategory.Thriller.Value});
+                .WithGenres(new List<int> { SubCategory.FictionSubCategory.Thriller.Value });
         }
     }
 }
