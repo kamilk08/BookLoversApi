@@ -62,7 +62,7 @@ namespace BookLovers.Bookcases.Tests.IntegrationTests.ChangeOptions
                 Environment.GetEnvironmentVariable(BookcaseStoreContext.ConnectionStringKey);
             if (bookcaseStoreConnectionString.IsEmpty())
                 bookcaseStoreConnectionString = E2EConstants.BookcaseStoreConnectionString;
-            
+
             appManagerMock
                 .Setup(s => s.GetConfigValue(BookcaseContext.ConnectionStringKey))
                 .Returns(bookcaseConnectionString);

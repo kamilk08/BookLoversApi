@@ -92,7 +92,7 @@ namespace BookLovers.Bookcases.Tests.EndToEndTests.RemoveFromBookcaseTests
             appManagerMock.Setup(s => s.GetConfigValue(JwtSettings.Issuer)).Returns("http://localhost:64892/");
             appManagerMock.Setup(s => s.GetConfigValue(JwtSettings.JsonWebTokenKey)).Returns("mySuperSecretKey");
 
-             var authConnectionString = Environment.GetEnvironmentVariable(AuthContext.ConnectionStringKey);
+            var authConnectionString = Environment.GetEnvironmentVariable(AuthContext.ConnectionStringKey);
             if (authConnectionString.IsEmpty())
                 authConnectionString = E2EConstants.AuthConnectionString;
 

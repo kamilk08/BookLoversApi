@@ -6,6 +6,7 @@ using BookLovers.Base.Infrastructure.ModuleCommunication;
 using BookLovers.Base.Infrastructure.Services;
 using BookLovers.Bookcases.Application.CommandHandlers.BookcaseBooks;
 using BookLovers.Bookcases.Application.Commands.Bookcases;
+using BookLovers.Bookcases.Application.Contracts;
 using BookLovers.Bookcases.Domain;
 using BookLovers.Bookcases.Domain.BookcaseBooks;
 using BookLovers.Bookcases.Domain.ShelfCategories;

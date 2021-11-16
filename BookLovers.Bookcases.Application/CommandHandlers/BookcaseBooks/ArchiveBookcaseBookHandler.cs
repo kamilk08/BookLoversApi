@@ -3,6 +3,7 @@ using BookLovers.Base.Domain.Services;
 using BookLovers.Base.Infrastructure;
 using BookLovers.Base.Infrastructure.Commands;
 using BookLovers.Bookcases.Application.Commands.BookcaseBooks;
+using BookLovers.Bookcases.Application.Contracts;
 using BookLovers.Bookcases.Domain.BookcaseBooks;
 
 namespace BookLovers.Bookcases.Application.CommandHandlers.BookcaseBooks

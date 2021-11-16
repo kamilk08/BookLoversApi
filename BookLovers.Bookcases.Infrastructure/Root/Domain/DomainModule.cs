@@ -2,6 +2,7 @@
 using BookLovers.Base.Domain.Services;
 using BookLovers.Bookcases.Application.CommandHandlers.BookcaseBooks;
 using BookLovers.Bookcases.Application.CommandHandlers.BookcaseOwners;
+using BookLovers.Bookcases.Application.Contracts;
 using BookLovers.Bookcases.Domain;
 using BookLovers.Bookcases.Domain.Services;
 using BookLovers.Bookcases.Domain.Settings;

@@ -69,10 +69,10 @@ namespace BookLovers.Bookcases.Infrastructure.Root
                 ? new PersistenceModule(connectionString, storeConnectionString)
                 : new PersistenceModule(settings, connectionString, storeConnectionString);
 
-            _kernel.Load(persistenceModule);
-            _kernel.Load(new LoggingModule(logger.ForContext("Module", "BOOKCASE_MODULE")));
+            logger = logger.ForContext("Module", "BOOKCASE_MODULE");
 
-            logger.Information("Testing logging in bookcase module.");
+            _kernel.Load(persistenceModule);
+            _kernel.Load(new LoggingModule(logger));
 
             RegisterExternalServices(contextAccessor);
 

@@ -96,10 +96,8 @@
   <ItemGroup>
     <Compile Include="CommandHandlers\BookcaseBooks\AddBookcaseBookHandler.cs" />
     <Compile Include="CommandHandlers\BookcaseBooks\ArchiveBookcaseBookHandler.cs" />
-    <Compile Include="CommandHandlers\BookcaseBooks\IBookcaseBookAccessor.cs" />
     <Compile Include="CommandHandlers\BookcaseOwners\ArchiveBookcaseOwnerHandler.cs" />
     <Compile Include="CommandHandlers\BookcaseOwners\CreateBookcaseOwnerHandler.cs" />
-    <Compile Include="CommandHandlers\BookcaseOwners\IBookcaseOwnerAccessor.cs" />
     <Compile Include="CommandHandlers\Bookcases\AddShelfHandler.cs" />
     <Compile Include="CommandHandlers\Bookcases\AddToBookcaseHandler.cs" />
     <Compile Include="CommandHandlers\Bookcases\ArchiveBookcaseHandler.cs" />
@@ -138,6 +136,8 @@
     <Compile Include="Commands\Shelves\ChangeShelfCommand.cs" />
     <Compile Include="Commands\Shelves\ChangeShelfNameCommand.cs" />
     <Compile Include="Commands\Shelves\RemoveShelfCommand.cs" />
+    <Compile Include="Contracts\IBookcaseBookAccessor.cs" />
+    <Compile Include="Contracts\IBookcaseOwnerAccessor.cs" />
     <Compile Include="Events\BookcaseOwners\BookcaseCreatedEventHandler.cs" />
     <Compile Include="Events\Bookcases\BookAddedToShelfEventHandler.cs" />
     <Compile Include="Events\Bookcases\BookcaseOwnerArchivedEventHandler.cs" />

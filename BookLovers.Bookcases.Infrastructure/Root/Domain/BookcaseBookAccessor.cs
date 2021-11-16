@@ -3,6 +3,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using BookLovers.Bookcases.Application.CommandHandlers.BookcaseBooks;
+using BookLovers.Bookcases.Application.Contracts;
 using BookLovers.Bookcases.Infrastructure.Persistence;
 
 namespace BookLovers.Bookcases.Infrastructure.Root.Domain
