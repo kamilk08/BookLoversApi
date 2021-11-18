@@ -145,30 +145,30 @@
       - Now you can for example create a publisher by sending a request on url `http://localhost:64892/api/publishers` that will contain `access_token` in authorization header.
       
   ## Libraries
-    - ASP.NET Framework - https://dotnet.microsoft.com/apps/aspnet
-    - Microsoft Owin - https://github.com/aspnet/AspNetKatana/
-    - MS SQL - https://www.microsoft.com/pl-pl/sql-server/sql-server-downloads
-    - Automapper - https://automapper.org/
-    - Dapper - https://github.com/DapperLib/Dapper
-    - Fluent Assertions - https://fluentassertions.com/
-    - FluentScheduler - https://github.com/fluentscheduler/FluentScheduler
-    - FluentValidation - https://fluentvalidation.net/
-    - Moq - https://github.com/moq/moq4
-    - Nunit - https://nunit.org/
-    - Newtonsoft json - https://www.newtonsoft.com/json
-    - Serilog - https://serilog.net/
-    - System.Identitymodel.Tokens.Jwt - https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt/
-    - Entity Framework 6 - https://github.com/dotnet/ef6
-    - Z.EntityFramework.Extensions - https://entityframework-extensions.net/
-    - Ninject - http://www.ninject.org/
-    - NitoAsync - https://www.nuget.org/packages/Nito.AsyncEx
-    - Nuke.build - https://nuke.build/
-    - StyleCop.Analyzers - https://github.com/DotNetAnalyzers/StyleCopAnalyzers
-    - DbUp - https://dbup.readthedocs.io/en/latest/
+   - ASP.NET Framework - https://dotnet.microsoft.com/apps/aspnet
+   - Microsoft Owin - https://github.com/aspnet/AspNetKatana/
+   - MS SQL - https://www.microsoft.com/pl-pl/sql-server/sql-server-downloads
+   - Automapper - https://automapper.org/
+   - Dapper - https://github.com/DapperLib/Dapper
+   - Fluent Assertions - https://fluentassertions.com/
+   - FluentScheduler - https://github.com/fluentscheduler/FluentScheduler
+   - FluentValidation - https://fluentvalidation.net/
+   - Moq - https://github.com/moq/moq4
+   - Nunit - https://nunit.org/
+   - Newtonsoft json - https://www.newtonsoft.com/json
+   - Serilog - https://serilog.net/
+   - System.Identitymodel.Tokens.Jwt - https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt/
+   - Entity Framework 6 - https://github.com/dotnet/ef6
+   - Z.EntityFramework.Extensions - https://entityframework-extensions.net/
+   - Ninject - http://www.ninject.org/
+   - NitoAsync - https://www.nuget.org/packages/Nito.AsyncEx
+   - Nuke.build - https://nuke.build/
+   - StyleCop.Analyzers - https://github.com/DotNetAnalyzers/StyleCopAnalyzers
+   - DbUp - https://dbup.readthedocs.io/en/latest/
   ## Resources
-    - https://github.com/kgrzybek/modular-monolith-with-ddd
-    - https://docs.microsoft.com/en-us/azure/architecture/patterns/cqrs
-    - https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html
-    - https://bitoftech.net/2014/10/27/json-web-token-asp-net-web-api-2-jwt-owin-authorization-server/
-    - http://www.kamilgrzybek.com/design/domain-model-validation/
-    - https://www.infoq.com/minibooks/domain-driven-design-quickly/
+   - https://github.com/kgrzybek/modular-monolith-with-ddd
+   - https://docs.microsoft.com/en-us/azure/architecture/patterns/cqrs
+   - https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html
+   - https://bitoftech.net/2014/10/27/json-web-token-asp-net-web-api-2-jwt-owin-authorization-server/
+   - http://www.kamilgrzybek.com/design/domain-model-validation/
+   - https://www.infoq.com/minibooks/domain-driven-design-quickly/
